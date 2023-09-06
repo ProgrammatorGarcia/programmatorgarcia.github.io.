@@ -4,7 +4,7 @@
 Veritas Logic & Computation
 </title>
 <body style="background-color: black;">
-<h1 style="color:white;">Veritas Logic & Computation Lecture 1   
+<h1 style="color:white;">Veritas Logic & Computation Assignment 1   
     <div style = 
     "position: absolute;
     top: 10px;
@@ -16,87 +16,109 @@ Veritas Logic & Computation
     
 </div> 
 </h1>
-<p style="color:white;">
-/** <br>
- * Conditional_Explore.java <br>
- * Code for students to begin investigating conditional operators and branching in Java.<br>
- * Students will determine the Java implementation for less than, less than or equal, greater than, <br>
- * greater than or equal, equal, not equal, and, or, and not, as well as conditional branching statements <br>
- * <br>
- * @author Roy Chancellor <br>
- * @version 1.0 (2019-01-26) <br>
- */ <br>
-
-import java.util.Scanner;  // needed for Scanner to get user input  <br>
-<br>
-public class Conditional_Explore <br>
-{ <br> 
-    public static void main(String[] args) <br>
-    { <br>
-        //NEED TO ADD ADDITONAL STATEMENTS, THEN THE CONDITIONAL BRANCHING EXAMPLES <br>
-        <br>
-        double a, b, swap;  //double variables can store decimal values <br>
-        Scanner keys = new Scanner( System.in );  //open a scanner for keyboard input from the user<br>
-        <br>
-        //prompt user for input and receive it from the keyboard <br>
-        System.out.println("Enter any number (positve, negative, integer, or decimal):  "); <br>
-        //get the first number from the user in Java <br>
-        a = keys.nextDouble();  //parses user input and finds a floating point value in the user-entered teat <br>
-        <br>
-        System.out.println("\nEnter a second number (positve, negative, integer, or decimal):  "); <br>
-        //get the second number from the user in Java <br>
-        b = keys.nextDouble(); <br>
-        keys.close();  //close the scanner <br>
-        <br>
-        System.out.println("\n\n"); <br>
-         <br>
-        //print the results of several logical comparisons<br>
-        System.out.println("Results of logical comparisons"); <br>
-        System.out.println(a + " > " + b + " \t---->\t" + (a > b)); <br>
-        System.out.println(a + " < " + b + " \t---->\t" + (a < b)); <br>
-        System.out.println(a + " >= " + b + " \t---->\t" + (a >= b)); <br>
-        System.out.println(a + " <= " + b + " \t---->\t" + (a <= b)); <br>
-        System.out.println(a + " = " + b + " \t---->\t" + (a == b)); <br>
-        System.out.println(a + " not= " + b + " \t---->\t" + (a != b)); <br>
-        <br>
-        if(a > b) {  //swap a and b so that a < b <br>
-            swap = a; <br>
-            a = b; <br>
-            b = swap; <br>
-        } <br>
-        
-        //print the results of several compound logical statements <br>
-        System.out.println("\nResults of compound logical statements"); <br>
-        System.out.println("\t\tx ---->\t" + (a-1) + "\t" + a + "\t" + (a+1) + "\t" + (b-1) + "\t" + b + "\t" + (b+1)); <br>
-        //make a table of results for a < x < y and a <= x or x > b <br>
-        System.out.print(a + " < x <= " + b + "\t\t" + ((a-1) > a && (a-1) <= b) + "\t" + (a > a && a <= b) + "\t" + ((a+1) > a && (a+1) <= b)); <br>
-        System.out.println("\t" + ((b-1) > a && (b-1) <= b) + "\t" + (b > a && b <= b) + "\t" + ((b+1) > a && (b+1) <= b)); <br>
-        System.out.print("x <= " + a  + " or x > " + b + "\t" + ((a-1) <= a || (a-1) > b) + "\t" + (a <= a || a > b) + "\t" + ((a+1) <= a || (a+1) > b));  <br>
-        System.out.println("\t" + ((b-1) <= a || (b-1) > b) + "\t" + (b <= a || b > b) + "\t" + ((b+1) <= a || (b+1) > b)); <br>
-         <br>
-        //perform examples of conditional branching <br>
-        if(a > 0 && b > 0) <br>
-	{ <br>
-            System.out.println("\nEach of your numbers is positive."); <br>
-	} <br>
-        else if(a < 0 && b < 0) <br>
-	{ <br>
-            System.out.println("\nEach of your numbers is negative."); <br>
-	} <br>
-        else if((a < 0 && b > 0) || (a > 0 && b < 0)) <br>
-	{ <br>
-            System.out.println("\nOne of your numbers is negative and the other is positive."); <br>
-            if(a < 0) <br>
-		{ <br>
-                System.out.println(a + " is the negative number."); <br>
-		} <br>
-            else <br>
-		{ <br>
-                System.out.println(b + " is the negative number."); <br>
-		} <br>
-        } <br>
-    }  //end of main <br>
-}  //end of Conditional_Explore <br>
+<p style="color:white;">/**
+ * <br />
+    * Name:<br />
+    * Project:<br />
+    * Date:<br />
+    * <br />
+    * Quick cheat sheet:<br />
+    * <br />
+    * Math only:<br />
+    * int: stores whole numbers<br />
+    * double: stores numbers with decimal points<br />
+    * <br />
+    * boolean algebra<br />
+    * boolean: stores a true or false value<br />
+    * <br />
+    * text<br />
+    * char: stores a single character<br />
+    * String: stores a string of characters<br />
+    * <br />
+    * How to output text to the terminal.<br />
+    * String x = "And this is how you output variables with println."<br />
+    * System.out.println("This is how you type stuff in manually. " + x);<br />
+    * <br />
+    * Variables cannot share names, each variable must have an unique name!!!<br />
+    * <br />
+    */<br />
+    <br />
+    <br />
+   public class Assignment1<br />
+   {<br />
+       public static void main (String[] args)<br />
+       {<br />
+       //Out of bounds   <br />
+       <br />           
+       //#1. Write code that prints "Hello world!!!" to the screen.<br />
+       <br />
+       <br />
+       <br />
+       //#2. Write code that swaps the values of two given numbers and then outputs the new values to a terminal.<br />
+       /*<br />
+        * Example: a = 10, b = 20<br />
+        * Output: a = 20, b = 10<br />
+        * <br />
+        * Hint: Don't be afraid to add more variables to solve your problem.<br />
+        */<br />
+        <br />
+        <br />
+        <br />
+        <br />
+       //#3. Write code that returns the squared value of a given number.<br />
+       // Example: x = 3   Output: 9<br />
+       <br />
+       <br />
+       <br />
+       <br />
+       //#4. Write code that returns the greater value between two numbers<br />
+       // Example: x = 4   y = -5    return 4<br />
+       <br />
+       <br />
+       <br />
+       <br />
+       //#5. Write code that compares two values and swaps the values if the first value is less than the second value.<br />
+       // Example: x = 10    y = 21,  x should equal 10<br />
+       <br />
+       <br />
+       <br />
+       <br />
+       <br />
+       //#6. Write code that checks a number to see if it is a negative value or not.<br />
+       <br />
+       <br />
+       <br />
+       <br />
+       <br />
+       //#7. Write code that checks a number to see if it is an even number or not.<br />
+       // Hint: There is an operation called modulus (%) that returns the REMAINDER of a number after dividing.<br />
+       <br />
+       <br />
+       <br />
+       <br />
+       //#8. Write code that when given three grades, it returns the average of those three grades <br />
+       //# AND returns a letter grade as well based on the average.<br />
+       // Example: Inputs: 94, 87, 75         Outputs: 85.333, B<br />
+       <br />
+       <br />
+       <br />
+       <br />
+       //#9. Write code that checks whether a boolean variable is true or false, and then outputs a special message<br />
+       //# based on whether the boolean value is true or false.<br />
+       // Example:  myboolean = true  Output: "This boolean is true" myboolean = false  Output: "This boolean is false"<br />
+       <br />
+       <br />
+       <br />
+       <br />
+       //#10. Challenge:  Write me a program that can simulate a game of rock paper scissors, given two inputs<br />
+       //# The inputs can either be "rock", "paper", or "scissors". <br />
+       //# The output dictates which player won the game.<br />
+       // Example: Player 1: "Rock"  Player 2: "Paper"   Output: "Player 2 wins!!!"<br />
+       <br />
+       <br />
+       //Out of bounds    <br />
+       }<br />
+   }<br />
    </p>
 </body>
 </html>

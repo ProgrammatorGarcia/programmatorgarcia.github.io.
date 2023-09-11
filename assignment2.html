@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<title>
+Veritas Logic & Computation Assignment 2: Loops
+</title>
+<body style="background-color: black;">
+<h1 style="color:white;">Veritas Logic & Computation Assignment 2: Loops
+    <div style = 
+    "float: right;
+    position: relative;
+    top: 10px;
+    right: 10px;">
+
+    <img src="https://veritasprep.greatheartsamerica.org/wp-content/uploads/sites/16/2016/12/Veritas_crest_1C.png"
+    width="150px",
+    height=" auto"/>
+    
+    </div> 
+</h1>
+
+<div style =
+"font-family: monospace;
+white-space: pre-wrap;
+display: block;
+color:white;
+font-size: 15px;
+text-align: justify;
+">
+
+    
+    Iteration (For, While) Lab Assignment
+    In this lab, you will be writing your own code to perform tasks that will require the use of looping, either a for loop
+    or a while loop, or both. The class at the very bottom provides a block of code that helps with the syntax of getting
+    keyboard input from the user, but the remainder of the code will be your own. Perform all of the activities below using
+    the thoughts provided and answer any questions.
+    
+    Activity 1: Finding the sum of the odd numbers 1 through 2n + 1
+    Write a Java program to find the sum of all the odd natural numbers from 1 to 2n+1, inclusive, where n is a user-entered
+    integer greater than or equal to 1. Your program should force the user to enter a valid number by printing an error
+    message when the user enters an invalid number and continuing to prompt until the input is valid. When complete, print a
+    message similar to "The sum of the odd numbers from 1 through 7 is 16." Some thoughts:
+    What does it mean for a number to be odd?
+    When holding the sum in a variable, do you need to initialize the variable first? If so, to what value?
+    Would you want to use a for loop or a while loop here? Why?
+    
+    Activity 2: Checking to see if a String is a palindrome
+    Write a Java program that determines if a user-entered string is a palindrome. When complete, print a message that
+    includes the original string and whether it is or is not a palindrome. Some thoughts:
+    Your code may want to make use of the string methods .charAt(i) which returns the character at the ith index (remember,
+    the first character in a string is index 0) and .length() which returns the number of characters in the string (remember
+    that the index of the last character is .length() – 1 because the index starts with 0).
+    You declare strings using the String type, for example String myString; You may assign a string literal when declaring,
+    such as String myString = "palindrome"; or you may assign text to the String variable after declaring it, such as
+    myString = "abcdef";
+
+    You can compare strings for character-by-character equality using the .equals() method. For example,
+    string1.equals(string2) which will return 'true' if all characters in each string are identical in each place and
+    'false' if not. Uppercasing and lowercasing matters, so "text" and "text" are equal, but "Text" and "text" are not equal.
+    
+    Activity 3: Determining if a year is a leap year
+    Write a Java program that determines if a given year is a leap year. By definition, any year that is evenly divisible by
+    4 is a leap year with an additional rule: Years divisible by 100 are NOT leap years, UNLESS they are evenly divisible by
+    400. For example, 1900 was NOT a leap year, but 2000 was. Get the year from the user and make sure it is valid; if not,
+    force the user to continue entering a year until it is valid. Print a statement such as "The year 2020 is a leap year." or 
+    "The year 2021 is not a leap year."
+    
+    Activity 4: Checking to see that a number is prime
+    Write a Java program that determines if a user-supplied integer, n, is prime. Print out a simple statement such as 
+    'The number 25 is not prime.' or 'The number 29 is prime.' Some thoughts:
+    By definition, 2 is the first prime number because it is divisible by 1 and itself. The number 1 is not considered
+    prime.
+
+    Get the program to work first by checking a bunch of small numbers you know are prime.
+    Here are some others to try: 499, 1217, 2731, 7879, 19319, and 79393.
+    The larger the number, the longer it takes to determine if it is prime. How does your algorithm scale with the size of
+    the number? In other words, if n is the number, how many iterations does your program require?
+    Think about ways to make your program run faster. Can you perform fewer checks for factors? Can you limit the size of
+    the numbers you need to check as factors?
+    
+    
+    Activity 5: Calculate the nth Fibonacci number
+    Write a Java program that computes the nth Fibonacci number in the sequence 1, 1, 2, 3, 5, 8, 13, 21, ... and n is a
+    user-supplied number which you will need to validate before moving forward. For reference, in the sequence given, 21 is
+    the 8th Fibonacci number. Print out something like 'The 8th Fibonacci number is 21.' Some thoughts:
+    The size of the numbers in the sequence can get quite large. What type might you declare your variables?
+    Do you need to limit the size of n that the user can enter? In what ways?
+    
+    Activity 6: Finding the greatest common divisor
+    Write a Java program that computes the greatest common divisor, GCD (a.k.a. greatest common factor, GCF) of two
+    user-supplied integers. Recall that the GCD (GCF) is the largest number that will divide evenly into both numbers. For
+    example, for the numbers 24 and 32, the GCD is 8. When complete output a message such as 'The GCD of 24 and 32 is 8.' Some
+    thoughts:
+
+    Does it matter for any reason whether or not the two user-supplied numbers are positive? Why or why not?
+    Brute force is a valid way to solve this problem, though not very efficient for large numbers. In this case, think about
+    the largest factor you would ever need to test.
+    What is the GCD if the two numbers are equal?
+    What if the two numbers are even? Both odd? One even and one odd?
+    
+    Activity 7 (BONUS): The GCD Revisited
+    Research the algorithm Euclid used for finding the GCD and implement it.
+    
+    Activity 8: Finding the least common multiple
+    Write a Java program that computes the least common multiple, LCM of two user-supplied integers. Recall, the LCM is the
+    smallest number into which the two numbers will divide evenly. For example, if the two numbers are 24 and 32, the LCM is
+    96 because 96/24 = 4 and 96/32 = 3. When complete, output a message such as 'The LCM of 24 and 32 is 96.' Some thoughts:
+    What if both numbers are zero?
+    What if only one of the numbers is zero?
+    The LCM and GCD are related. Can you determine how?
+    
+    Activity 9: The Collatz Conjecture
+    The Collatz sequence, named after Lothar Collatz, is a list of numbers formed according to the following rules: Starting
+    with any positive integer, n, the first term of the Collatz sequence is C1=n. Each successive term Ck+1 is formed from
+    the previous term Ck according to the function:
+    Ck+1={1/2Ck if n is even 3Ck+1 if n is odd
+    
+    For example, if n = 5, the sequence goes 5, 16, 8, 4, 2, 1. For n = 7, the sequence goes 7, 22, 11, 34, 17, 52, 26, 13,
+    40, 20, 10, 5, 16, 8, 4, 2, 1.
+    
+    The Collatz conjecture is quite simple: This process will eventually reach the number 1, regardless of which positive
+    integer is chosen initially, yet remains unproven to this day. Maybe you will be the one to someday provide a proof?
+    
+    Write a Java program that prints out the Collatz sequence for a user-supplied value of n as defined above. Count the
+    number of steps taken until the sequence gets to 1 and also print out the count. If it does not eventually arrive at 1,
+    either your program did something wrong or you have found a counterexample to the conjecture and therefore proven it
+    false!!!
+
+
+
+import java.util.Scanner;
+
+public class Assignment2 {
+    public static void main(String args[]) {
+    // Out of bounds!!!
+    
+    Scanner myScanner = new Scanner(System.in);  //Your scanner initialized, use as you see fit.
+
+    //Activity 1
+    
+    
+    
+    //Activity 2
+    
+    
+    
+    //Activity 3
+    
+    
+    
+    //Activity 4
+    
+    
+    
+    //Activity 5
+    
+    
+    
+    //Activity 6
+    
+    
+    
+    //Activity 7
+    
+    
+    
+    //Activity 8
+    
+    
+    
+    //Activity 9
+    
+    
+    
+    
+    //Out of bounds!!!
+    }
+}
+
+</div>
+
+
+</body>
+</html>

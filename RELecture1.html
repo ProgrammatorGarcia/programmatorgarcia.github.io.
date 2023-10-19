@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<title>
+  Regular Expression Lecture 1
+</title>
+
+<body style="background-color: black;">
+  <h1 style="color:white;">Logic & Computation Regular Expression Lecture 1
+    <div style="float: right;
+    position: relative;
+    top: 10px;
+    right: 10px;">
+
+      <img src="https://veritasprep.greatheartsamerica.org/wp-content/uploads/sites/16/2016/12/Veritas_crest_1C.png"
+        width="150px" , height=" auto" />
+
+    </div>
+  </h1>
+  <div style="font-family: monospace;
+white-space: pre-wrap;
+display: block;
+color:white;
+font-size: 25px;
+text-align: justify;
+">
+
+A regular expression (RE) is a string of symbols that specifies a formal language.
+It consists of symbols from an alphabet that are “glued” together using the following operations.
+If R  and S are strings in the language:
+
+Union: R | S. (R or S)
+Concatenation: RS  (R followed by S)
+Closure: R* (R repeated zero or more times)
+Parenthesis: (R), used to specify operations within a string, I.E, (R | S)*
+
+For example, A(B | C)D* is a regular expression.
+
+As a regular expression, it specifies “A followed by B or C followed by zero or more D’s.”
+
+For example, AB, AC, ABD, ACD, ABDDDDDD, and ACDDDDDDD are all accepted strings.
+
+
+Additional notations:
+
+1. A period (.), or the wild card, representing any character in the alphabet.
+In other words, for the alphabet of lower case letters: . = (a | b | c | d | … | x | y | z).
+
+2. A list or range of symbols (if there is an understood “order” in the alphabet).
+As a list, [c–f] is all letters between and including c and f.
+In other words [c–f] = (c | d | e | f), and [4–9] = (4 | 5 | 6 | 7 | 8 | 9). 
+As a range, [abcde] = (a | b | c | d | e)
+
+
+3. If the symbol ^ is in braces, then it refers to the symbols not in the range.
+For example, [^4–7] = (0 | 1 | 2 | 3 | 8 | 9).
+It can also be used on lists: [^agh] is any character that is not a, g, or h.
+
+4. The symbol + means “one or more”. For example, a+ = a(a*).
+
+5. The symbol ? means “zero or one”. For example, colou?r = (colour | color)
+
+6. The combination of symbols {n} means “exactly n of these things”. For example, a{4} = aaaa
+{m, n} means “between m and n of these things, inclusive”. For example, a{3,5} = (aaa | aaaa | aaaaa)
+
+7. / is used to indicate an escape character, to use when you need a character that is also a notation character in REs:
+/( /) /* /^ /| /{ /} /[ /[ and of course //
+
+
+
+  </div>
+</body>
+
+</html>

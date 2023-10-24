@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<title>
+  DFA Lecture 1
+</title>
+
+<body style="background-color: black;">
+  <h1 style="color:white;">Logic & Computation DFA Lecture 1
+    <div style="float: right;
+    position: relative;
+    top: 10px;
+    right: 10px;">
+
+      <img src="https://veritasprep.greatheartsamerica.org/wp-content/uploads/sites/16/2016/12/Veritas_crest_1C.png"
+        width="150px" , height=" auto" />
+
+    </div>
+  </h1>
+  <div style="font-family: monospace;
+white-space: pre-wrap;
+display: block;
+color:white;
+font-size: 25px;
+text-align: justify;
+">
+
+A Deterministic Finite-state Automata, or DFA, is an abstract machine that consists of:
+
+1. A finite number of “states”, each of which is designed as either an accept state or a reject state.
+
+2. A set of transitions that specify how the machine changes state.
+Each state has one transition for each symbol in the alphabet.
+
+3. A tape reader initially positioned at the first symbol of an input string
+and capable of reading a symbol and moving to the next symbol.
+
+4. Finally, by definition the DFA begins at state #0 (State Q1 in a diagram). 
+When the input is exhausted, the DFA halts.
+If it halts on an accept state, the input it said to be “accepted”.
+Otherwise, the input is said to be “rejected.”
+
+To give an example, let's take a look at the Regular Expression: ( 1* 0 1* 0 1* )*
+This Regular Expression accepts strings that have an even number of 0's,
+with a given alphabet of 0's and 1's.
+
+Converting this Regular Expression to a DFA will result in this diagram:
+
+<img src="https://gcdnb.pbrd.co/images/RfOIUs56rGIf.png?o=1"
+        width="750px" , height="350px" />
+
+The first state, Q1, is where the DFA begins. Zero is considered an even number, so having absolutely
+nothing at all would be accepted by the expression. Whenever the DFA reads a "0" for input, it will
+transition into the next state, Q2, and reject the string as there is now an odd number of 0's.
+Upon reading another 0, the DFA transitions back into the first state and accepts the string,
+noted by the 2nd circle bordering the state.
+Note how inputs of "1" do absolutely nothing, as the expression only cares about the quantity of 0's.
+
+Test the DFA out with these given strings:
+
+1. 01100 (Rejected)
+2. 1001 (Accepted)
+3. 1111 (Accepted)
+4. 0000001 (Accepted)
+
+  </div>
+</body>
+
+</html>

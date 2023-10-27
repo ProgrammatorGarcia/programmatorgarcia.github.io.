@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<title>
+Words Lab
+</title>
+<body style="background-color: black;">
+<h1 style="color:white;">Logic & Coding Words Lab
+    <div style = 
+    "float: right;
+    position: relative;
+    top: 10px;
+    right: 10px;">
+
+    <img src="https://veritasprep.greatheartsamerica.org/wp-content/uploads/sites/16/2016/12/Veritas_crest_1C.png"
+    width="150px",
+    height=" auto"/>
+    
+</div> 
+</h1>
+    <div style =
+    "font-family: monospace;
+    white-space: pre-wrap;
+    display: block;
+    color:white;
+    font-size: 15px;
+    text-align: left;
+    ">
+  The Questions
+
+  1. Find all words that begin and end with an a.
+
+  2. Find all words that are 12 letter long.
+
+  3. Find all words that are 10 letters long and do not have any repeating letters.
+
+  4. Find all of the words that contain more than one z.
+
+  5. Find all words that end with “nym”.
+
+  6. Find all of the words that contain exactly five occurrences of c.
+
+  7. How many words are there in the English language?
+
+  8. How many words do not contain the substring “ing”?
+
+  9. Find the longest English word that can be written with the top row of a standard keyboard.
+
+  10. Find all English words that contain the trigraph spb and have at least two r's.
+
+  11. How many words start with q and have an odd length?
+
+  12. How many words start and end with a vowel?
+
+  13. What is the longest word in the English language?
+  (If there is a tie, please list all words of that length.)
+
+  14. How many two-letter words are there in the English language?  List them.
+
+  15. What is the average word length?
+
+  16. How many words contain no vowels (a, e, i, o, u)?  Are there any that are also missing a y?
+
+  17. How many four-letter words are formed using 2 or less different letters, e.g. peep.  Are there any words longer than 4 letters that have the same property?
+
+  18. List all palindromes in the English language.
+  A palindrome is a word that reads the same when it is written backwards, e.g. radar.
+
+  19. Find all the words (if any) that have the letters ‘a’, ‘e’, ‘i’, ‘o’, ‘u’ exactly once in that order (though not necessarily consecutive)?  Are there any words with the same property for ‘a’, ‘e’, ‘i’, ‘o’, ‘u’, ‘y’?  What about ‘u’, ‘o’, ‘i’, ‘e’, ‘a’?
+
+  20. Find all the words whose letters are in alphabetical order. (“annoy” counts despite the double ‘n’.)
+
+  21. Find all the words whose letters are in “pure” alphabetical order. (“annoy” does not count due to the double ‘n’.)
+
+  22. What words contain only vowels (including ‘y’)?  What words contain only vowels (not including ‘y’)?
+  
+
+
+  import java.util.*;
+  import java.io.*;
+  
+  public class words{
+      public static void main(String[] args) throws IOException
+      {
+  
+          // Out of bounds!!
+  
+  
+          //In your project folder, you will 
+  
+          Scanner input = new Scanner(new File("SCRABBLE.txt"));
+      
+          //This example find all words that have at least two a's in a row
+          //It also demonstrates file processing
+  
+  
+          while(input.hasNextLine())
+          {
+              String word = input.nextLine();
+          
+              String re = ".*AA.*";
+              
+              if(word.matches(re))
+              {
+                  System.out.println(word);
+              }
+          }
+  
+  
+  
+          //Out of bounds!!
+      }
+      
+  }
+
+
+    </div>
+  </body>
+</html>

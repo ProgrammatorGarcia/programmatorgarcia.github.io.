@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<title>
+Homework7
+</title>
+<body style="background-color: black;">
+<h1 style="color:white;">Logic & Coding Homework 7 Quarter 2
+    <div style = 
+    "float: right;
+    position: relative;
+    top: 10px;
+    right: 10px;">
+
+    <img src="https://veritasprep.greatheartsamerica.org/wp-content/uploads/sites/16/2016/12/Veritas_crest_1C.png"
+    width="150px",
+    height=" auto"/>
+    
+</div> 
+</h1>
+    <div style =
+    "font-family: monospace;
+    white-space: pre-wrap;
+    display: block;
+    color:white;
+    font-size: 15px;
+    text-align: left;
+    ">
+  Write a program that solves these multiple problems/tasks.
+
+  1. Given an array of ints, find the sum of all values in the array.
+
+  2. Write a program that can find the average value of the numbers in an array.
+
+  3. Write a Java program to test if an array contains a specific value, and if so, then the
+  total count of how many times that number appears in the array.
+
+  4. Write a Java program to reverse an array of integer values.
+
+  5. Write a Java program to find the second largest element in an array.
+
+
+import java.util.Scanner;
+import java.util.Random;
+
+public class homework7 {
+    public static void main(String[] args)
+    {
+        // Out of bounds!!!
+
+        //Your scanner initialized
+        Scanner myScanner = new Scanner(System.in);
+
+        //How to use the newArray function:
+        //Step 1: Initialize an array like so
+        //Step 2: Your array is now ready to use!!!!!
+        int[] arr = newArray();
+
+
+        // Out of bounds!!!
+
+    }
+
+
+    //This function exists to make a completely filled up array of 1000 different
+    //random numbers for you to utilize for your homework.
+
+    //DO NOT CHANGE UNLESS YOU KNOW WHAT YOU ARE DOING
+    public static int[] newArray()
+    {
+        int[] arr = new int[1000];
+
+        Random rand = new Random();
+
+        for(int i = 0; i < arr.length; i++)
+        {
+            int randomNum = rand.nextInt(1001);
+            arr[i] = randomNum;
+        }
+
+        return arr;
+    }
+}
+
+
+
+
+    </div>
+  </body>
+</html>

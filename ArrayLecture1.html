@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<title>
+  Array Lecture 1
+</title>
+
+<body style="background-color: black;">
+  <h1 style="color:white;">Logic & Computation Array Lecture 1
+    <div style="float: right;
+    position: relative;
+    top: 10px;
+    right: 10px;">
+
+      <img src="https://veritasprep.greatheartsamerica.org/wp-content/uploads/sites/16/2016/12/Veritas_crest_1C.png"
+        width="150px" , height=" auto" />
+
+    </div>
+  </h1>
+  <div style="font-family: monospace;
+white-space: pre-wrap;
+display: block;
+color:white;
+font-size: 25px;
+text-align: justify;
+">
+
+import java.util.Random;
+
+public class arrayslesson {
+    public static void main(String[] args)
+    {
+
+        // Out of bounds!!!
+        // declares an Array of integers.
+        int[] arr;
+ 
+        // allocating memory for 5 integers.
+        arr = new int[5];
+ 
+        // initialize the first element of the array
+        arr[0] = 10;
+ 
+        // initialize the second element of the array
+        arr[1] = 20;
+ 
+        // so on...
+        arr[2] = 30;
+        arr[3] = 40;
+        arr[4] = 50;
+ 
+        // accessing the elements of the specified array
+        for (int i = 0; i < arr.length; i++)
+        {
+            System.out.println("Element at index " + i + " : " + arr[i]);
+        }
+
+        System.out.print("\n \n \n"); //Just adding some linespaces for structure
+
+        //You can also initialize an array in one entire line:
+
+        int[] coolerArr = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+
+        for (int i = 0; i < coolerArr.length; i++)
+        {
+            System.out.println("Element at index " + i + " : " + coolerArr[i]);
+        }
+
+        System.out.print("\n \n \n"); //Just adding some linespaces for structure
+
+        int[] bigArr = new int[1000];
+
+        Random rand = new Random();
+
+        for(int i = 0; i < bigArr.length; i++)
+        {
+            int randomNum = rand.nextInt(1001);
+            bigArr[i] = randomNum;
+        }
+
+        for(int i = 0; i < bigArr.length; i++)
+        {
+            System.out.print(bigArr[i] + " ");
+        }
+
+        String word = "hotdog";
+        char[] whyIsJavaLikeThis = word.toCharArray();
+
+        for(int i = 0; i < word.length(); i++)
+        {
+            whyIsJavaLikeThis[i] = word.charAt(word.length() - (i + 1));
+        }
+
+        word = String.valueOf(whyIsJavaLikeThis);
+
+        System.out.println(word);
+
+        // Out of bounds!!!
+            
+    }
+}
+
+  </div>
+</body>
+
+</html>

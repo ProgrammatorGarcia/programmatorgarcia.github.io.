@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<title>
+  Method Lecture 1
+</title>
+
+<body style="background-color: black;">
+  <h1 style="color:white;">Logic & Computation Method Lecture 1
+    <div style="float: right;
+    position: relative;
+    top: 10px;
+    right: 10px;">
+
+      <img src="https://veritasprep.greatheartsamerica.org/wp-content/uploads/sites/16/2016/12/Veritas_crest_1C.png"
+        width="150px" , height=" auto" />
+
+    </div>
+  </h1>
+  <div style="font-family: monospace;
+white-space: pre-wrap;
+display: block;
+color:white;
+font-size: 25px;
+text-align: justify;
+">
+
+public class methodslecture {
+
+  public static void main(String[] args) {
+      // Out of bounds
+
+      //The method is called 3 times.
+      //When each method is executed, the message "Hello world!!!" is sent.
+      helloWorld();
+      helloWorld();
+      helloWorld();
+
+      //Now we will use the more useful method, which contains a parameter.
+      //Do note the multiple ways I can submit a parameter for this method
+
+      betterHello("Bobby");
+
+      String name = "Pepito";
+      betterHello(name);
+
+      //A variable declared outside of the method does not have to match the same name
+      //of the variable used inside a method.
+
+      String differentName = "Sir Gunther the Penguin";
+      betterHello(differentName);
+
+      //Testing the array sort method on different arrays.
+
+      int[] arr1 = {2, 5, 7, 1, 40, 0, 4}; //Should output {0, 1, 2, 4, 5, 7, 40} after method
+      int[] arr2 = {5, 4, 3, 2, 1}; //Should output {1, 2, 3, 4, 5} after method
+      int[] arr3 = {0, 1, -1, 2, -2, 3, -2}; //Should output {-2, -2, -1, 0, 1, 2, 3} after method
+
+      sortArray(arr1);
+      sortArray(arr2);
+      sortArray(arr3);
+
+      outputArray(arr1);
+      outputArray(arr2);
+      outputArray(arr3);
+
+
+
+      //Out of bounds
+  }
+
+  /*
+   * Methods (also known as functions) act as "verbs" in the world of coding.
+   * When methods are called on, they execute the code contained inside.
+   * 
+   * Methods are composed of several parts, let's break them down using
+   * the method "helloWorld()"
+   * 
+   * helloWorld() starts with the word public
+   * public is a term that allows the function to be used anywhere in a project of files
+   * For the purposes of this class, all of our functions (and later on classes) will
+   * be marked as public, for ease of access.
+   * 
+   * If you would like for a function to only be usable in the same file that it is in,
+   * then the keyword "private" would be used.
+   * 
+   * Next is the keyword static. Static forces the function to be constant
+   * for all instances that it is used. Any changes made to the function will be applied
+   * to all parts where it is used in the main function (where code runs).
+   * 
+   * If we wanted to make several instances of the same function but with 
+   * different changes that were independent from one another, then we would omit
+   * the keyword "static", I.E., public void helloWorld()
+   * 
+   * PLEASE DO NOT OMIT STATIC FOR THE PURPOSES OF THIS CLASS
+   * 
+   * The last keyword is the most important, and it is one where you will 
+   * constantly change to suit your needs.
+   * The third keyword is the variable TYPE that the function returns.
+   * If you want to create a function that returns some output, let's say an int,
+   * then your 3rd keyword for your function would be int.
+   * 
+   * void is a special keyword because it dictates that your function does not return
+   * any value. It executes code, and then stops.
+   * 
+   * If we wanted our method helloWorld() to return an int value, we would write:
+   * public static int helloWorld(). This would tell your compiler that this function
+   * returns an int, and will accomodate for that new change.
+   */
+
+  public static void helloWorld()
+  {
+      System.out.println("Hello world!!!");
+  }
+
+  /*
+   * A method that sends quirky messages isn't useful.
+   * A method that sends a quirky message accomodating for any name is much more useful.
+   * 
+   * Methods at the end have two parenthesis which can either be empty "()"
+   * or filled in with variable types. "(String name)"
+   * These are the 'parameters' of a method.
+   * 
+   * Parameters of a method can be of any kind, including
+   * arrays. The data that is passed is initialized as so
+   * ("variable type" "variable name")
+   * I.E., (String name) (int number) (int[] numArray)
+   * 
+   * Multiple parameters can be passed to a method, however
+   * When using a function, if the function takes in parameters as input
+   * All the parameters MUST be passed in to use the function
+   * I.E., (int[] numArr, int index)  (String fruit, int count)
+   * Parameters are offset by comas
+   */
+
+  public static void betterHello(String name)
+  {
+      System.out.println("Hello " + name + "!!!");
+  }
+
+  /*
+   * Understanding this, let's create an actually useful method.
+   * Let's make a method that can sort the values in int arrays by order of least to greatest.
+   */
+
+   public static void sortArray(int[] arr)
+   {
+      //Traversing through the array
+      for(int i = 0; i < arr.length; i++)
+      {
+          //Check every number after the current number that we are in
+          for(int j = i; j < arr.length; j++)
+          {
+              //If the current number that we are currently checking is bigger than any number after it
+              //Swap the values
+              if(arr[i] > arr[j])
+              {
+                  //Placeholder so we don't lose the value when we swap
+                  int placeholder = arr[j];
+                  //Swap the values
+                  arr[j] = arr[i];
+                  arr[i] = placeholder;
+              }
+          }
+          //After this nested for loop runs, the first value is now the smallest in the array.
+          //Rinse and repeat for all values after
+          //Afterwards, the array is sorted :)
+      }
+   }
+
+   //Simple method for outputting what is inside an array.
+   public static void outputArray(int[] arr)
+   {
+      for(int i = 0; i < arr.length; i++)
+      {
+          System.out.print(arr[i] + " ");
+      }
+      System.out.println("");
+   }
+
+
+  
+}
+
+
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<title>
+Homework8
+</title>
+<body style="background-color: black;">
+<h1 style="color:white;">Logic & Coding Homework 8 Quarter 2
+    <div style = 
+    "float: right;
+    position: relative;
+    top: 10px;
+    right: 10px;">
+
+    <img src="https://veritasprep.greatheartsamerica.org/wp-content/uploads/sites/16/2016/12/Veritas_crest_1C.png"
+    width="150px",
+    height=" auto"/>
+    
+</div> 
+</h1>
+    <div style =
+    "font-family: monospace;
+    white-space: pre-wrap;
+    display: block;
+    color:white;
+    font-size: 15px;
+    text-align: left;
+    ">
+  Write METHODS that solve these multiple problems/tasks.
+
+  1. Write a method that returns to the user a number to a specified power.
+  The method will have two parameters, a base value and the exponent itself. 
+  I.E., Input(2, 3) 2 is the base value, 3 is the exponent. Output: 8
+
+  2. Write a method that OUTPUTS the smallest and the largest values
+  of an array. The method takes in an array of ints, and returns NOTHING.
+  You will be using the void keyword for this method.
+  I.E.,
+
+
+import java.util.Scanner;
+import java.util.Random;
+
+public class homework7 {
+    public static void main(String[] args)
+    {
+        // Out of bounds!!!
+
+        //Your scanner initialized
+        Scanner myScanner = new Scanner(System.in);
+
+        //How to use the newArray function:
+        //Step 1: Initialize an array like so
+        //Step 2: Your array is now ready to use!!!!!
+        int[] arr = newArray();
+
+
+        // Out of bounds!!!
+
+    }
+
+
+    //This function exists to make a completely filled up array of 1000 different
+    //random numbers for you to utilize for your homework.
+
+    //DO NOT CHANGE UNLESS YOU KNOW WHAT YOU ARE DOING
+    public static int[] newArray()
+    {
+        int[] arr = new int[1000];
+
+        Random rand = new Random();
+
+        for(int i = 0; i < arr.length; i++)
+        {
+            int randomNum = rand.nextInt(1001);
+            arr[i] = randomNum;
+        }
+
+        return arr;
+    }
+}
+
+
+
+
+    </div>
+  </body>
+</html>

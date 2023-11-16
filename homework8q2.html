@@ -34,13 +34,58 @@ Homework8
   2. Write a method that OUTPUTS the smallest and the largest values
   of an array. The method takes in an array of ints, and returns NOTHING.
   You will be using the void keyword for this method.
-  I.E.,
+  I.E., given an array of {2, 1, 10, 0, 7}, it outputs 0, 10
+
+  3. Write a method that outputs the individual characters of a String.
+  I.E., the String "water" should output 'w', 'a', 't', 'e', 'r'
+
+  4. Write a method that counts all the words in a String and returns the count.
+  Input: "Bobby wrote his math homework in pen." 
+  Output: 7
+
+  5. Write a method that takes 4 grade averages of 4 categories,
+  and outputs the final average grade AND the letter grade.
+  The categories follow different weights, so your method must
+  accomodate for these weights and properly output a correct grade.
+  Letter grades as followed:
+  A: 90 - 100
+  B: 80 - 89
+  C: 70 - 79
+  D: 60 - 69
+  F: Anything below a 60
+
+  Category weights:
+  Homework: 15%
+  Labs: 25%
+  Exams: 35%
+  Participation: 25%
+
+  In order (Homework, Labs, Exams, Participation)
+  Input: (95, 85, 78, 60)
+  The parameters can be in any order that you want
+
+  Output: C: 77.8
+
+  6. 
+  Write a method that constructs a silly short story using
+  a few parameters of your own design. My recommendation is to
+  create a few preset sentences with a noun or verb missing,
+  roll a random number in the method that will be used to
+  pick a preset sentence "randomly", and then ask the user
+  for input for parameters for the missing nouns, verbs, adjectives, etc.
+  Example:
+  Input: ("Mordekaiser", "ice cream", "psychosis")
+  Output: "On a sunny day in Detroit, Mordekaiser went"
+  "to the local ice cream shop and experienced psychosis"
+  "after realizing he forgot to feed his pet rock."
+
+
 
 
 import java.util.Scanner;
 import java.util.Random;
 
-public class homework7 {
+public class homework8 {
     public static void main(String[] args)
     {
         // Out of bounds!!!
@@ -48,38 +93,14 @@ public class homework7 {
         //Your scanner initialized
         Scanner myScanner = new Scanner(System.in);
 
-        //How to use the newArray function:
-        //Step 1: Initialize an array like so
-        //Step 2: Your array is now ready to use!!!!!
-        int[] arr = newArray();
-
-
-        // Out of bounds!!!
-
-    }
-
-
-    //This function exists to make a completely filled up array of 1000 different
-    //random numbers for you to utilize for your homework.
-
-    //DO NOT CHANGE UNLESS YOU KNOW WHAT YOU ARE DOING
-    public static int[] newArray()
-    {
-        int[] arr = new int[1000];
-
+        //Random numbers initialized
+        //If a method needs to create random numbers
+        //Initialize a random class object IN the method.
         Random rand = new Random();
 
-        for(int i = 0; i < arr.length; i++)
-        {
-            int randomNum = rand.nextInt(1001);
-            arr[i] = randomNum;
-        }
+        
 
-        return arr;
     }
-}
-
-
 
 
     </div>

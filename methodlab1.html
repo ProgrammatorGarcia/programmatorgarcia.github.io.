@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<title>
+Method Lab
+</title>
+<body style="background-color: black;">
+<h1 style="color:white;">Logic & Coding Methods in Madness Lab
+    <div style = 
+    "float: right;
+    position: relative;
+    top: 10px;
+    right: 10px;">
+
+    <img src="https://veritasprep.greatheartsamerica.org/wp-content/uploads/sites/16/2016/12/Veritas_crest_1C.png"
+    width="150px",
+    height=" auto"/>
+    
+</div> 
+</h1>
+    <div style =
+    "font-family: monospace;
+    white-space: pre-wrap;
+    display: block;
+    color:white;
+    font-size: 15px;
+    text-align: left;
+    ">
+
+Today you will finally recieve your first lab that is one overarching problem.
+You are to design a working program that provides the utility of the
+given functions in the terminal system.
+
+The main method runs a simple terminal that can run 4 functions, each one
+different from the rest. The user (you) can input a value between 1-5 which 
+will allow the user to "navigate" through the terminal and perform the methods 
+from the program. 
+
+I have provided to you the foundation of the terminal. The terminal runs and has only
+basic functionality. It can navigate from the main terminal to the math terminal and back,
+and it can exit out when the user inputs "5", but nothing more.
+
+Your job is to fill in and complete the functionality of the program. 
+You will create methods that execute code and perform the tasks in the terminal.
+The primary condition of this lab is that methods are ONLY ALLOWED in the main method.
+I should not see any blocks of code in the if statements, only a single method.
+Other than that, you have the complete creative liberty of designing your methods and quips
+for the terminal, so long as it ultimately fulfills the task/action at hand.
+
+
+import java.util.Scanner;
+import java.util.Random;
+
+public class MethodLab {
+    public static void main(String[] args) {
+
+        boolean runTerminal = true;
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Welcome, user. What would you like to do?");
+
+        while(runTerminal)
+        {
+            System.out.println("1. Play rock paper scissors");
+            System.out.println("2. Tell me a story.");
+            System.out.println("3. Math.");
+            System.out.println("4. Print out a full diamond.");
+            System.out.println("5. Exit out.");
+            int input = scanner.nextInt();
+            if(input == 1)
+            {
+
+            }
+            else if(input == 2)
+            {
+
+            }
+            else if(input == 3)
+            {
+                mathUI(scanner);
+            }
+            else if(input == 4)
+            {
+
+            }
+            else if(input == 5)
+            {
+                runTerminal = false;
+            }
+            else
+            {
+                System.out.println(""); //Insert a school appropriate response :)
+            }
+        }
+
+        System.out.println("Until next time.");
+        
+    }
+
+    public static void mathUI(Scanner scanner)
+    {
+        boolean runMath = true;
+
+        System.out.println("Welcome, user. What math functions would you like to use?");
+        while(runMath)
+        {
+            System.out.println("1. Give me the factorial of a number.");
+            System.out.println("2. Find me the highest prime number below a given number.");
+            System.out.println("3. Tell me a math joke.");
+            System.out.println("4. Find me the volume of a sphere.");
+            System.out.println("5. Exit out.");
+            int input = scanner.nextInt();
+            if(input == 1)
+            {
+
+            }
+            else if(input == 2)
+            {
+
+            }
+            else if(input == 3)
+            {
+
+            }
+            else if(input == 4)
+            {
+
+            }
+            else if(input == 5)
+            {
+                runMath = false;
+            }
+            else
+            {
+                System.out.println(""); //Insert a school appropriate response :)
+            }
+        }
+    }
+    
+    
+}
+
+  
+
+    </div>
+  </body>
+</html>

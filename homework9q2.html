@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<title>
+Homework9
+</title>
+<body style="background-color: black;">
+<h1 style="color:white;">Logic & Coding Homework 9 Quarter 2
+    <div style = 
+    "float: right;
+    position: relative;
+    top: 10px;
+    right: 10px;">
+
+    <img src="https://veritasprep.greatheartsamerica.org/wp-content/uploads/sites/16/2016/12/Veritas_crest_1C.png"
+    width="150px",
+    height=" auto"/>
+    
+</div> 
+</h1>
+    <div style =
+    "font-family: monospace;
+    white-space: pre-wrap;
+    display: block;
+    color:white;
+    font-size: 15px;
+    text-align: left;
+    ">
+  Write methods that solve these multiple problems/tasks.
+  DO NOT HARD CODE YOUR SOLUTIONS!!!!!
+
+  1. Write a method that sorts an array in order of GREATEST TO LEAST, left to right.
+  Ex: {2, -5, 21, 37, 5, 6, 7, 8} should be sorted into {37, 21, 8, 7, 6, 5, 2, -5}
+  Also note the Big(O) of your sorting algorithm.
+
+  2. Write a method that sorts two arrays filled with numbers into one large array.
+  Ex: Arrays {2, 8, 1, 0} and {-5, 4, 7, 5} should be sorted into {-5, 0, 1, 2, 4, 5, 7, 8}
+  Note the Big(O) notation of your algorithm.
+
+  3. Write a method that finds the maximum sum and the minimum sum that an array can produce
+  with x elements. To elaborate, let's say I have an array {1, 2, 3, 4, 5, 6, 7, 8, 9, 10} (hint hint)
+  If x is 4, then I must use 4 elements from the array to create my minimum sum and my maximum sum.
+  The minimum and maximum sums of this array are 10 (1 + 2 + 3 + 4) and 34 (10 + 9 + 8 + 7)
+
+  4. Write a method that returns the most common repeating element in an array.
+  Sorting the array would make this problem easier to handle (hint hint).
+
+  5. Write a method that sorts an array of STRINGS, in order of least to greatest.
+  Characters on a string are organized the same way they are in a dictionary,
+  starting with the first character from a-z, a being the "least", z being the "greatest"
+
+
+
+
+import java.util.Scanner;
+import java.util.Random;
+
+public class homework8 {
+    public static void main(String[] args)
+    {
+        // Out of bounds!!!
+
+        //Your scanner initialized
+        Scanner myScanner = new Scanner(System.in);
+
+        
+
+    }
+
+    //Generates an array filled with 20 random elements that range from 1 - 20
+    //For use in your homework if you want
+    public static int[] newArray()
+    {
+        int[] arr = new int[20];
+
+        Random rand = new Random();
+
+        for(int i = 0; i < arr.length; i++)
+        {
+            int randomNum = rand.nextInt(20) + 1;
+            arr[i] = randomNum;
+        }
+
+        return arr;
+    }
+
+  }
+
+
+    </div>
+  </body>
+</html>

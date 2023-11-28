@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<title>
+  Big O & Sorting Lecture 1
+</title>
+
+<body style="background-color: black;">
+  <h1 style="color:white;">Logic & Computation Big O & Sorting Lecture 1
+    <div style="float: right;
+    position: relative;
+    top: 10px;
+    right: 10px;">
+
+      <img src="https://veritasprep.greatheartsamerica.org/wp-content/uploads/sites/16/2016/12/Veritas_crest_1C.png"
+        width="150px" , height=" auto" />
+
+    </div>
+  </h1>
+  <div style="font-family: monospace;
+white-space: pre-wrap;
+display: block;
+color:white;
+font-size: 25px;
+text-align: justify;
+">
+
+import java.util.Random;
+import java.util.Scanner;
+import java.lang.System;
+
+public class bigO {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        //Try out the functions by undoing the double slashes.
+        //Try them out one at a time. :)
+
+        //int[] inefficientArray = allPrimeNumbers(scanner);
+        //int[] moreEfficientArray = efficientPrimeNumbers(scanner);
+        //whatIsMyBigO();
+        //anotherBigO();
+        //bubbleSort();
+        
+    }
+
+
+    /*
+     * 
+     * 
+     * This lesson is all about Big(O) notation.
+     * 
+     * Big(O) notation is what determines how many steps it will generally
+     * take a piece of code to run some algorithm or function based off of the count
+     * of the elements in some input referred to as 'n'.
+     * 
+     * Meaning, that if a function has a Big(O) of O(n), then it takes the 
+     * method 'n' amount of steps to go over all elements of an input
+     * and finish executing the given code.
+     * 
+     * If a method has a Big(O) of n^2, then for a given input of 100 elements,
+     * then it would take 100^2 steps, or 10,000 steps, to execute the code.
+     * This is a drastic jump of processing compared to O(n).
+     * 
+     * 
+     * To showcase different Big(O) notations.
+     * This example nested for loop has a Big(O) of n^2.
+     * for()
+     *  {
+     *      for()
+     *      {
+     * 
+     *      }
+     *  }
+     * 
+     * 
+     * An individual for loop has a Big(O) of n
+     * for()
+     * {
+     * 
+     * }
+     * 
+     * 
+     * 3 nested for loops = O(n^3)
+     * and so on so forth...
+     * for()
+     *  {
+     *      for()
+     *      {
+     *          for()
+     *          {
+     * 
+     *          }
+     * 
+     *      }
+     *  }
+     * 
+     * * The method below returns an array filled with all prime numbers
+     * between 2 and the number given to it by the user's input.
+     * 
+     * If the user inputs "10000", then the method will return
+     * all prime numbers between 2 and 10000.
+     * 
+     * It does so by checking each number from 2 and the user's input
+     * and dividing them by every number before it, and then checks 
+     * if there is a remainder. If the number divides evenly,
+     * then it is not prime.
+     * 
+     * This method is inefficient because it checks EVERY number before the
+     * current number it's checking, even if it already knows the number isn't prime. 
+     * If it is checking number 1000, as an example,
+     * then it would check if it's divisible by 2, then 3, then 4, then 5, etc.,
+     * up until it reaches number 999. Very inefficient.
+     * 
+     * Therefore, the Big(O) notation is O(n^2).
+     * The Big(O) notation is n^2 because the program has a nested for loop.
+     * (Specifically, 2 for loops nested).
+     * In nested for loops, they raise the power of the notation by 1 for every for loop
+     * nested in each other.
+     */
+    public static int[] allPrimeNumbers(Scanner scanner)
+    {
+        System.out.println("Enter a number.");
+        int input = scanner.nextInt();
+
+        long start = System.nanoTime();
+
+        int[] allPrimes = new int[input];
+
+        int index = 0;
+
+        for(int i = 2; i < input; i++)
+        {
+            boolean isItPrime = true;
+            for(int j = 2; j < i; j++)
+            {
+                if(i % j == 0)
+                {
+                    isItPrime = false;
+                }
+            }
+
+            if(isItPrime)
+                {
+                    allPrimes[index] = i;
+                    index++;
+                }
+        }
+
+        long end = System.nanoTime();
+
+        System.out.println("Time: " + (end - start) / 1000000f + " milliseconds.");
+
+        return allPrimes;
+    }
+
+
+    /*
+     * This other method, while accomplishing the same task, does so
+     * in many less steps compared to the previous algorithm.
+     * Instead of dividing the current number by every number before it,
+     * it instead divides the number using prime numbers before it.
+     * In general, 10% of all numbers are prime. This algorithm cuts down on the amount of steps
+     * that is has to do to check for prime numbers by 90%.
+     * The program also stops checking if a number is prime once it has found one number
+     * that divides the current number evenly. Theoretically, this cuts down the amount of steps 
+     * by an additional 50%.
+     * Long story short, the amount of time it takes for the first method to find prime numbers
+     * is outclassed by the amount of time it takes for the second method to do the same task.
+     * 
+     * This is why Big(O) is important in the world of computation. When inputs start increasing
+     * in their size, then algorithms are truly stress tested.
+     */
+
+    public static int[] efficientPrimeNumbers(Scanner scanner)
+    {
+        System.out.println("Enter a number.");
+        int input = scanner.nextInt();
+
+        long start = System.nanoTime();
+
+        int[] allPrimes = new int[input];
+
+        int index = 0;
+
+        for(int i = 2; i < input; i++)
+        {
+            boolean isItPrime = true;
+            for(int j = (index - 1); j > 0; j--)
+            {
+                if(i % allPrimes[j] == 0)
+                {
+                    isItPrime = false;
+                    break;
+                }
+            }
+            
+            if(isItPrime)
+                {
+                    allPrimes[index] = i;
+                    index++;
+                }
+        }
+
+        long end = System.nanoTime();
+
+        System.out.println("Time: " + (end - start) / 1000000f + " milliseconds.");
+
+        return allPrimes;
+    }
+
+    /*
+     * This method has a Big(O) of O(n). Even though it has two for loops, they are separated
+     * and thus do not affect each other.
+     */
+
+    public static void whatIsMyBigO()
+    {
+        int i = 1;
+        for(;i <= 100000; i++)
+        {
+            System.out.println("This is step " + i + "!");
+        }
+
+         for(;i <= 200000; i++)
+         {
+             System.out.println("More steps! " + i);
+         }
+
+        System.out.println(i + " steps accomplished!");
+
+    }
+
+    /*
+     * This method has a Big(O) of O(n^2). It has a nested for loop, and even though it's
+     * only outputting messages, the program will take quite a bit to run through its entirety.
+     */
+
+    public static void anotherBigO()
+    {
+
+        int counter = 0;
+
+        for(int i = 0; i < 100; i++)
+        {
+            for(int j = 0; j < i; j++)
+            {
+                counter++;
+                System.out.println("This is a step!");
+                System.out.println("Step " + counter);
+                
+            }
+        }
+
+        System.out.println("Total number of steps: " + counter);
+
+    }
+
+    /*
+     * The second part of the lecture deals with sorting algorithms.
+     * I will present several sorting algorithms, each with their own Big(O) notation
+     * and method of sorting a given array.
+     * 
+     * 
+     * 
+     * Bubblesort! A classic. It's the beginner's first sorting algorithm.
+     * Bubblesort sorts an array by going over each and every single element from left to right,
+     * and for the current index, it checks every element after in a nested for loop,
+     * and if the current element is larger than another one ahead of it, then
+     * you swap the two elements. Repeat until you've checked every element after it, and
+     * then move on to the next element. Rinse and repeat until you reach the end,
+     * and your array would be sorted from least to greatest.
+     */
+
+    public static void bubbleSort()
+    {
+        int [] myArr = {2, 1, -5, 0, 7, 84, 9};
+        //int [] myArr = newArray(); //Enable to test with random arrays of 20 elements.
+
+        //This shows the elements of the array before it is sorted.
+        for(int i = 0; i < myArr.length; i++)
+        {
+            System.out.print(myArr[i] + " ");
+        }
+
+        //For every element in the array...
+        for(int i = 0; i < myArr.length; i++)
+        {
+            //And then for every element after the current one in the previous for loop...
+            for(int j = i; j < myArr.length; j++)
+            {
+                //If the current element is bigger than one after it...
+                if(myArr[i] > myArr[j])
+                {
+                    //Swap!
+                    int placeholder = myArr[i];
+                    myArr[i] = myArr[j];
+                    myArr[j] = placeholder;
+                }
+            }
+        }
+
+        //This shows the order of the array after it has been sorted.
+        for(int i = 0; i < myArr.length; i++)
+        {
+            System.out.print(myArr[i] + " ");
+        }
+    }
+
+        /*
+         * Insertion sort works backwards compared to bubble sort.
+         * While bubblesort sorts from left to right, insertion sort
+         * sorts by moving right, but sorting from right to left.
+         * Insertion sort starts at the second element of an array, 
+         * and compares it to all values before it.
+         * If they are greater, then move the element to index 0
+         * and push every element forward. Rinse and repeat until
+         * you have reached the end of the array.
+         */
+        void insertionSort()
+        {
+            int [] arr = {12, 11, 5, 13, 6, 2, 0, 21};
+            
+            for (int i = 1; i < arr.length; ++i) {
+                int currentVal = arr[i];
+                int j = i - 1; //j will be the value left of where we are currently in the array
+     
+                /* Move elements of arr[0..i-1], that are
+                   greater than the currentVal, to one position ahead
+                   of their current position */
+                while (j >= 0 && arr[j] > currentVal) 
+                {
+                    //swap!
+                    arr[j + 1] = arr[j];
+                    j = j - 1;
+                }
+                //update the current val
+                arr[j + 1] = currentVal;
+            }
+        }
+
+    //Generates an array filled with 20 random elements that range from 1 - 20
+    public static int[] newArray()
+    {
+        int[] arr = new int[20];
+
+        Random rand = new Random();
+
+        for(int i = 0; i < arr.length; i++)
+        {
+            int randomNum = rand.nextInt(20) + 1;
+            arr[i] = randomNum;
+        }
+
+        return arr;
+    }
+}
+
+
+
+  </div>
+</body>
+
+</html>

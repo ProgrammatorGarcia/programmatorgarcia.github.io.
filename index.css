@@ -1,0 +1,28 @@
+.centered {
+    width: auto;
+    height: auto;
+    text-align: center;
+}
+
+.top {
+    position: absolute;
+    top: 10px;
+  }
+
+  .container {
+    position: relative;
+    text-align: center;
+  }
+
+  .flexContainer {
+    display: flex;
+  }
+
+  .niceFormat {
+    font-family: monospace;
+    white-space: pre-wrap;
+    display: block;
+    color:white;
+    font-size: 17px;
+    text-align: justify;
+  }

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<title>
+Homework10
+</title>
+<body style="background-color: black;">
+<h1 style="color:white;">Logic & Coding Homework 10 Quarter 2
+    <div style = 
+    "float: right;
+    position: relative;
+    top: 10px;
+    right: 10px;">
+
+    <img src="https://veritasprep.greatheartsamerica.org/wp-content/uploads/sites/16/2016/12/Veritas_crest_1C.png"
+    width="150px",
+    height=" auto"/>
+    
+</div> 
+</h1>
+    <div style =
+    "font-family: monospace;
+    white-space: pre-wrap;
+    display: block;
+    color:white;
+    font-size: 15px;
+    text-align: left;
+    ">
+  Write methods that solve these multiple problems/tasks.
+  DO NOT HARD CODE YOUR SOLUTIONS!!!!!
+
+  1. Write a method that searches a value in an array that is sorted from GREATEST to LEAST, left to right,
+  and returns the index of the found value.
+  I.E., {10, 8, 7, 5, 4, 4, 4, 2, 1}, searching for 5 will return index 3.
+
+
+
+  2. Write a method that finds the square root of a number using binary search.
+  If the number is not a perfect square, then your algorithm returns the answer rounded down.
+  I.E., the square root of 8 would be '2'.
+
+  An easy way of solving for this algorithm would be to create a start and an end based off of your
+  target. The start being 1, and the end being half of x (as the square root of x cannot be more than x / 2)
+
+  Afterwards, get a middle value from your start and end, and then square that middle value and compare it
+  to your target. If the square is larger than your target, then discard the right search space
+  If the square is smaller than your target, then discard the left search space
+
+  Repeat until your start value == end value, and then return your middle value.
+
+
+
+  3. Write a method that gives the indexes of the first and last
+  occurences of a number in a sorted array. If the element is not in the array,
+  report that as well.
+  I.E., {1, 2, 3, 3, 3, 3, 4, 5, 6, 10, 12, 15, 23}, searching for 3 will return indexes 2 (first) and 5 (last)
+
+
+
+  4. Write a ternary search algorithm (divides the elements in an array by 3 instead of 2)
+  and then compare it's efficiency with binarySearch by timing both methods to the same array and value.
+  Is a ternary search algorithm better than binary search? 
+
+
+
+
+import java.util.Scanner;
+import java.util.Random;
+
+public class homework8 {
+    public static void main(String[] args)
+    {
+        // Out of bounds!!!
+
+        //Your scanner initialized
+        Scanner myScanner = new Scanner(System.in);
+
+        
+
+    }
+
+    //Generates an array filled with 20 random elements that range from 1 - 20
+    //For use in your homework if you want
+    public static int[] newArray()
+    {
+        int[] arr = new int[20];
+
+        Random rand = new Random();
+
+        for(int i = 0; i < arr.length; i++)
+        {
+            int randomNum = rand.nextInt(20) + 1;
+            arr[i] = randomNum;
+        }
+
+        return arr;
+    }
+
+    public static String[] makeStrings()
+    {
+        String[] arr = new String[100];
+
+        for(int i = 0; i < arr.length; i++)
+        {
+            arr[i] = getRandomString();
+        }
+
+        return arr;
+    }
+
+    public static String getRandomString() {
+        String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        StringBuilder string = new StringBuilder();
+        Random rnd = new Random();
+        while (string.length() < 18) { // length of the random string.
+            int index = (int) (rnd.nextFloat() * SALTCHARS.length());
+            string.append(SALTCHARS.charAt(index));
+        }
+        String saltStr = string.toString();
+        return saltStr;
+
+    }
+
+  }
+
+
+    </div>
+  </body>
+</html>

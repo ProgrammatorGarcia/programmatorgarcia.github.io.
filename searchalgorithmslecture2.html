@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<title>
+Search Algorithms Lecture 1
+</title>
+
+<body style="background-color: black;">
+  <h1 style="color:white;">Logic & Computation Search Algorithms Lecture 1
+    <div style="float: right;
+    position: relative;
+    top: 10px;
+    right: 10px;">
+
+      <img src="https://veritasprep.greatheartsamerica.org/wp-content/uploads/sites/16/2016/12/Veritas_crest_1C.png"
+        width="150px" , height=" auto" />
+
+    </div>
+  </h1>
+  <div style="font-family: monospace;
+white-space: pre-wrap;
+display: block;
+color:white;
+font-size: 25px;
+text-align: justify;
+">
+
+public class searchingAlgorithms2 {
+    public static void main(String[] args) {
+
+        int[] tinyArr = newSortedArray(10); //10 elements
+        int[] smallArr = newSortedArray(100); // 100 elements
+        int[] normalArr = newSortedArray(1000); //1,000 elements
+        int[] bigArr = newSortedArray(10000); //10,000 elements
+        int[] hugeArr = newSortedArray(100000); //100,000 elements
+        int[] gargantuanArr = newSortedArray(1000000); //1,000,000 elements
+        int[] BIGARR = newSortedArray(100000000); // 100,000,000 elements
+
+
+        //Enable them one at a time...
+        //sortThem(tinyArr, 8);
+        //sortThem(smallArr, 80);
+        //sortThem(normalArr, 800);
+        //sortThem(bigArr, 8000);
+        //sortThem(hugeArr, 80000);
+        //sortThem(gargantuanArr, 800000);
+        //sortThem(BIGARR, 80000000);
+
+    }
+
+    //Your binarySearch method, finalized and completed
+    public static int binarySearch(int arr[], int x)
+    {
+        //Initialize your left and right boundaries for the array
+        int left = 0, right = arr.length - 1;
+
+        //Start timing the code
+        long start = System.nanoTime();
+
+        while (left <= right)
+        {
+            int m = left + (right - left) / 2;
+ 
+            // Check if x is present at mid
+            //If it is, then return the index of the value
+            if(arr[m] == x)
+            {
+                long end = System.nanoTime();
+                System.out.println("Time is: " + (end - start)/100000f + " milliseconds.");
+                return m;
+            }
+
+ 
+            // If x greater, ignore left half
+
+            if(arr[m] < x)
+            {
+                left = m + 1;
+
+            }
+            
+ 
+            // If x is smaller, ignore right half
+            else
+            {
+                right = m - 1;
+            }
+            
+        }
+ 
+        // If we reach here, then element was
+        // not present
+        long end = System.nanoTime();
+        System.out.println("Time is: " + (end - start)/100000f + " milliseconds.");
+        return -1;
+    }
+
+    //Your linearSearch method
+    public static int linearSearch(int[] arr, int searchedValue)
+    {
+        int left = 0, right = arr.length - 1;
+        int mid = left + (right - left) / 2;
+
+        long start = System.nanoTime();
+
+        if(arr[mid] > searchedValue)
+        {
+            //If your middle is larger than your target
+            //Start your search at the beginning of the array, and stop at the middle.
+            for(int i = 0; i < mid; i++)
+            {
+                if(arr[i] == searchedValue)
+                {
+                    System.out.println("Found it!");
+                    //The variable end measures the time when the algorithm finds the target
+                    //Then it compares the start of the time to the end of the time to figure out
+                    //How much time passed
+                    long end = System.nanoTime();
+                    System.out.println("Time is: " + (end - start)/100000f + " milliseconds.");
+                    return arr[i];
+                }
+            }
+        }
+        else
+        {
+            //Else, your middle is smaller or equal to your target
+            //And your search will therefore start in the middle of the array for better efficiency :)
+            for(int i = mid; i < arr.length; i++)
+            {
+                if(arr[i] == searchedValue)
+                {
+                    System.out.println("Found it!");
+                    //The variable end measures the time when the algorithm finds the target
+                    //Then it compares the start of the time to the end of the time to figure out
+                    //How much time passed
+                    long end = System.nanoTime();
+                    System.out.println("Time is: " + (end - start)/100000f + " milliseconds.");
+                    return arr[i];
+                }
+            }
+        }
+
+        
+
+        System.out.println("Couldn't find it...");
+        long end = System.nanoTime();
+        System.out.println("Time is: " + (end - start)/100000f + " milliseconds.");
+        return -1;
+    }
+
+    //Generates a new  sorted array of a desired size
+    //Values are from 0 to size - 1
+    public static int[] newSortedArray(int size)
+    {
+        int[] arr = new int[size];
+
+        for(int i = 0; i < arr.length; i++)
+        {
+            arr[i] = i;
+        }
+
+        return arr;
+    }
+
+    public static void sortThem(int[] arr, int num)
+    {
+        linearSearch(arr, num);
+        binarySearch(arr, num);
+    }
+    
+}
+
+
+
+
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<title>
+  Recursion Lecture 1
+</title>
+
+<body style="background-color: black;">
+  <h1 style="color:white;">Logic & Computation Recursion Lecture 1
+    <div style="float: right;
+    position: relative;
+    top: 10px;
+    right: 10px;">
+
+      <img src="https://veritasprep.greatheartsamerica.org/wp-content/uploads/sites/16/2016/12/Veritas_crest_1C.png"
+        width="150px" , height=" auto" />
+
+    </div>
+  </h1>
+  <div style="font-family: monospace;
+white-space: pre-wrap;
+display: block;
+color:white;
+font-size: 25px;
+text-align: justify;
+">
+
+public class recursion {
+
+    public static void main(String[] args) 
+    {
+        // int st = 100;
+        // recurse(st);
+        int term = 6;
+        System.out.println(Fib(term));
+        System.out.println(recurseFib(term));
+
+    }
+
+    /*
+     * Recursion is the epitome of Computer Science, and the cultivation of Formal Logic.
+     * The process in which a method calls itself directly or indirectly is called recursion.
+     * Through recursion, certain problems that were impossible to do via for loops, 
+     * are solved relatively easily. What makes recursion so powerful is its ability to
+     * copy itself and solving smaller subproblems through near infinite copies.
+     * Each copy tackles a small iteration, and returns to its sender the necessary data
+     * for it to solve its own problem.
+     * 
+     * Visualizing recursion can be pretty difficult. Simple recursive methods work
+     * through step by step in chronological order, but practical recursive methods
+     * usually work in a 'reverse call' order, where the methods first create
+     * copies, and then wait for the created copies to finish their work. Usually these 
+     * copies will make their own copies, which make more copies, and so on so forth
+     * until the method finally reaches an exit condition, to which it gathers its data,
+     * and returns a value to its sender, which then goes back in reverse order until
+     * the data eventually reaches the original sender.
+     * 
+     * Goes something like this
+     * 
+     * Original sender (root) --> copy --> copy --> etc. --> end case
+     * Original sender <-- copy <-- copy <-- etc. <-- data.
+     * 
+     * But with many more copies, in multiple separate paths.
+     * 
+     * To create a recursive method, a few things must occur for the method to work.
+     * 
+     * 1. You MUST call the method somewhere inside of it. By calling the method inside
+     * of itself, you allow the method to create copies whenever conditions are met. Usually,
+     * you regurgitate its given variables, and increment them by the appropriate amount
+     * before passing them onwards to the recursed method called.
+     * 
+     * 2. You MUST place your exit conditions in your method. Your exit conditions
+     * are what inform your recursive method when to stop, and it is what allows
+     * the copies to send back data to execute their code. Without proper exit conditions
+     * your method will go on forever, and you will be forever haunted by the dry and non-witty
+     * humor of programmers and their relentless recursive """jokes""".
+     * 
+     * 3. For the love of everything that is holy and pure, PLEASE MAKE SURE YOUR
+     * RECURSION METHOD TERMINATES. Use if/else statements to force your recursive method
+     * to check for its exit conditions, which are what stop the iterative process.
+     * 
+     * 4. Combine the solutions of the 'copies' so that they actually work together
+     * and return the solution to your problem.
+     * 
+     * You will see these steps in the recursive method below, which is the 
+     * Fibonnaci Sequence in recursive form.
+     */
+    //recursive methods work the same way as normal methods with their parameters.
+     public static int recurseFib(int term) 
+    {
+        //This is the exit condition. If the value of 'term' is ever less than or equal
+        //to 1, return it. When this activates, the recursive call at the bottom doesn't occur.
+        if(term <= 1)
+        {
+            return term;
+        }
+        /*
+         * This is the recursive case which allows the method to create copies.
+         * If the if statement above never procs, this bottom line of code runs
+         * and creates two copies of the original method. Notice how we are decrementing
+         * the value of 'term' with different values for each recursive call, and how
+         * we are returing the sum of the result of each case.
+         * Each copy will run and do their own thing, and when they eventually end up with a value
+         * it will return said value, and add it with the other copy's value, via that 
+         * reverse call order.
+         */
+	        return recurseFib(term-1) + recurseFib(term-2);
+        
+    }
+    public static int Fib(int term)
+    {
+        int fib1 = 1;
+        int fib2 = 0;
+       
+        for(int i = 1; i < term; i++)
+        {
+            int placeholder = fib1;
+            fib1 = fib1 + fib2;
+            fib2 = placeholder;
+        }
+        return fib1;
+    }
+
+    public static int recurse(int x)
+    {
+        if(x > -1)
+        {
+            System.out.println(x);
+            x--;
+            recurse(x);
+        }
+
+        return x;
+    }
+    
+    
+}
+
+
+
+
+  </div>
+</body>
+
+</html>

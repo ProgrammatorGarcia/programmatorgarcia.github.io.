@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<title>
+Rat Maze Lab
+</title>
+<body style="background-color: black;">
+<h1 style="color:white;">Logic & Coding Rat Maze Lab
+    <div style = 
+    "float: right;
+    position: relative;
+    top: 10px;
+    right: 10px;">
+
+    <img src="https://c.tenor.com/uLYv3MFt2HwAAAAd/tenor.gif"
+    width="150px",
+    height=" auto"/>
+    
+</div> 
+</h1>
+    <div style =
+    "font-family: monospace;
+    white-space: pre-wrap;
+    display: block;
+    color:white;
+    font-size: 15px;
+    text-align: left;
+    ">
+
+Today you will fight tooth and nail with the first recursion lab of this semester.
+The rat maze is a 2D array recursion puzzle that, given several 2d array 'mazes',
+you must create a recursive method that can navigate across these labyrinths and
+returns true if it can find a path between its starting location and the value '2',
+or false if it cannot. 
+
+How you navigate across these labyrinths goes like this. 'Rats' are only allowed to
+move either up, down, left, or right. Rats cannot move diagonally. In addition,
+rats can only move through values of '1' in the maze. '0' acts as a wall that the rat
+cannot pass by. 
+
+A maze is solvable if a rat can find at least one path that leads them to the value '2' in the maze,
+which every maze has. However, not every maze has a possible path to the value '2'. You will be given
+a fixed value for each maze on where to start.
+
+THIS VALUE CANNOT BE CHANGED!!!
+
+This assignment will be difficult, regardless of the method that you use to solve this problem.
+For those who 'ethically' do their assignments without googling anything up,
+you will have to brainstorm new ideas outside of your comfort zone to solve this problem.
+
+For those who 'unethically' do their assignments by googling everything,
+you will quickly come to find that reliance on googling will only get you so far.
+The solution is online, but it is hidden amongst so many variations that it will be
+difficult to find the proper one that satisfies this variation.
+
+Either way, your skills as a scholar will be tested properly as this is the expectation 
+moving forward as a freshman in college.
+
+Good luck.
+
+
+public class ratmaze {
+    public static void main(String[] args) 
+    {
+        int[][] maze1 = new int[][] {
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+            {0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0},
+            {0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0},
+            {0, 1, 0, 1, 0, 2, 0, 0, 0, 1, 0, 1, 0},
+            {0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0},
+            {0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0},
+            {0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
+            {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        };
+
+        int[][] maze2 = new int[][] {
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+            {0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+            {0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0},
+            {0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0},
+            {0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0},
+            {0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0},
+            {0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0},
+            {0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
+            {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        };
+
+        int[][] maze3 = new int[][] {
+            {2, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
+            {1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0},
+            {1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1},
+            {1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1},
+            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1},
+            {0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1},
+            {0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0},
+            {0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1},
+            {0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1},
+            {0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1},
+        };
+
+        int[][] maze4 = new int[][] {
+            {0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1},
+            {1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1},
+            {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+            {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+            {1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1},
+            {1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+            {1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0},
+            {1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0},
+            {1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0},
+            {1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0},
+            {1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0},
+            {1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1},
+            {1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1},
+            {1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2},
+        };
+
+        int x = 1;
+        int y = 1;
+
+        System.out.println(maze1.length);
+        System.out.println(maze1[0].length);
+
+        //Returns true
+        //System.out.println(goRatGo(maze1, y, x));
+
+        //Returns false
+        //System.out.println(goRatGo(maze2, y, x));
+
+        //Returns true
+        //System.out.println(goRatGo(maze3, 4, 6));
+
+        //Returns true
+        //System.out.println(goRatGo(maze4, y, x));
+
+
+    }
+    
+    
+}
+
+  
+
+    </div>
+  </body>
+</html>

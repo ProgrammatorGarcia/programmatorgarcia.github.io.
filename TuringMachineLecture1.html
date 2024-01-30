@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<title>
+  Turing Machine Lecture 1
+</title>
+
+<body style="background-color: black;">
+  <h1 style="color:white;">Logic & Computation Turing Machine Lecture 1
+    <div style="float: right;
+    position: relative;
+    top: 10px;
+    right: 10px;">
+
+      <img src="https://veritasprep.greatheartsamerica.org/wp-content/uploads/sites/16/2016/12/Veritas_crest_1C.png"
+        width="150px" , height=" auto" />
+
+    </div>
+  </h1>
+  <div style="font-family: monospace;
+white-space: pre-wrap;
+display: block;
+color:white;
+font-size: 25px;
+text-align: justify;
+">
+
+The Turing Machine is one of the most beautiful and intriguing discoveries of the 20th century.
+The Turing Machine is simply a DFA, with memory attached to it. It is a simple and useful abstract model
+of computation that is general enough to embody any computer program. It forms the foundation of theoretical
+computer science.
+
+For a brief history lesson into the world of Computer Science, Alan Turing, father of
+theoretical Computer Science and artificial intelligence, introduced the Turing Machine
+in 1936. His work was utilized during WW2, as his machine was utilized to compute and decipher the encrypted messages of German ciphers.
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Alan_Turing_%281912-1954%29_in_1936_at_Princeton_University.jpg"
+        width="350px" , height="350px" />
+
+The components of a Turing Machine are:
+
+1. The Ticker Tape: Like a DFA, a Turing Machine has an alphabet with symbols to follow,
+however, its input is infinite in length, and the Turing Machine can go left and right of its input.
+
+<a href="https://ibb.co/2nYCW9H"><img src="https://i.ibb.co/qyFc7SV/ticker-tape.png" alt="ticker-tape" border="0"></a>
+
+2. The Tape Head: The Tape Head keeps track of the current location the Turing Machine is reading, 
+and it can move left or right, a stark difference compared to a DFA. However, the real strength of a Turing Machine
+is that the Tape Head can alter the input that it is reading. It can overwrite the current symbol
+with another symbol from the alphabet, which is how the Turing Machine implements 'memory'.
+
+<a href="https://ibb.co/wNG4wMp"><img src="https://i.ibb.co/0j4rFhY/tape-head.png" alt="tape-head" border="0"></a>
+
+3. The Control Unit: This looks a lot like a DFA, and it behaves exactly like a DFA, with some added functionality.
+It encodes information on the tape head moving left or right, the point at which the algorithm “stops” or “halts”, and overwriting information.
+Each sate is labeled with one of three designations: Y (a “True” is returned, or the tape input is “accepted”),
+N (“False” or “not accepted), and H (halt – this allows the altered state of the tape to be the “output”).
+
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/KzzYr2Q/control-unit.png" alt="control-unit" border="0"></a>
+
+The alphabet for this example is {a, b, #}
+
+In the Turing Machine above, the starting state is indicated by the “in arrow”.  The “steps” for progressing through the Turing Machine are as follows:
+
+1. Read the current symbol from the tape head.
+
+2. Move along the appropriate arrow and change the symbol accordingly: “b:#” means that a “b” was read and will be replaced by a “#”,
+and “a:a” means that an “a” was read and will be replaced by an “a” (i.e. left alone).
+
+3. Move the tape head according to the new state.  If “Y”, “N”, or “H” are found, the Turing Machine stops.
+For “Y” the string is accepted (just like a DFA), for “N” the string is not accepted,
+and for “H” the purpose is likely more about what was left on the tape due to overwrites.
+
+What does the above Turing Machine accomplish?  If an “a” is read, is leaves it alone and returns “Y”.  If a “b” is read, it changes it to a “#” and moves right. It keeps doing this until it finds an “a” or a “#”. Upon finding an “a”, it stops with a “Y”. Upon finding a “#”, it stops with a “N”.
+
+Example problem to try out:
+
+<a href="https://ibb.co/ySprbfr"><img src="https://i.ibb.co/jRzS16S/turingmachineexample1.png" alt="turingmachineexample1" border="0"></a>
+
+
+  </div>
+</body>
+
+</html>

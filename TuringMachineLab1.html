@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<title>
+  Turing Machine Lab 1
+</title>
+
+<body style="background-color: black;">
+  <h1 style="color:white;">Logic & Computation Turing Machine Lab 1
+    <div style="float: right;
+    position: relative;
+    top: 10px;
+    right: 10px;">
+
+      <img src="https://veritasprep.greatheartsamerica.org/wp-content/uploads/sites/16/2016/12/Veritas_crest_1C.png"
+        width="150px" , height=" auto" />
+
+    </div>
+  </h1>
+  <div style="font-family: monospace;
+white-space: pre-wrap;
+display: block;
+color:white;
+font-size: 25px;
+text-align: justify;
+">
+
+For this lab, you will be designing Turing Machines that fulfill the provided Regular Expressions or commands.
+
+1. Design a Turing Machine that follows the given format: (a^n)(b^n), where n > 0. The Turing Machine accepts all strings that start with a sequence of a's,
+followed by a sequence of b's that match the exact same amount of characters as the sequence of a's I.E., aaabbb is accepted. 3 a's, followed by 3 b's.
+aaaaabbbbb is also accepted, ab, aabb, aaaaaaabbbbbb are all accepted Strings.
+(Hint: Turing Machines can replace characters. Rewrite characters as your Turing Machine reads through the String, to 'remember' what characters you've already accounted for)
+
+2. Design a Turing Machine that checks to see if a String is a Palindrome, for the given language {a, b}. 
+aabbbbaa is accepted, aaabaaa is accepted, bbaabaabbbbbbaabaabb is accepted. Similar to the previous problem, however, the Turing Machine must now keep track of what the current character is,
+and where its corresponding character would be located in the String.
+
+3. Design a Turing Machine that follows the given expression: (0^2n)(1^n), where n > 0. Your teacher is unoriginal, cry about it.
+The Turing Machine accepts all strings that start with a sequence of 0's, which is followed by a sequence of 1's. The character count in the sequence of 0's must be
+double the character count of the sequence of 1's. I.E., 000011 is accepted, 001 is accepted, 000000111 is accepted.
+
+4. Design a Turing Machine that combines two strings together in the language {0}, each string separated by a '+' sign.
+I.E., 00+000 should have the String finalized to 00000. 000+0 should return 0000.
+(Hint: Move the 0's on the left to the 0's on the right, and once the '+' is the first character, erase it.)
+
+5. Design a Turing Machine that performs subtraction with two Strings, each string separated by a '-' sign.
+I.E., 000-00 should have the string finalized to 0. 00000-00 should return 000. The first string will always be greater than the second string, so don't worry about negative answers.
+(Hint: Work backwards compared to problem 4. Go to the end, and then keep taking off 0's on both sides until the right string is completely erased.)
+
+
+
+  </div>
+</body>
+
+</html>

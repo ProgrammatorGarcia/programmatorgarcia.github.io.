@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<title>
+  Classes Lecture 1
+</title>
+
+<body style="background-color: black;">
+  <h1 style="color:white;">Logic & Computation Classes Lecture 1
+    <div style="float: right;
+    position: relative;
+    top: 10px;
+    right: 10px;">
+
+      <img src="https://veritasprep.greatheartsamerica.org/wp-content/uploads/sites/16/2016/12/Veritas_crest_1C.png"
+        width="150px" , height=" auto" />
+
+    </div>
+  </h1>
+  <div style="font-family: monospace;
+white-space: pre-wrap;
+display: block;
+color:white;
+font-size: 25px;
+text-align: justify;
+">
+
+import java.lang.System;
+
+public class classes {
+    public static void main(String[] args) {
+
+        //Create a new dog with a name, breed, age, and color
+        Dog pepito = new Dog("Pepito", "Papillon", 5, "White");
+
+        //And you can call the methods of the class to get information
+        //relevant to the dog!
+
+        pepito.getStats();
+
+        Cat ratCatcher = new Cat("Rat Catcher", "Tabby", 5, "Gray");
+
+        ratCatcher.meow();
+        
+    }
+
+    public static class Dog {
+        //Instanced variables when the class is made
+        String name;
+        String breed;
+        int age;
+        String color;
+ 
+        // Constructor Declaration of Class
+        //This method 'constructs' the class whenever it is instantiated (made)
+        //by allocating parameters to the instanced variables in the class
+
+        public Dog(String name, String breed, int age,
+                String color)
+        {
+            this.name = name;
+            this.breed = breed;
+            this.age = age;
+            this.color = color;
+        }
+
+        //To explain the example further, whenever you make a new 'dog',
+        //the method will allocate the necessary input into the 'dog'
+        //Dog pepito = new Dog("Pepito", "Papillon", 5, "White");
+    
+        // method 1, returns the name of the dog
+        public String getName() { return name; }
+    
+        // method 2, returns the breed of the dog
+        public String getBreed() { return breed; }
+    
+        // method 3, returns the age of the dog
+        public int getAge() { return age; }
+    
+        // method 4, returns the color of the dog
+        public String getColor() { return color; }
+
+        public void getStats()
+        {
+        System.out.println("Hi my name is " + this.getName()
+                + ".\nMy breed, age and color are "
+                + this.getBreed() + ", " + this.getAge()
+                + ", " + this.getColor());
+        }
+
+        //Self explanatory.
+        public void bark()
+        {
+            System.out.println("Bark bark!");
+        }
+
+    }
+
+    public static class Cat {
+        //Initiated variables
+        String name;
+        String breed;
+        int age;
+        String color;
+
+        //Constructor method, SUPER IMPORTANT DONT FORGET
+        public Cat(String name, String breed, int age,
+        String color)
+        {
+            this.name = name;
+            this.breed = breed;
+            this.age = age;
+            this.color = color;
+        }
+
+        // Seems oddly familiar to the dog class, I wonder how we can optimize this...
+        public String getName() { return name; }
+   
+        public String getBreed() { return breed; }
+    
+        public int getAge() { return age; }
+    
+        public String getColor() { return color; }
+
+        public void getStats()
+        {
+        System.out.println("Hi my name is " + this.getName()
+                + ".\nMy breed, age and color are "
+                + this.getBreed() + ", " + this.getAge()
+                + ", " + this.getColor());
+        }
+
+        //Cat goes meow!
+        public void meow()
+        {
+            System.out.println("Meow!");
+        }
+
+
+    }
+
+    //Your lab will be to finish the functionality of the Student class. Have fun tomorrow!
+    public static class Student
+    {
+        //We're stepping up our variables now
+        //'Private' means that only the instance of the class can access these variables directly
+        //No external source or command can access these variables.
+        //We do this to prevent malicious attackers from accessing our data.
+
+        //We are creating a class to maintain information over students, so our data
+        //must be private, lest we gather the wrath of the government and angry parents
+
+        private String firstName;
+        private String lastName;
+        private int testScore1, testScore2, testScore3, testScore4;
+        private int id;
+
+
+        //Initialize our data!
+        public Student(String fn, String ln, int t1, int t2, int t3, int t4, int id)
+        {
+            this.firstName = fn;
+            this.lastName = ln;
+            this.testScore1 = t1;
+            this.testScore2 = t2;
+            this.testScore3 = t3;
+            this.testScore4 = t4;
+            this.id = id;
+        }
+
+    }
+
+
+}
+
+
+
+
+  </div>
+</body>
+
+</html>

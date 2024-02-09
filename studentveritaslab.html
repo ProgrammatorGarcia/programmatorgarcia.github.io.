@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<title>
+Student Veritas Lab
+</title>
+<body style="background-color: black;">
+<h1 style="color:white;">Student Veritas Lab
+    <div style = 
+    "float: right;
+    position: relative;
+    top: 10px;
+    right: 10px;">
+
+    <img src="https://veritasprep.greatheartsamerica.org/wp-content/uploads/sites/16/2016/12/Veritas_crest_1C.png"
+    width="150px",
+    height=" auto"/>
+    
+</div> 
+</h1>
+    <div style =
+    "font-family: monospace;
+    white-space: pre-wrap;
+    display: block;
+    color:white;
+    font-size: 15px;
+    text-align: left;
+    ">
+    
+    import java.lang.System;
+import java.util.Scanner;
+
+public class studentveritaslab {
+    public static void main(String[] args) {
+
+        //Congratulations on making it through your 9-round interview session with Veritas!.
+        //You have been hired to create a database system that can store the information of students
+        //By using the student Class and an array of students
+        //Your project will consist of an UI that can do the following:
+        //1. List the information of all students in the database
+        //2. List the information of one specific student, given an ID
+        //3. Add a new student to the database
+        //4. Change the information of a student, given an ID
+
+        //To make things easier, since Veritas only hired one developer (you), we will be extremely
+        //lazy and simply use an array to hold the information of the students, instead of following
+        //proper CRUD protocols.
+
+        //I have provided starting code to help you get started. You must add the additional remaining
+        //functionality to complete the assignment.
+        //Have fun!
+
+        Scanner scanner = new Scanner(System.in);
+
+        Student Timmy = new Student("Timmy", "Tohno", 95, 89, 92, 100, 183);
+        Student Poppy = new Student("Poppy", "Poppers", 76, 84, 63, 85, 217);
+        Student Karen = new Student("Karen", "Kotomine", 100, 99, 100, 98, 798);
+        Student Mimi = new Student("Mimi", "Mimoto", 47, 60, 75, 98, 490);
+
+        Student database[] = new Student[1000];
+        database[0] = Timmy;
+        database[1] = Poppy;
+        database[2] = Karen;
+        database[3] = Mimi;
+        
+
+        boolean runTerminal = true;
+
+        System.out.println("Welcome, user. What would you like to do?");
+
+        while(runTerminal)
+        {
+            System.out.println("1. Show all students information.");
+            System.out.println("2. Show the information of a single student.");
+            System.out.println("3. Add a new student.");
+            System.out.println("4. Change the information of a student.");
+            System.out.println("5. Exit out.");
+            int input = scanner.nextInt();
+            if(input == 1)
+            {
+                //method to show all students' information.
+            }
+            else if(input == 2)
+            {
+                //method to show a single student's information
+            }
+            else if(input == 3)
+            {
+                //method to add a student to the array
+            }
+            else if(input == 4)
+            {
+                //method to change the information of a student, given an ID
+            }
+            else if(input == 5)
+            {
+                runTerminal = false;
+            }
+            else
+            {
+                //This is for input not accepted
+                System.out.println(""); //Insert a school appropriate response :)
+            }
+        }
+
+        System.out.println("Until next time.");
+        
+
+
+    }
+
+    public static class Student
+    {
+        private String firstName;
+        private String lastName;
+        private int testScore1, testScore2, testScore3, testScore4;
+        private int id;
+
+
+        //Initialize our data!
+        public Student(String fn, String ln, int t1, int t2, int t3, int t4, int id)
+        {
+            this.firstName = fn;
+            this.lastName = ln;
+            this.testScore1 = t1;
+            this.testScore2 = t2;
+            this.testScore3 = t3;
+            this.testScore4 = t4;
+            this.id = id;
+
+            //1. Create methods internally that return all the values of each variable.
+
+            //2. Create methods internally that change the values of the student.
+
+            //3. Create a method that returns the test average of the student.
+
+
+        }
+
+    }
+    
+}
+
+  
+
+
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<title>
+Homework12
+</title>
+<body style="background-color: black;">
+<h1 style="color:white;">Logic & Coding Homework 13 Quarter 3
+    <div style = 
+    "float: right;
+    position: relative;
+    top: 10px;
+    right: 10px;">
+
+    <img src="https://veritasprep.greatheartsamerica.org/wp-content/uploads/sites/16/2016/12/Veritas_crest_1C.png"
+    width="150px",
+    height=" auto"/>
+    
+</div> 
+</h1>
+    <div style =
+    "font-family: monospace;
+    white-space: pre-wrap;
+    display: block;
+    color:white;
+    font-size: 15px;
+    text-align: left;
+    ">
+    
+    public class homework13 {
+
+      public static void main(String[] args) 
+      {
+          
+          // Coding puzzle!!!
+  
+          //Given the original Cat and Dog classes, I want you to utilize
+          //Inheritance to rewrite the classes using a base class called 'Animal'.
+  
+          //The previous code has been provided for you
+          //Your job is to create the base class 'Animal'
+          //That has the methods and variables that both Cat and Dog classes
+          //Share together
+  
+          //Then, you will change Cat and Dog to inherit from the 'Animal' class
+          //Leaving them with only one method, which is their 'bark()'
+          //and 'meow()' methods.
+  
+  
+      }
+  
+      //Your classes/methods written below here.
+  
+      public static class Dog {
+          //Instanced variables when the class is made
+          String name;
+          String breed;
+          int age;
+          String color;
+   
+          // Constructor Declaration of Class
+          //This method 'constructs' the class whenever it is instantiated (made)
+          //by allocating parameters to the instanced variables in the class
+  
+          public Dog(String name, String breed, int age,
+                  String color)
+          {
+              this.name = name;
+              this.breed = breed;
+              this.age = age;
+              this.color = color;
+          }
+  
+          //To explain the example further, whenever you make a new 'dog',
+          //the method will allocate the necessary input into the 'dog'
+          //Dog pepito = new Dog("Pepito", "Papillon", 5, "White");
+      
+          // method 1, returns the name of the dog
+          public String getName() { return name; }
+      
+          // method 2, returns the breed of the dog
+          public String getBreed() { return breed; }
+      
+          // method 3, returns the age of the dog
+          public int getAge() { return age; }
+      
+          // method 4, returns the color of the dog
+          public String getColor() { return color; }
+  
+          public void getStats()
+          {
+          System.out.println("Hi my name is " + this.getName()
+                  + ".\nMy breed, age and color are "
+                  + this.getBreed() + ", " + this.getAge()
+                  + ", " + this.getColor());
+          }
+  
+          //Self explanatory.
+          public void bark()
+          {
+              System.out.println("Bark bark!");
+          }
+  
+      }
+  
+      public static class Cat {
+          //Initiated variables
+          String name;
+          String breed;
+          int age;
+          String color;
+  
+          //Constructor method, SUPER IMPORTANT DONT FORGET
+          public Cat(String name, String breed, int age,
+          String color)
+          {
+              this.name = name;
+              this.breed = breed;
+              this.age = age;
+              this.color = color;
+          }
+  
+          // Seems oddly familiar to the dog class, I wonder how we can optimize this...
+          public String getName() { return name; }
+     
+          public String getBreed() { return breed; }
+      
+          public int getAge() { return age; }
+      
+          public String getColor() { return color; }
+  
+          public void getStats()
+          {
+          System.out.println("Hi my name is " + this.getName()
+                  + ".\nMy breed, age and color are "
+                  + this.getBreed() + ", " + this.getAge()
+                  + ", " + this.getColor());
+          }
+  
+          //Cat goes meow!
+          public void meow()
+          {
+              System.out.println("Meow!");
+          }
+  
+  
+      }
+      
+  }
+
+
+
+    </div>
+  </body>
+</html>

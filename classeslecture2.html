@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<title>
+  Classes Lecture 2
+</title>
+
+<body style="background-color: black;">
+  <h1 style="color:white;">Logic & Computation Classes Lecture 2
+    <div style="float: right;
+    position: relative;
+    top: 10px;
+    right: 10px;">
+
+      <img src="https://veritasprep.greatheartsamerica.org/wp-content/uploads/sites/16/2016/12/Veritas_crest_1C.png"
+        width="150px" , height=" auto" />
+
+    </div>
+  </h1>
+  <div style="font-family: monospace;
+white-space: pre-wrap;
+display: block;
+color:white;
+font-size: 25px;
+text-align: justify;
+">
+
+import java.lang.System;
+
+public class inheritance {
+
+// Java program to illustrate the
+// concept of inheritance
+
+// main class
+public static void main(String args[])
+    {
+        Engineer E1 = new Engineer();
+        System.out.println("Salary : " + E1.salary
+                           + "\nBenefits : " + E1.benefits);
+
+        // MountainBike mb = new MountainBike(3, 100, 25);
+        // System.out.println(mb.toString());
+        // mb.applyBrake(50);
+        // System.out.println(mb.toString());
+    }
+
+    // Base or Super Class
+    public static class Employee 
+    {
+        int salary = 60000;
+    }
+    
+    // Inherited or Sub Class
+    public static class Engineer extends Employee 
+    {
+        int benefits = 10000;
+    }
+
+// base class
+public static class Bicycle 
+    {
+	// the Bicycle class has two fields
+	public int gear;
+	public int speed;
+
+	// the Bicycle class has one constructor
+	public Bicycle(int gear, int speed)
+	{
+		this.gear = gear;
+		this.speed = speed;
+	}
+
+	// the Bicycle class has three methods
+	public void applyBrake(int decrement)
+	{
+		speed -= decrement;
+	}
+
+	public void speedUp(int increment)
+	{
+		speed += increment;
+	}
+
+	// toString() method to print info of Bicycle
+	public String bikeInfo()
+	{
+		return ("Num of gears are " + gear + "\n"
+				+ "speed of bicycle is " + speed);
+	}
+    }
+
+// derived class
+public static class MountainBike extends Bicycle 
+    {
+
+	// the MountainBike subclass adds one more field
+	public int seatHeight;
+
+	// the MountainBike subclass has one constructor
+	public MountainBike(int gear, int speed,
+						int startHeight)
+	{
+		// invoking base-class(Bicycle) constructor
+        //super invokes the base-class (Bicycle) constructor
+        //then we just add the extra variable unique to mountain bikes
+		super(gear, speed);
+		seatHeight = startHeight;
+	}
+
+	// the MountainBike subclass adds one more method
+	public void setHeight(int newValue)
+	{
+		seatHeight = newValue;
+	}
+
+	// overriding bikeInfo() method
+	// of Bicycle to print more info
+	@Override public String toString()
+	{
+		return (super.bikeInfo() + "\nseat height is "
+				+ seatHeight);
+	}
+    }
+
+}
+
+
+
+
+
+  </div>
+</body>
+
+</html>

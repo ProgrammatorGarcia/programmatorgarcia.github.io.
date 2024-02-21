@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<title>
+  Binary Tree Lecture 1
+</title>
+
+<body style="background-color: black;">
+  <h1 style="color:white;">Logic & Computation Binary Tree Lecture 1
+    <div style="float: right;
+    position: relative;
+    top: 10px;
+    right: 10px;">
+
+      <img src="https://veritasprep.greatheartsamerica.org/wp-content/uploads/sites/16/2016/12/Veritas_crest_1C.png"
+        width="150px" , height=" auto" />
+
+    </div>
+  </h1>
+  <div style="font-family: monospace;
+white-space: pre-wrap;
+display: block;
+color:white;
+font-size: 25px;
+text-align: justify;
+">
+
+import java.lang.System;
+
+public class binarytreenotes {
+
+    public static void main(String[] args) {
+
+        BinaryTree tree = new BinaryTree(1);
+
+        /* Following is the tree after above statement
+           1
+          / \
+        null null 
+        */
+ 
+        tree.root.left = new Node(2);
+        tree.root.right = new Node(3);
+
+        /* 2 and 3 become left and right children of 1
+              1
+             / \
+            2   3
+           / \ / \
+       null null null null */
+
+        tree.root.left.left = new Node(4);
+
+        /* 4 becomes left child of 2
+               1
+              / \
+             2   3
+            / \ / \
+           4 null null null
+          / \
+        null null
+        */
+
+        tree.root.right.left = new Node(7);
+        tree.root.right.right = new Node (10);
+
+        /* 7 becomes left child of 3
+            10 becomes right child of 3
+
+               1
+              / \
+             2   3
+            / \ / \
+           4 null 7 10
+          / \
+        null null
+        */
+
+        tree.inorder(tree.root);
+    }
+        
+    
+}
+
+//The legendary gate keeper of Computer Science!!!
+
+// Class containing left and right child
+// of current node and key value
+class Node {
+    int num;
+    Node left, right;
+ 
+    public Node(int num)
+    {
+        this.num = num;
+        left = right = null;
+    }
+}
+
+class BinaryTree 
+{
+     
+    // Root of Binary Tree
+    Node root;
+     
+    // Constructors
+    BinaryTree(int num) { root = new Node(num); }
+
+    /* Inorder traversal of a binary tree*/
+    /* This method is extremely useful for navigating through a binary tree,
+     * which you will need to know for your upcoming laboratory.
+     * Due to the nature of binary trees, you must use recursion to
+     * navigate succesfully through the tree.
+     * There are three ways of navigating through a tree, which are known as
+     * preorder, inorder, and postorder traversal
+     */
+
+     //Used for copying trees in the right order.
+    static void preorder(Node temp)
+    {
+        if (temp == null)
+            return;
+ 
+        System.out.print(temp.num + " ");
+        preorder(temp.left);
+        preorder(temp.right);
+    }
+
+    //Used to reach the bottom of a tree first, then work your way upwards
+    static void inorder(Node temp)
+    {
+        if (temp == null)
+            return;
+ 
+        inorder(temp.left);
+        System.out.print(temp.num + " ");
+        inorder(temp.right);
+    }
+
+    //Used to delete trees efficiently.
+    static void postorder(Node temp)
+    {
+        if (temp == null)
+            return;
+ 
+        postorder(temp.left);
+        postorder(temp.right);
+        System.out.print(temp.num + " ");
+    }
+
+    
+}
+
+
+
+
+
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<title>
+  Binary Tree Lecture 1
+</title>
+
+<body style="background-color: black;">
+  <h1 style="color:white;">Logic & Computation Binary Tree Lecture 1
+    <div style="float: right;
+    position: relative;
+    top: 10px;
+    right: 10px;">
+
+      <img src="https://veritasprep.greatheartsamerica.org/wp-content/uploads/sites/16/2016/12/Veritas_crest_1C.png"
+        width="150px" , height=" auto" />
+
+    </div>
+  </h1>
+  <div style="font-family: monospace;
+white-space: pre-wrap;
+display: block;
+color:white;
+font-size: 25px;
+text-align: justify;
+">
+
+public class binarytreenotes2 {
+  public static void main(String[] args) 
+  {
+      BinaryTree tree = new BinaryTree(50);
+
+      /* Let us create following BST
+            50
+         /     \
+        30      70
+       /  \    /  \
+     20   40  60   80 */
+      tree.insert(30);
+      tree.insert(20);
+      tree.insert(40);
+      tree.insert(70);
+      tree.insert(60);
+      tree.insert(80);
+
+      // Print inorder traversal of the BST
+      tree.inorder(tree.root);
+  }
+
+}
+
+  //The legendary gate keeper of Computer Science!!!
+
+// Class containing left and right child
+// of current node and key value
+class Node {
+  int num;
+  Node left, right;
+
+  public Node(int num)
+  {
+      this.num = num;
+      left = right = null;
+  }
+}
+
+class BinaryTree 
+{
+   
+  // Root of Binary Tree
+  Node root;
+   
+  // Constructors
+  BinaryTree(int num) { root = new Node(num); }
+
+  // This method mainly calls insertRec()
+  void insert(int num) { root = insertRec(root, num); }
+
+  // A recursive function to
+  // insert a new key in BST
+  Node insertRec(Node root, int num)
+  {
+      // If you hit a dead end in the tree,
+      // return a new node
+      if (root == null) {
+          root = new Node(num);
+          return root;
+      }
+
+      // Otherwise, recur down the tree
+      else if (num < root.num)
+          root.left = insertRec(root.left, num);
+      else if (num > root.num)
+          root.right = insertRec(root.right, num);
+
+      // Return the (unchanged) node pointer
+      return root;
+  }
+
+  static void inorder(Node temp)
+  {
+      if (temp == null)
+          return;
+
+      inorder(temp.left);
+      System.out.print(temp.num + " ");
+      inorder(temp.right);
+  }
+  
+}
+
+
+
+  </div>
+</body>
+
+</html>

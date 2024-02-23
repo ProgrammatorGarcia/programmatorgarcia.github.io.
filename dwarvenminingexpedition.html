@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<title>
+Dwarven Mining Expedition Lab
+</title>
+<body style="background-color: black;">
+<h1 style="color:white;">Logic & Coding Dwarven Mining Expedition
+    <div style = 
+    "float: right;
+    position: relative;
+    top: 10px;
+    right: 10px;">
+
+    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/13a0f96a-4574-46c9-8878-8f4bde065bfb/d98px9g-228d57c3-2141-4f42-b38f-e6d3002ccd32.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzEzYTBmOTZhLTQ1NzQtNDZjOS04ODc4LThmNGJkZTA2NWJmYlwvZDk4cHg5Zy0yMjhkNTdjMy0yMTQxLTRmNDItYjM4Zi1lNmQzMDAyY2NkMzIuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.TZX8Lrju_L5NlWJgf8abuTopFK-xDeMumkrSvkyRVsY"
+    width="150px",
+    height=" auto"/>
+    
+</div> 
+</h1>
+    <div style =
+    "font-family: monospace;
+    white-space: pre-wrap;
+    display: block;
+    color:white;
+    font-size: 15px;
+    text-align: left;
+    ">
+
+
+
+Good luck.
+
+
+import java.util.Random;
+
+class dwarvenminingexpedition {
+    public static void main(String[] args) 
+    {
+
+        /*
+         * Welcome to the Dwarven Mining Guild, ninnyhammer.
+         * Your assignment is to figure out the path with the most profit 
+         */
+
+        //Generate randomized caves for the poor souls who have to do this assignment.
+        //Godspeed, dwarves.
+
+        BinaryTree bigTree = new BinaryTree(15);
+        //bigTree.printTree(bigTree.root, 0);
+        bigTree.root.print();
+        bigTree.preorder(bigTree.root);
+        /*
+         * Write your method here, the above code initializes the cave and gives you the necessary information to help visualzie.
+         */
+    }
+  
+  }
+  
+  // Class containing left and right child
+  // of current node and key value
+  class Node {
+    int num;
+    Node left, right;
+  
+    public Node(int num)
+    {
+        this.num = num;
+        left = right = null;
+    }
+
+    /*Use this instead to see your cave. */
+
+    public void print() 
+    {
+        print("", this, false);
+    }
+
+    public void print(String prefix, Node n, boolean isLeft) 
+    {
+        if (n != null) {
+            System.out.println (prefix + (isLeft ? "|-- " : "\\-- ") + n.num);
+            print(prefix + (isLeft ? "|   " : "    "), n.left, true);
+            print(prefix + (isLeft ? "|   " : "    "), n.right, false);
+        }
+    }
+  }
+  
+  class BinaryTree 
+  {
+     
+    // Root of Binary Tree
+    Node root;
+    boolean leftOrRight = true;
+    static Random random;
+     
+    // Constructors
+    BinaryTree(int num) 
+    { 
+        random = new Random();
+        root = generateRandomBinaryTree(num); 
+    }
+
+    static Node generateRandomBinaryTree(int size) 
+    {
+        if (size == 0)
+            return null;
+
+        // Choose random sizes for left and right subtrees
+        int leftSize = random.nextInt(size);
+        int rightSize = size - 1 - leftSize;
+
+        // Generate left and right subtrees recursively
+        Node leftSubtree = generateRandomBinaryTree(leftSize);
+        Node rightSubtree = generateRandomBinaryTree(rightSize);
+
+        // Create new node with random value
+        Node root = new Node(random.nextInt(26));
+
+        // Assign left and right subtrees to children
+        root.left = leftSubtree;
+        root.right = rightSubtree;
+
+        return root;
+    }
+
+    //More so here for debugging purposes and for your teacher to have a chance at figuring out what the right answer is.
+    static void inorder(Node temp)
+  {
+      if (temp == null)
+          return;
+
+      inorder(temp.left);
+      System.out.print(temp.num + " ");
+      inorder(temp.right);
+  }
+
+  static void preorder(Node temp)
+    {
+        if (temp == null)
+            return;
+ 
+        System.out.print(temp.num + " ");
+        preorder(temp.left);
+        preorder(temp.right);
+    }
+
+    //A bit of mercy so you can somewhat visualize your tree.
+    //Unfortunately, your trees are randomized so the answer will change every time.
+    // static void printTree(Node node, int level) 
+    // {
+    //     if (node != null) {
+    //         printTree(node.right, level + 1);
+    //         System.out.println(" ".repeat(4 * level) + "-> " + node.num);
+    //         printTree(node.left, level + 1);
+    //     }
+    // }
+
+    /*I made a better visualization of your cave, ignore this piece of code. */
+    
+  }
+
+
+  
+
+    </div>
+  </body>
+</html>

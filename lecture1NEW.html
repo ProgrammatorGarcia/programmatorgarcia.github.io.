@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<title>
+  Binary Tree Lecture 1
+</title>
+
+<body style="background-color: black;">
+  <h1 style="color:white;">Logic & Computation Binary Tree Lecture 1
+    <div style="float: right;
+    position: relative;
+    top: 10px;
+    right: 10px;">
+
+      <img src="https://veritasprep.greatheartsamerica.org/wp-content/uploads/sites/16/2016/12/Veritas_crest_1C.png"
+        width="150px" , height=" auto" />
+
+    </div>
+  </h1>
+  <div style="font-family: monospace;
+white-space: pre-wrap;
+display: block;
+color:white;
+font-size: 25px;
+text-align: justify;
+">
+
+/**
+* Lecture 1
+* 
+* Code for students to begin investigating conditional operators and branching in Java, along with initializing Java primitives.
+*
+*/
+import java.util.Scanner; // needed for Scanner to get user input
+
+public class Lecture1
+{
+public static void main(String[] args)
+{
+    
+// OUT OF BOUNDS
+
+Scanner scanner = new Scanner( System.in ); //open a scanner for keyboard input from the user
+
+int x, y; //int variables can only store integer values. Should be used over doubles when possible
+
+double a, b, swap; //double variables can store decimal values
+
+char letter; //char variables store a single character, such as 'c', '2', or '-' to give examples.
+
+String word; //String variables store a sequence of characters, such as "asdf", "Wordy!", or better yet, "Hello World!"
+
+//prompt user for input and receive it from the keyboard
+System.out.println("Enter any number (positve, negative, integer, or decimal): ");
+
+//get the first number from the user in Java
+a = scanner.nextDouble(); //parses user input and finds a floating point value in the user-entered teat
+
+System.out.println("\nEnter a second number (positve, negative, integer, or decimal): ");
+//get the second number from the user in Java
+b = scanner.nextDouble();
+scanner.close(); //close the scanner
+
+System.out.println("\n\n");
+
+if(a > b) //swap a and b so that a < b
+{ 
+swap = a;
+a = b;
+b = swap;
+}
+
+//perform examples of conditional branching
+if(a > 0 && b > 0)
+{
+System.out.println("\nEach of your numbers is positive.");
+}
+else if(a < 0 && b < 0)
+{
+System.out.println("\nEach of your numbers is negative.");
+}
+else if((a < 0 && b > 0) || (a > 0 && b < 0))
+{
+System.out.println("\nOne of your numbers is negative and the other is positive.");
+if(a < 0)
+{
+System.out.println(a + " is the negative number.");
+}
+else
+{
+System.out.println(b + " is the negative number.");
+}
+
+//OUT OF BOUNDS
+}
+} //end of main
+} //end of Lecture1
+
+
+
+
+
+  </div>
+</body>
+
+</html>

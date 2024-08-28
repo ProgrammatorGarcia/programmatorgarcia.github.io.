@@ -44,7 +44,7 @@ Veritas Logic & Computation
     */<br />
     <br />
     <br />
-   public class Assignment1<br />
+   public class Main<br />
    {<br />
        public static void main (String[] args)<br />
        {<br />
@@ -52,7 +52,7 @@ Veritas Logic & Computation
        <br />           
        //#1. Write code that prints "Hello world!!!" to the screen.<br />
        <br />
-       <br />
+       System.out.println("Hello world!"); <br />
        <br />
        //#2. Write code that swaps the values of two given numbers and then outputs the new values to a terminal.<br />
        /*<br />
@@ -62,13 +62,24 @@ Veritas Logic & Computation
         * Hint: Don't be afraid to add more variables to solve your problem.<br />
         */<br />
         <br />
-        <br />
-        <br />
+        int x = 10; <br />
+        int y = 20; <br />
+        int swap = x; <br />
+        x = y; <br />
+        y = swap; <br />
+        System.out.println("X is " + x + "Y is " + y); <br /> <br />
+
+        System.out.println("X is "); <br />
+        System.out.println(x); <br />
+        System.out.println("Y is "); <br />
+        System.out.println(y); <br />
         <br />
        //#3. Write code that returns the squared value of a given number.<br />
        // Example: x = 3   Output: 9<br />
        <br />
-       <br />
+       x = 3; <br />
+       x = x * x; <br />
+       System.out.println(x); <br />
        <br />
        <br />
        //#4. Write code that returns the greater value between two numbers<br />

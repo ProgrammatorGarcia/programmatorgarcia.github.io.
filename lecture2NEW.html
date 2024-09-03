@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<title>
+  Binary Tree Lecture 1
+</title>
+
+<body style="background-color: black;">
+  <h1 style="color:white;">Logic & Computation Binary Tree Lecture 1
+    <div style="float: right;
+    position: relative;
+    top: 10px;
+    right: 10px;">
+
+      <img src="https://veritasprep.greatheartsamerica.org/wp-content/uploads/sites/16/2016/12/Veritas_crest_1C.png"
+        width="150px" , height=" auto" />
+
+    </div>
+  </h1>
+  <div style="font-family: monospace;
+white-space: pre-wrap;
+display: block;
+color:white;
+font-size: 25px;
+text-align: justify;
+">
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String args[]) {
+    // Out of bounds!!!
+    
+Scanner myScanner = new Scanner(System.in);  //Your scanner initialized, use as you see fit.
+
+/*
+ * The Scanner class allows us to take input from our console, instead of having to write our values to our code.
+ * As an example, instead of having to initialize an int to have it store the value of 10, which would look like:
+ * int x = 10;
+ * We can instead use the scanner class to make the int variable equal to the input that the scanner recieves
+ * int x = myScanner.nextInt();
+ * 
+ * Scanners come with multiple functions to get specific types of values, as it needs to be specified
+ * I.E., int variables use the .nextInt() function to get values that are converted to the type Int
+ * 
+ * How to use the scanner methods:
+ * (name of scanner).(name of method)
+ * 
+ * int x = myScanner.nextInt();
+ * 
+ * boolean isItTrue = coolScanner.nextBoolean();
+ * 
+ * String wordy = takeMyInput.nextLine();
+ * 
+ * What function to use with a scanner for each type of input:
+ * 
+ * Int - nextInt();
+ * Double - nextDouble();
+ * String - nextLine();
+ * Char - next().charAt(0); You should have questions on this peculiar function
+ * Boolean - nextBoolean();
+ */
+
+ //Before you proceed to the for loops, practice creating using the scanner when initializing variables
+ //For all variable types
+
+ //I.E., do something like int a = myScanner.nextInt();
+ //Then System.out.println(a); so you can see if your variable stored the value given to it by the scanner
+ //Do it for all variable types before proceeding
+
+System.out.println("Enter a NATURAL number");
+int x = myScanner.nextInt();
+
+for(int i = 0; i < x; i++)
+{
+    System.out.print(i + " ");
+}
+
+System.out.println();
+
+int count = 0;
+while(count < x)
+{
+    System.out.print(count + " ");
+    count++;
+}
+
+System.out.println();
+
+System.out.println("Enter the number of rows to be printed"); 
+        int rows = myScanner.nextInt(); 
+  
+        // loop to iterate for the given number of rows 
+        for (int i = 1; i <= rows; i++) { 
+  
+            // loop to print the number of spaces before the star 
+            for (int j = rows; j >= i; j--) { 
+                System.out.print(" "); 
+            } 
+  
+            // loop to print the number of stars in each row 
+            for (int j = 1; j <= i; j++) { 
+                System.out.print("* "); 
+            } 
+  
+            // for new line after printing each row 
+            System.out.println(); 
+        } 
+    
+    
+    //Out of bounds!!!
+    }
+}
+
+
+
+
+
+
+  </div>
+</body>
+
+</html>

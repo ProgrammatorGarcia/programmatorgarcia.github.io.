@@ -136,24 +136,26 @@ public class Main {
     Scanner myScanner = new Scanner(System.in);  //Your scanner initialized, use as you see fit.
 
     //Activity 1
-    System.out.println("Give me a natural number :) ");
+    
+    System.out.println("Please enter a positive integer.");
     int n = myScanner.nextInt();
     
-    while(n <= 0)
+    while(n < 1)
     {
-        System.out.println("Not a natural number!!!");
-        n = myScanner.nextInt(); 
+        System.out.println("Not a positive integer! Try again.");
+        n = myScanner.nextInt();
     }
     
     int sum = 0;
+    int boundary = 2 * n + 1;
     
-    for(int i = 1; i <= 2 * n + 1; i+=2)
+    for(int i = 1; i <= boundary; i+=2)
     {
         sum+=i; //sum = sum + i;
-        System.out.print(i + " "); //Adds a space for every number
+        System.out.print(i + " ");
     }
     
-    System.out.println("The sum of every odd number is: " + sum);
+    System.out.println("The sum of my odd numbers is: " + sum);
     
     
     
@@ -163,13 +165,48 @@ public class Main {
     
     //Activity 3
     
+    System.out.println("Enter a year");
+    int year = myScanner.nextInt();
+    
+    if(year % 4 == 0 && !(year % 100 == 0) )
+    {
+        System.out.println("The year " + year + " is a leap year");
+    }
+    
+    else if(year % 4 == 0 && (year % 100 == 0 && year % 400 == 0))
+    {
+        System.out.println("The year " + year + " is a leap year");
+    }
+    
+    else
+    {
+        System.out.println("The year " + year + " is NOT a leap year");
+    }
+    
     
     
     //Activity 4
     
     
     
+    
+    
     //Activity 5
+    System.out.println("Please enter a positive integer.");
+    n = myScanner.nextInt();
+    
+    int term = 0;
+    int n1 = 1;
+    int n2 = 0;
+    
+    for(int i = 2; i <= n; i++)
+    {
+        term = n1 + n2;
+        n2 = n1;
+        n1 = term;
+    }
+    
+    System.out.println("The " + n + "th Fibonacci term is " + term);
     
     
     

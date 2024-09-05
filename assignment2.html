@@ -136,6 +136,24 @@ public class Main {
     Scanner myScanner = new Scanner(System.in);  //Your scanner initialized, use as you see fit.
 
     //Activity 1
+    System.out.println("Give me a natural number :) ");
+    int n = myScanner.nextInt();
+    
+    while(n <= 0)
+    {
+        System.out.println("Not a natural number!!!");
+        n = myScanner.nextInt(); 
+    }
+    
+    int sum = 0;
+    
+    for(int i = 1; i <= 2 * n + 1; i+=2)
+    {
+        sum+=i; //sum = sum + i;
+        System.out.print(i + " "); //Adds a space for every number
+    }
+    
+    System.out.println("The sum of every odd number is: " + sum);
     
     
     

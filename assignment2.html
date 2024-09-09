@@ -212,6 +212,38 @@ public class Main {
     
     //Activity 6
     
+    System.out.println("Gimme two positive numbers");
+    int num1 = myScanner.nextInt();
+    int num2 = myScanner.nextInt();
+    
+    int smaller = 0;
+    
+    if(num1 > num2)
+    {
+        smaller = num2;
+    }
+    
+    else
+    {
+        smaller = num1;
+    }
+    
+    int gcf = 0;
+    
+    for(int i = 1; i <= smaller; i++)
+    {
+        if(num1 % i == 0 && num2 % i == 0)
+        {
+           gcf = i; 
+           if(i % 2 == 0)
+           {
+               System.out.println("Even!");
+           }
+        }
+    }
+    
+    System.out.println("The gcf is " + gcf);
+    
     
     
     //Activity 7

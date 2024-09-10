@@ -252,9 +252,62 @@ public class Main {
     
     //Activity 8
     
+    int num3 = myScanner.nextInt();
+    int num4 = myScanner.nextInt();
+    
+    int lcm = 0;
+    
+    if(num3 < num4)
+    {
+        lcm = num4;
+    }
+    
+    else
+    {
+        lcm = num3;
+    }
+    
+    boolean run = true;
+    
+    while(run)
+    {
+        
+        lcm++;
+        
+        if(lcm % num3 == 0 && lcm % num4 == 0)
+        {
+            System.out.println("Found the lcm!" + lcm);
+            run = false;
+        }
+        
+        
+        
+    }
+    
+    System.out.println("The lcm is: " + lcm);
+    
     
     
     //Activity 9
+    
+    System.out.println("Give me a number");
+    int ck = myScanner.nextInt();
+    
+    while(ck != 1)
+    {
+        if(ck % 2 == 0)
+        {
+            ck = ck / 2;
+        }
+        
+        else
+        {
+         ck = ck * 3 + 1;
+        }
+        
+        System.out.print(ck + " ");
+        
+    }
     
     
     

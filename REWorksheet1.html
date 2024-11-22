@@ -48,7 +48,7 @@ Describe the language specified by the following regular expressions.
 Give a generalized regular expression that specifies the following languages.
 
 13. All email addresses where the use name consists only of lowercase letters
-following by a single digit (smith4) and had one of the three extensions: con, net, org
+following by a single digit (smith4) and had one of the three extensions: com, net, org
 14. Dollar amounts, e.g. $253.12
 15. All positive integers that have exactly seven 5’s in a row.
 16. All three letter words using lower case letters.
@@ -56,10 +56,10 @@ following by a single digit (smith4) and had one of the three extensions: con, n
 
 Describe the languages specified by the following generalized REs.
 
-17. (Mr)(s?)\. [A-Z][a-z]*
+17. (Mr)(s?)/. [A-Z][a-z]*
 18. –[^0][0-9]* (the alphabet is {0, 1, 2, 3, 4, 5, 6, 7, 8, 9})
-19. \\(_+)/
-20. (\(740\) …-…) | (…-…) (the alphabet is {0, 1, 2, 3, 4, 5, 6, 7, 8, 9})
+19. \/(/+_/+)//
+20. (/(740/) …/-…) | (…/-…) (the alphabet is {0, 1, 2, 3, 4, 5, 6, 7, 8, 9})
 
 
   </div>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<title>
+Half Find Lab
+</title>
+
+<body style="background-color: black;">
+  <h1 style="color:white;">Logic & Computation Half Find Laboratory
+    <div style="float: right;
+    position: relative;
+    top: 10px;
+    right: 10px;">
+
+      <img src="https://veritasprep.greatheartsamerica.org/wp-content/uploads/sites/16/2016/12/Veritas_crest_1C.png"
+        width="150px" , height=" auto" />
+
+    </div>
+  </h1>
+  <div style="font-family: monospace;
+white-space: pre-wrap;
+display: block;
+color:white;
+font-size: 25px;
+text-align: justify;
+">
+
+
+<!-- Today, you will recreate the infamous, cheaty, "I cant believe Mr. Garcia made us play a game we were never going to win" algorithm.
+This algorithm finds the average of the left and right boundaries decreed by your method to find the middle value, which is then compared to your target value.
+Aftewards, this value will be set to a new boundary depending on whether your target value is larger or smaller than the middle value.
+The algorithm recurses, until eventually it either finds the number, to which it will return the INDEX of where this number is located, or, it returns -1 as the index if it cant find the number youre trying to search.
+
+The algorithm is a famous Computer Science algorithm, that helps introduce budding developers into working with Recursion. 
+To get full credit for the lab, you must replicate this algorithm that shall not be named (until the end of the lab), and then pass a code check with me once you have finished your code,
+and it returns the proper values given these statements in main. 
+
+Godspeed, students. -->
+
+import java.util.Scanner;
+import java.util.Random;
+import java.lang.System;
+
+public class halfSearchLab {
+    public static void main(String[] args) {
+
+    //This new array will have 1,000,000 sorted elements from it, starting from 0 - 1,000,000 in order
+    int[] intArr = newArray();
+
+    System.out.println("The index of numer 50 in this array is: " + halfSearch(intArr, 50)); // Should return 51
+
+    System.out.println("The index of numer 500,000 in this array is: " + halfSearch(intArr, 500000)); // Should return 500001 and take one step
+
+    System.out.println("The index of numer -5 in this array is: " + halfSearch(intArr, -5)); // Should return -1 because its not in the array
+
+
+
+    } // End of main, methods go after this :)
+
+    //Generates an array filled with 1,000,000 sorted elements from 0-1,000,000
+    //For use in your future homework if you want
+    public static int[] newArray()
+    {
+        int[] arr = new int[1000000];
+
+        for(int i = 0; i < arr.length; i++)
+        {
+            arr[i] = i;
+        }
+
+        return arr;
+    }
+
+    public static int halfSearch(int[] array, int target)
+    {
+        // Write code here please. Rememer, it will return an error because this method is not returning an int, yet.
+    }
+
+
+//Out of bounds, don't go past this bracket for your methods!!!
+    
+}
+
+
+
+  </div>
+</body>
+
+</html>

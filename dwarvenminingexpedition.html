@@ -57,13 +57,14 @@ class dwarvenminingexpedition {
 
         //Generate a randomized cave for the poor souls who have to do this assignment.
 
-        BinaryTree bigTree = new BinaryTree(10); //The number is the amount of nodes to add to the 'cave'
+        BinaryTree bigTree = new BinaryTree(10);
         //bigTree.printTree(bigTree.root, 0);
         bigTree.root.print();
         //bigTree.preorder(bigTree.root);
         /*
          * Write your method here, the above code initializes the cave and gives you the necessary information to help visualzie.
          */
+        
     }
   
   }
@@ -111,6 +112,8 @@ class dwarvenminingexpedition {
         random = new Random();
         root = generateRandomBinaryTree(num); 
     }
+
+
 
     static Node generateRandomBinaryTree(int size) 
     {

@@ -26,17 +26,16 @@ Student Veritas Lab
     text-align: left;
     ">
     
-    import java.lang.System;
-import java.util.Scanner;
+    import java.util.Scanner;
 
-public class studentveritaslab {
+public class StudentVeritasLab {
     public static void main(String[] args) {
 
-        //Congratulations on making it through your 9-round interview session with Veritas!.
+        //Congratulations on making it through your 9-round interview session with Veritas!
         //You have been hired to create a database system that can store the information of students
-        //By using the student Class and an array of students
-        //Your project will consist of an UI that can do the following:
-        //1. List the information of all students in the database
+        //by using the Student class and an array of Students.
+        //Your project will consist of a UI that can do the following:
+        //1. List the information of all students in the database (PROVIDED FOR YOU)
         //2. List the information of one specific student, given an ID
         //3. Add a new student to the database
         //4. Change the information of a student, given an ID
@@ -45,23 +44,21 @@ public class studentveritaslab {
         //lazy and simply use an array to hold the information of the students, instead of following
         //proper CRUD protocols.
 
-        //I have provided starting code to help you get started. You must add the additional remaining
-        //functionality to complete the assignment.
+        //Option 1 (showAllStudents) has been fully implemented as an example.
+        //Study it carefully, then implement options 2, 3, and 4.
         //Have fun!
 
         Scanner scanner = new Scanner(System.in);
 
-        Student Timmy = new Student("Timmy", "Tohno", 95, 89, 92, 100, 183);
-        Student Poppy = new Student("Poppy", "Poppers", 76, 84, 63, 85, 217);
-        Student Karen = new Student("Karen", "Kotomine", 100, 99, 100, 98, 798);
-        Student Mimi = new Student("Mimi", "Mimoto", 47, 60, 75, 98, 490);
+        Student[] database = new Student[1000];
+        int studentCount = 0;
 
-        Student database[] = new Student[1000];
-        database[0] = Timmy;
-        database[1] = Poppy;
-        database[2] = Karen;
-        database[3] = Mimi;
-        
+        //Pre-loaded students
+        database[0] = new Student("Timmy", "Turnip", 95, 183);
+        database[1] = new Student("Poppy", "Poppers", 76, 217);
+        database[2] = new Student("God Emperor", "Nydegger", 100, 798);
+        database[3] = new Student("Mimi", "Mimoto", 47, 490);
+        studentCount = 4;
 
         boolean runTerminal = true;
 
@@ -69,27 +66,38 @@ public class studentveritaslab {
 
         while(runTerminal)
         {
-            System.out.println("1. Show all students information.");
-            System.out.println("2. Show the information of a single student.");
+            System.out.println("1. Show all students.");
+            System.out.println("2. Show one student by ID.");
             System.out.println("3. Add a new student.");
-            System.out.println("4. Change the information of a student.");
-            System.out.println("5. Exit out.");
+            System.out.println("4. Change a student's info.");
+            System.out.println("5. Exit.");
             int input = scanner.nextInt();
+
             if(input == 1)
             {
-                //method to show all students' information.
+                showAllStudents(database, studentCount);
             }
             else if(input == 2)
             {
-                //method to show a single student's information
+                //YOUR CODE: Find and display a student by ID.
+                //Hint: Loop through the array up to studentCount.
+                //Compare each student's ID (using your getter) to the ID the user entered.
+                //If you find a match, print their info. If no match, let the user know.
             }
             else if(input == 3)
             {
-                //method to add a student to the array
+                //YOUR CODE: Add a new student to the database.
+                //Hint: Prompt the user for firstName, lastName, score, and id.
+                //Create a new Student and store it at database[studentCount].
+                //Don't forget to increment studentCount!
+                //Scanner tip: after nextInt(), call scanner.nextLine() before reading a String.
             }
             else if(input == 4)
             {
-                //method to change the information of a student, given an ID
+                //YOUR CODE: Change a student's information.
+                //Hint: First find the student by ID (similar to option 2).
+                //Then ask the user which field to change (firstName, lastName, or score).
+                //Use the appropriate setter to update it.
             }
             else if(input == 5)
             {
@@ -97,48 +105,79 @@ public class studentveritaslab {
             }
             else
             {
-                //This is for input not accepted
-                System.out.println(""); //Insert a school appropriate response :)
+                System.out.println("Invalid input."); //Keep it school appropriate :)
             }
         }
 
         System.out.println("Until next time.");
-        
+    }
 
+    //=========================================================
+    // EXAMPLE METHOD: showAllStudents (provided for you)
+    // Study how it uses studentCount and calls getInfo().
+    //=========================================================
+    public static void showAllStudents(Student[] database, int studentCount)
+    {
+        if(studentCount == 0)
+        {
+            System.out.println("No students in the database.");
+            return;
+        }
 
+        System.out.println("--- All Students ---");
+        for(int i = 0; i < studentCount; i++)
+        {
+            System.out.println(database[i].getInfo());
+        }
+        System.out.println("--------------------");
     }
 
     public static class Student
     {
         private String firstName;
         private String lastName;
-        private int testScore1, testScore2, testScore3, testScore4;
+        private int score;
         private int id;
 
-
-        //Initialize our data!
-        public Student(String fn, String ln, int t1, int t2, int t3, int t4, int id)
+        //Constructor
+        public Student(String fn, String ln, int s, int id)
         {
             this.firstName = fn;
             this.lastName = ln;
-            this.testScore1 = t1;
-            this.testScore2 = t2;
-            this.testScore3 = t3;
-            this.testScore4 = t4;
+            this.score = s;
             this.id = id;
         }
 
-        //1. Create methods internally that return all the values of each variable.
+        // --- Example Getter ---
+        public String getFirstName()
+        {
+            return this.firstName;
+        }
 
-            //2. Create methods internally that change the values of the student.
+        // --- Example Setter ---
+        public void setFirstName(String fn)
+        {
+            this.firstName = fn;
+        }
 
-            //3. Create a method that returns the test average of the student.
+        //1. Create getters for lastName, score, and id.
+        //   (Follow the pattern of getFirstName above.)
+
+
+
+        //2. Create setters for lastName and score.
+        //   (Follow the pattern of setFirstName above.)
+        //   Note: There is no setter for id — an ID should not change.
+
+
+
+        //3. Create a getInfo() method that returns a String with all student info.
+        //   Example output: "Timmy Tohno | Score: 95 | ID: 183"
+
 
     }
-    
-}
 
-  
+}
 
 
 

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<title>
+Diogenes Homework
+</title>
+<body style="background-color: black;">
+<h1 style="color:white;">Diogenes Homework: The Philosopher in the Barrel
+    <div style = 
+    "float: right;
+    position: relative;
+    top: 10px;
+    right: 10px;">
+
+    <img src="https://veritasprep.greatheartsamerica.org/wp-content/uploads/sites/16/2016/12/Veritas_crest_1C.png"
+    width="150px",
+    height=" auto"/>
+    
+</div> 
+</h1>
+    <div style =
+    "font-family: monospace;
+    white-space: pre-wrap;
+    display: block;
+    color:white;
+    font-size: 15px;
+    text-align: left;
+    ">
+    
+    public class DiogenesHomework {
+    public static void main(String[] args) {
+
+        //=============================================================================
+        // Welcome, student of virtue (or whatever passes for it these days).
+        //
+        // Diogenes of Sinope was a Greek philosopher who lived in a barrel,
+        // carried a lantern in broad daylight searching for an honest man,
+        // plucked a chicken to refute Plato's definition of man, and told
+        // Alexander the Great — conqueror of the known world — to stop
+        // blocking his sunlight.
+        //
+        // The Diogenes class below has already been written for you.
+        // Your job is simple:
+        //   1. Create an instance of the Diogenes class.
+        //   2. Complete each task by calling the correct method.
+        //   3. Some tasks require you to print a return value.
+        //      Others simply call a method that prints on its own.
+        //      Read the method to know which is which.
+        //=============================================================================
+
+
+        //Task 1: Create a new Diogenes who lives in "Athens" and owns 2 possessions.
+        //        (His barrel and his lantern — what else would a man need?)
+
+
+        //Task 2: Call the method that prints a random Diogenes quote.
+
+
+        //Task 3: Have Diogenes roll his barrel through the city 4 times.
+
+
+        //Task 4: Diogenes raises his lantern to someone named "Plato".
+        //        Store the boolean result and print whether an honest man was found.
+
+
+        //Task 5: Have Diogenes pluck a chicken to refute Plato.
+        //        Print the String that the method returns.
+
+
+        //Task 6: Alexander the Great approaches and requests "wisdom" from Diogenes.
+        //        Print Diogenes' response.
+
+
+        //Task 7: Have Diogenes philosophize about the topic "wealth".
+
+
+        //Task 8: After the chicken incident, how many worldly possessions
+        //        does Diogenes now have? Print the result.
+
+
+        //Task 9: Have Diogenes judge a citizen named "Aristocles" who is a "senator".
+        //        Store the returned String in a variable, then print it.
+
+
+    }
+
+    //=============================================================================
+    //  THE DIOGENES CLASS — DO NOT MODIFY (just read and use it)
+    //=============================================================================
+    public static class Diogenes
+    {
+        private String city;
+        private int possessions;
+        private boolean hasLantern;
+        private boolean livesInBarrel;
+
+        public Diogenes(String city, int possessions)
+        {
+            this.city = city;
+            this.possessions = possessions;
+            this.hasLantern = true;
+            this.livesInBarrel = true;
+        }
+
+        // Prints a random quote from the philosopher.
+        public void speakWisdom()
+        {
+            String[] quotes = {
+                "I am a citizen of the world.",
+                "It is the privilege of the gods to want nothing, and of godlike men to want little.",
+                "Dogs and philosophers do the greatest good and get the fewest rewards.",
+                "He who is most content with the least has the most.",
+                "The mob is the mother of tyrants.",
+                "I threw my cup away when I saw a child drinking from his hands at the trough."
+            };
+            int index = (int)(Math.random() * quotes.length);
+            System.out.println("Diogenes speaks: \"" + quotes[index] + "\"");
+        }
+
+        // Diogenes rolls his barrel through the city.
+        public void rollBarrel(int times)
+        {
+            for(int i = 1; i &lt;= times; i++)
+            {
+                System.out.println("*THUD* Roll #" + i + " through the streets of " + city + "!");
+            }
+            System.out.println("The citizens stare. Diogenes does not care.");
+        }
+
+        // Diogenes raises his lantern to search for an honest man.
+        // Spoiler: he never finds one.
+        public boolean searchForHonestMan(String person)
+        {
+            System.out.println("*Diogenes raises his lantern to " + person + "'s face*");
+            System.out.println("*squints*");
+            System.out.println("\"Nope. Not this one either.\"");
+            return false;
+        }
+
+        // Plato defined man as "a featherless biped."
+        // Diogenes plucked a chicken, brought it to the Academy, and declared:
+        public String pluckChicken()
+        {
+            possessions++;
+            return "BEHOLD! I have brought you Plato's man — a featherless biped!";
+        }
+
+        // When Alexander the Great visited Diogenes and asked if there was
+        // anything he could do for him, Diogenes replied:
+        public String confrontAlexander(String request)
+        {
+            if(request.length() &gt; 0)
+            {
+                return "You ask me of " + request + "? I have only one request: "
+                     + "stand out of my sunlight.";
+            }
+            return "You are blocking the sun. Move.";
+        }
+
+        // Diogenes sits in his barrel and ponders a topic.
+        public void philosophize(String topic)
+        {
+            System.out.println("*Diogenes retreats into his barrel to ponder: " + topic + "*");
+            if(topic.equals("wealth"))
+            {
+                System.out.println("\"He is richest who is content with the least, ");
+                System.out.println(" for contentment is the wealth of nature.\"");
+            }
+            else if(topic.equals("virtue"))
+            {
+                System.out.println("\"The art of being a slave is to rule one's master.\"");
+            }
+            else if(topic.equals("education"))
+            {
+                System.out.println("\"The foundation of every state is the education of its youth.\"");
+            }
+            else
+            {
+                System.out.println("\"I know nothing except the fact of my ignorance.\"");
+                System.out.println("(Wait — that might be Socrates. Diogenes shrugs.)");
+            }
+        }
+
+        // Returns how many worldly possessions Diogenes currently has.
+        public int countWorldlyPossessions()
+        {
+            return possessions;
+        }
+
+        // Diogenes offers his unsolicited judgment of a citizen.
+        public String judgeCitizen(String name, String profession)
+        {
+            return name + " the " + profession
+                 + "? Yet another fool who mistakes busyness for purpose.";
+        }
+    }
+
+}
+    </div>
+  </body>
+</html>

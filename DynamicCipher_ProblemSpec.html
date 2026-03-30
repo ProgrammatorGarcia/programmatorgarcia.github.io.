@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Substitution Cipher — Assignment Spec</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #181b24;
+      --surface-raised: #1f2330;
+      --border: #2a2e3b;
+      --border-accent: #3b82f6;
+      --text: #c9cdd8;
+      --text-bright: #e8ebf0;
+      --text-muted: #6b7186;
+      --accent: #3b82f6;
+      --accent-dim: rgba(59, 130, 246, 0.12);
+      --green: #34d399;
+      --green-dim: rgba(52, 211, 153, 0.1);
+      --amber: #fbbf24;
+      --amber-dim: rgba(251, 191, 36, 0.1);
+      --red: #f87171;
+      --mono: 'IBM Plex Mono', monospace;
+      --serif: 'Source Serif 4', Georgia, serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--serif);
+      font-size: 17px;
+      line-height: 1.72;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* --- HEADER --- */
+    .hero {
+      position: relative;
+      padding: 72px 32px 56px;
+      text-align: center;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 600px 300px at 50% 100%, var(--accent-dim), transparent),
+        repeating-linear-gradient(0deg, transparent, transparent 31px, var(--border) 31px, var(--border) 32px);
+      opacity: 0.45;
+      pointer-events: none;
+    }
+    .hero-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 700;
+      color: var(--text-bright);
+      line-height: 1.15;
+      position: relative;
+    }
+    .hero-sub {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 20px;
+      position: relative;
+    }
+
+    /* --- LAYOUT --- */
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 28px 80px;
+    }
+
+    /* --- SECTIONS --- */
+    section {
+      margin-top: 56px;
+    }
+    section > h2 {
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 24px;
+    }
+    h3 {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--text-bright);
+      margin-top: 36px;
+      margin-bottom: 12px;
+    }
+    h3:first-of-type {
+      margin-top: 0;
+    }
+
+    p {
+      margin-bottom: 14px;
+    }
+
+    strong {
+      color: var(--text-bright);
+      font-weight: 600;
+    }
+
+    /* --- CODE --- */
+    code {
+      font-family: var(--mono);
+      font-size: 0.88em;
+      background: var(--surface-raised);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2px 7px;
+      color: var(--green);
+    }
+    pre {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      overflow-x: auto;
+      margin: 16px 0 20px;
+      position: relative;
+    }
+    pre code {
+      background: none;
+      border: none;
+      padding: 0;
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: var(--text);
+    }
+    pre .prompt {
+      color: var(--accent);
+      user-select: none;
+    }
+
+    /* --- LISTS --- */
+    ol, ul {
+      padding-left: 24px;
+      margin-bottom: 16px;
+    }
+    li {
+      margin-bottom: 6px;
+    }
+    li::marker {
+      color: var(--text-muted);
+    }
+
+    /* --- CALLOUT BOXES --- */
+    .callout {
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 20px 0;
+      border-left: 3px solid;
+    }
+    .callout-blue {
+      background: var(--accent-dim);
+      border-color: var(--accent);
+    }
+    .callout-green {
+      background: var(--green-dim);
+      border-color: var(--green);
+    }
+    .callout-amber {
+      background: var(--amber-dim);
+      border-color: var(--amber);
+    }
+    .callout-title {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .callout-blue .callout-title { color: var(--accent); }
+    .callout-green .callout-title { color: var(--green); }
+    .callout-amber .callout-title { color: var(--amber); }
+
+    /* --- MILESTONES --- */
+    .milestone {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px 28px;
+      margin: 20px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .milestone::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--accent);
+    }
+    .milestone-num {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .milestone h4 {
+      font-family: var(--serif);
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--text-bright);
+      margin-bottom: 10px;
+    }
+
+    /* --- TABLE --- */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 20px;
+      font-size: 15px;
+    }
+    thead th {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-align: left;
+      padding: 10px 16px;
+      border-bottom: 2px solid var(--border);
+    }
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    tr:last-child td { border-bottom: none; }
+    tbody tr:hover { background: var(--surface); }
+
+    /* --- CHECKLIST --- */
+    .checklist {
+      list-style: none;
+      padding-left: 0;
+    }
+    .checklist li {
+      position: relative;
+      padding-left: 32px;
+      margin-bottom: 10px;
+    }
+    .checklist li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 5px;
+      width: 18px;
+      height: 18px;
+      border: 2px solid var(--border);
+      border-radius: 4px;
+      background: var(--surface);
+    }
+
+    /* --- EXTENSION TAGS --- */
+    .ext-tag {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    .ext-tag.moderate { background: var(--amber-dim); color: var(--amber); }
+    .ext-tag.hard { background: rgba(248, 113, 113, 0.12); color: var(--red); }
+
+    /* --- FOOTER QUOTE --- */
+    .footer-quote {
+      margin-top: 64px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .footer-quote blockquote {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .footer-quote cite {
+      display: block;
+      font-family: var(--mono);
+      font-style: normal;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 12px;
+      letter-spacing: 1px;
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 600px) {
+      .hero { padding: 48px 20px 40px; }
+      .container { padding: 0 18px 60px; }
+      pre { padding: 14px 16px; }
+      .milestone { padding: 18px 20px; }
+    }
+
+    /* --- SCRAMBLE ANIMATION --- */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    section {
+      animation: fadeUp 0.5s ease both;
+    }
+    section:nth-of-type(1) { animation-delay: 0.05s; }
+    section:nth-of-type(2) { animation-delay: 0.1s; }
+    section:nth-of-type(3) { animation-delay: 0.15s; }
+    section:nth-of-type(4) { animation-delay: 0.2s; }
+    section:nth-of-type(5) { animation-delay: 0.25s; }
+    section:nth-of-type(6) { animation-delay: 0.3s; }
+    section:nth-of-type(7) { animation-delay: 0.35s; }
+    section:nth-of-type(8) { animation-delay: 0.4s; }
+  </style>
+</head>
+<body>
+
+<!-- ==================== HEADER ==================== -->
+<header class="hero">
+  <div class="hero-label">Logic &amp; Computation — Assignment</div>
+  <h1>Dynamic Substitution Cipher</h1>
+  <div class="hero-sub">Java &nbsp;·&nbsp; File I/O &nbsp;·&nbsp; HashMaps &nbsp;·&nbsp; Encryption</div>
+</header>
+
+<div class="container">
+
+  <!-- ==================== OVERVIEW ==================== -->
+  <section>
+    <h2>Overview</h2>
+    <p>
+      You will build a Java program that can <strong>encrypt</strong> and <strong>decrypt</strong> text files
+      using a randomly generated substitution cipher. Each time your program encrypts a file, it produces a
+      <strong>unique, random character mapping</strong> — meaning the same input encrypted twice will produce
+      two completely different outputs.
+    </p>
+    <p>
+      Your program saves this mapping as a <strong>key file</strong>, which is later required to decrypt.
+      This is the fundamental idea behind <strong>symmetric-key encryption</strong>: whoever holds the key
+      can lock and unlock the message; everyone else sees gibberish.
+    </p>
+  </section>
+
+  <!-- ==================== LEARNING OBJECTIVES ==================== -->
+  <section>
+    <h2>Learning Objectives</h2>
+    <ul>
+      <li>File I/O: reading from and writing to <code>.txt</code> files</li>
+      <li><code>HashMap&lt;Character, Character&gt;</code> as a bidirectional lookup table</li>
+      <li>Random permutation generation</li>
+      <li>Designing a serialization format (how to store your key)</li>
+      <li>Command-line argument parsing</li>
+    </ul>
+  </section>
+
+  <!-- ==================== PROGRAM SPEC ==================== -->
+  <section>
+    <h2>Program Specification</h2>
+    <p>Your program should be run from the command line in two modes:</p>
+
+    <h3>Encrypt Mode</h3>
+    <pre><code><span class="prompt">$ </span>java DynamicCipher encrypt &lt;input_file&gt;</code></pre>
+    <p><strong>Behavior:</strong></p>
+    <ol>
+      <li>Read the contents of <code>&lt;input_file&gt;</code> (a <code>.txt</code> file of arbitrary length).</li>
+      <li>Generate a <strong>random permutation</strong> of all printable ASCII characters (codes 32–126). This creates a one-to-one mapping where every character maps to exactly one other character, and no two characters map to the same target.</li>
+      <li>Use this mapping to replace every character in the input, producing the ciphertext.</li>
+      <li>Write the ciphertext to a new file named <code>&lt;input_file&gt;.enc</code><br>(e.g., <code>message.txt</code> → <code>message.txt.enc</code>).</li>
+      <li>Write the key (the character mapping) to a new file named <code>&lt;input_file&gt;.key</code><br>(e.g., <code>message.txt</code> → <code>message.txt.key</code>).</li>
+      <li>Print a confirmation message to the console.</li>
+    </ol>
+
+    <h3>Decrypt Mode</h3>
+    <pre><code><span class="prompt">$ </span>java DynamicCipher decrypt &lt;encrypted_file&gt; &lt;key_file&gt;</code></pre>
+    <p><strong>Behavior:</strong></p>
+    <ol>
+      <li>Read the key file and reconstruct the character mapping.</li>
+      <li><strong>Invert</strong> the mapping (if <code>'A' → 'x'</code> in the encryption map, then <code>'x' → 'A'</code> in the decryption map).</li>
+      <li>Read the encrypted file and apply the inverted mapping to recover the original plaintext.</li>
+      <li>Write the result to a new file named <code>&lt;encrypted_file&gt;.dec</code><br>(e.g., <code>message.txt.enc</code> → <code>message.txt.enc.dec</code>).</li>
+      <li>Print a confirmation message to the console.</li>
+    </ol>
+  </section>
+
+  <!-- ==================== DETAILED REQUIREMENTS ==================== -->
+  <section>
+    <h2>Detailed Requirements</h2>
+
+    <h3>Character Range</h3>
+    <p>
+      Your cipher must handle <strong>all printable ASCII characters</strong> — codes 32 (space) through
+      126 (<code>~</code>). That is 95 characters total. Characters outside this range (newlines, tabs, etc.)
+      should be passed through <strong>unchanged</strong>.
+    </p>
+
+    <h3>Random Key Generation</h3>
+    <p>
+      Your mapping must be a true permutation — every character in the range maps to exactly one unique
+      character, with no repeats. The simplest approach:
+    </p>
+    <ol>
+      <li>Create a <code>char[]</code> of all 95 printable ASCII characters in order.</li>
+      <li>Shuffle the array using the <strong>Fisher-Yates algorithm</strong> (or use <code>Collections.shuffle()</code> on an <code>ArrayList&lt;Character&gt;</code>).</li>
+      <li>The original-order array and the shuffled array, read side by side, define your mapping.</li>
+    </ol>
+
+    <h3>Key File Format</h3>
+    <div class="callout callout-blue">
+      <div class="callout-title">Design Decision — You Choose</div>
+      <p>
+        Your key file must store enough information for the decrypt mode to perfectly reconstruct the mapping.
+        Here are some approaches to consider (pick one, or invent your own):
+      </p>
+      <ul>
+        <li>Write each mapping pair as a line: <code>&lt;original&gt;&lt;delimiter&gt;&lt;mapped&gt;</code></li>
+        <li>Write two lines: the original character sequence and the permuted sequence</li>
+        <li>Write a single line: the permuted sequence (if the original order is always the same known order)</li>
+      </ul>
+      <p style="margin-bottom:0;">
+        Whatever format you choose, <strong>document it</strong> in a comment at the top of your source code.
+      </p>
+    </div>
+
+    <h3>Error Handling</h3>
+    <p>Your program should print a helpful error message and exit cleanly if:</p>
+    <ul>
+      <li>The wrong number of arguments is provided</li>
+      <li>A specified file does not exist</li>
+      <li>The mode is not <code>encrypt</code> or <code>decrypt</code></li>
+      <li>The key file is malformed or incomplete</li>
+    </ul>
+  </section>
+
+  <!-- ==================== MILESTONES ==================== -->
+  <section>
+    <h2>Milestones</h2>
+    <p>Work through these in order. <strong>Test each one before moving on.</strong></p>
+
+    <div class="milestone">
+      <div class="milestone-num">Milestone 1</div>
+      <h4>Hardcoded Cipher</h4>
+      <p>
+        Create a <code>HashMap&lt;Character, Character&gt;</code> with a simple, fixed mapping
+        (e.g., shift every letter by 1). Encrypt and decrypt a short test file. Verify the decrypted
+        output matches the original exactly.
+      </p>
+    </div>
+
+    <div class="milestone">
+      <div class="milestone-num">Milestone 2</div>
+      <h4>Random Key Generation</h4>
+      <p>
+        Replace the hardcoded map with a randomly generated permutation. Print the mapping to the console
+        so you can visually verify that every character maps to a unique target.
+      </p>
+    </div>
+
+    <div class="milestone">
+      <div class="milestone-num">Milestone 3</div>
+      <h4>Key File Serialization</h4>
+      <p>
+        Design your key file format. Write the key to a file during encryption. Read it back during
+        decryption and verify that the reconstructed map matches the original.
+      </p>
+    </div>
+
+    <div class="milestone">
+      <div class="milestone-num">Milestone 4</div>
+      <h4>Full Integration</h4>
+      <p>Wire everything together with command-line argument parsing. Test the full round trip:</p>
+      <pre><code><span class="prompt">$ </span>java DynamicCipher encrypt secret.txt
+<span class="prompt">$ </span>java DynamicCipher decrypt secret.txt.enc secret.txt.key</code></pre>
+      <p style="margin-bottom:0;">Then diff the original against the decrypted file — they should be identical.</p>
+    </div>
+  </section>
+
+  <!-- ==================== TEST STRATEGY ==================== -->
+  <section>
+    <h2>Test Strategy</h2>
+    <p>Use these test cases to verify correctness:</p>
+
+    <table>
+      <thead>
+        <tr><th>Test</th><th>What to Check</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Short file (1 sentence)</td><td>Basic round-trip: original == decrypted</td></tr>
+        <tr><td>Empty file</td><td>Program handles gracefully, produces empty output</td></tr>
+        <tr><td>All 95 printable ASCII chars</td><td>Every character encrypts and decrypts correctly</td></tr>
+        <tr><td>File with newlines and tabs</td><td>Non-printable characters pass through unchanged</td></tr>
+        <tr><td>Encrypt same file twice</td><td>Two different <code>.enc</code> files are produced (different keys)</td></tr>
+        <tr><td>Decrypt with wrong key</td><td>Output should be garbled (not crash)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-green">
+      <div class="callout-title">Sample Test File</div>
+      <p>Create a file called <code>test_input.txt</code> with the following contents:</p>
+      <pre><code>The quick brown fox jumps over the lazy dog.
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+abcdefghijklmnopqrstuvwxyz
+0123456789
+Special chars: !@#$%^&amp;*()_+-=[]{}|;':",.<>?/`~</code></pre>
+      <p style="margin-bottom:0;">
+        This covers uppercase, lowercase, digits, punctuation, and spaces — a good stress test
+        for your full character range.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================== EXTENSIONS ==================== -->
+  <section>
+    <h2>Extension Challenges</h2>
+    <p>If you finish the base assignment, try one or more of these:</p>
+
+    <h3><span class="ext-tag moderate">Moderate</span> Password Layer (Vigenère on Top)</h3>
+    <p>
+      After substitution, apply a Vigenère cipher using a user-provided password. The password is not
+      saved anywhere — the user must remember it. Now decryption requires <em>both</em> the key file
+      <em>and</em> the correct password.
+    </p>
+
+    <h3><span class="ext-tag moderate">Moderate</span> Key Space Analysis</h3>
+    <p>
+      Calculate and print the total number of possible keys your cipher could generate
+      (hint: it is 95!). Research why this makes brute force infeasible, and write a brief
+      explanation as a comment in your code.
+    </p>
+
+    <h3><span class="ext-tag hard">Hard</span> Frequency Analysis Attack</h3>
+    <p>
+      Write a third mode, <code>analyze</code>, that takes an encrypted file <em>without</em> a key and
+      attempts to crack it using English letter frequency analysis. How long does the file need to be
+      before this works reliably? This is a great introduction to why substitution ciphers are
+      historically breakable.
+    </p>
+  </section>
+
+  <!-- ==================== SUBMISSION ==================== -->
+  <section>
+    <h2>Submission Checklist</h2>
+    <ul class="checklist">
+      <li><code>DynamicCipher.java</code> — complete, compiling source code</li>
+      <li>Comment at top of file documenting your key file format</li>
+      <li>Program handles both <code>encrypt</code> and <code>decrypt</code> modes via command line</li>
+      <li>At least one test demonstrating a successful encrypt/decrypt round trip</li>
+      <li>Original and decrypted files are byte-for-byte identical</li>
+    </ul>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <div class="footer-quote">
+    <blockquote>
+      "The enemy knows the system."
+    </blockquote>
+    <cite>— Kerckhoffs' Principle</cite>
+    <p style="color: var(--text-muted); font-size: 14px; margin-top: 8px;">
+      Your cipher's security should depend entirely on the secrecy of the key,<br>
+      never on the secrecy of the algorithm.
+    </p>
+  </div>
+
+</div>
+</body>
+</html>

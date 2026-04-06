@@ -58,6 +58,14 @@ You should struggle a bit doing this assignment, as it is more difficult than yo
 If your code doesn't seem to be working, remember that
 it's perfectly ok to restart from scratch.
 
+<b>Hints:</b>
+- Start small: get the 1-word phrase counter working first before tackling multi-word phrases.
+- Think about how you can use a sliding window to grab N consecutive words from the text.
+- Be mindful of punctuation and capitalization — should "The" and "the" count as the same word?
+- A HashMap&lt;String, Integer&gt; is your best friend here. The key is the phrase, the value is how many times you've seen it.
+- To find the "top" phrase, you don't need to sort the entire map — but sorting it is one valid approach.
+- If your program is too slow, think about where you're doing redundant work. Are you scanning the entire text more times than you need to?
+
 </div>
 
 

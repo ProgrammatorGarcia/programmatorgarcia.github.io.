@@ -173,7 +173,7 @@ We have meetups at every Friday that's not a half-day!
 </div>
 
 <script>
-const OPENAI_KEY = "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";
+const WORKER_URL = "https://yellow-unit-4913.lifepunch.workers.dev/";
 
 let lastImageDataUrl = null;
 
@@ -196,16 +196,13 @@ async function generateImage() {
     downloadBtn.style.display = "none";
 
     try {
-        const resp = await fetch("https://api.openai.com/v1/images/generations", {
+        const resp = await fetch(WORKER_URL, {
             method: "POST",
             headers: {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer " + OPENAI_KEY
+                "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                model: "gpt-image-2",
                 prompt: prompt,
-                n: 1,
                 size: size
             })
         });

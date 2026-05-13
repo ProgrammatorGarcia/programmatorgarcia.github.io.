@@ -336,6 +336,157 @@ body::after {
     }
 }
 
+/* ===== COBWEBS (Cooking Club) ===== */
+#cooking-club {
+    position: relative;
+    overflow: visible;
+}
+
+/* Big cobweb SVG used by all four corners */
+.cobweb {
+    position: absolute;
+    pointer-events: none;
+    z-index: 2;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 150'%3E%3Cg stroke='%23ccc' fill='none'%3E%3Cpath d='M0 0L150 150' stroke-width='0.5'/%3E%3Cpath d='M0 0L110 150' stroke-width='0.4'/%3E%3Cpath d='M0 0L150 110' stroke-width='0.4'/%3E%3Cpath d='M0 0L70 150' stroke-width='0.35'/%3E%3Cpath d='M0 0L150 70' stroke-width='0.35'/%3E%3Cpath d='M0 0L30 150' stroke-width='0.3'/%3E%3Cpath d='M0 0L150 30' stroke-width='0.3'/%3E%3Cpath d='M0 0Q75 12 150 0' stroke-width='0.5'/%3E%3Cpath d='M0 0Q12 75 0 150' stroke-width='0.5'/%3E%3Cpath d='M2 8Q8 6 14 14' stroke-width='0.6'/%3E%3Cpath d='M8 2Q6 8 14 14' stroke-width='0.6'/%3E%3Cpath d='M5 20Q18 16 35 35' stroke-width='0.5'/%3E%3Cpath d='M20 5Q16 18 35 35' stroke-width='0.5'/%3E%3Cpath d='M10 40Q35 30 60 60' stroke-width='0.45'/%3E%3Cpath d='M40 10Q30 35 60 60' stroke-width='0.45'/%3E%3Cpath d='M15 65Q50 50 90 90' stroke-width='0.4'/%3E%3Cpath d='M65 15Q50 50 90 90' stroke-width='0.4'/%3E%3Cpath d='M22 90Q65 68 120 120' stroke-width='0.35'/%3E%3Cpath d='M90 22Q68 65 120 120' stroke-width='0.35'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* Droopy strand overlays */
+.cobweb-strand {
+    position: absolute;
+    pointer-events: none;
+    z-index: 2;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 60'%3E%3Cpath d='M0 0 Q40 55 80 30 Q120 5 160 45 Q180 58 200 50' stroke='%23bbb' fill='none' stroke-width='0.5' opacity='0.5'/%3E%3Cpath d='M0 5 Q50 60 100 35 Q150 10 200 40' stroke='%23aaa' fill='none' stroke-width='0.4' opacity='0.4'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* Top-left corner - big web */
+.cobweb-tl {
+    top: -5px;
+    left: -5px;
+    width: 180px;
+    height: 180px;
+    opacity: 0.5;
+}
+
+/* Top-right corner - big web */
+.cobweb-tr {
+    top: -5px;
+    right: -5px;
+    width: 160px;
+    height: 160px;
+    opacity: 0.45;
+    transform: scaleX(-1);
+}
+
+/* Bottom-left corner */
+.cobweb-bl {
+    bottom: -5px;
+    left: -5px;
+    width: 140px;
+    height: 140px;
+    opacity: 0.4;
+    transform: scaleY(-1);
+}
+
+/* Bottom-right corner */
+.cobweb-br {
+    bottom: -5px;
+    right: -5px;
+    width: 170px;
+    height: 170px;
+    opacity: 0.45;
+    transform: rotate(180deg);
+}
+
+/* Droopy strands across the top */
+.strand-top {
+    top: 0;
+    left: 10%;
+    width: 80%;
+    height: 40px;
+    opacity: 0.35;
+}
+
+.strand-mid {
+    top: 30%;
+    left: 5%;
+    width: 90%;
+    height: 35px;
+    opacity: 0.25;
+    transform: scaleX(-1);
+}
+
+/* Spider hanging from a thread */
+.spider-container {
+    position: absolute;
+    top: -10px;
+    right: 25%;
+    z-index: 3;
+    pointer-events: none;
+    animation: spiderSway 4s ease-in-out infinite;
+    transform-origin: top center;
+}
+
+.spider-thread {
+    width: 1px;
+    height: 65px;
+    background: rgba(200, 200, 200, 0.4);
+    margin: 0 auto;
+}
+
+.spider-body {
+    font-size: 28px;
+    line-height: 1;
+    text-align: center;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+    animation: spiderDangle 3s ease-in-out infinite alternate;
+}
+
+@keyframes spiderSway {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+}
+
+@keyframes spiderDangle {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(6px); }
+}
+
+/* ===== IMAGE GENERATOR ===== */
+#image-gen-section {
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+#image-gen-section h2 {
+    margin-top: 0;
+}
+
+#image-gen-section textarea::-webkit-scrollbar {
+    width: 6px;
+}
+
+#image-gen-section textarea::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 3px;
+}
+
+#img-generate-btn:disabled {
+    cursor: not-allowed;
+}
+
+#img-output {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.97); }
+    to { opacity: 1; transform: scale(1); }
+}
+
 /* ===== PRINT ===== */
 @media print {
     body {

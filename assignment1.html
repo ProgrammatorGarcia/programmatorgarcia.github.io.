@@ -1,120 +1,290 @@
 <!DOCTYPE html>
-<html>
-<title>
-Veritas Logic & Computation Assignment 1
-</title>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment 1: Java Basics | Logic &amp; Computation</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="site-shell.css">
+  <link rel="stylesheet" href="assignment1.css">
   <script src="site-header.js" defer></script>
 </head>
-<body style="background-color: black;">
-<h1 style="color:white;">Veritas Logic & Computation Assignment 1   
-    <div style = 
-    "position: absolute;
-    top: 10px;
-    right: 10px;">
+<body>
+  <h1>Assignment 1: Java Basics</h1>
+  <main class="assignment-content">
+    <section class="home-card" aria-labelledby="start-heading">
+      <span class="home-kicker">Variables, operations, and decisions</span>
+      <h2 id="start-heading">Your first Java lab</h2>
+      <p>Practice storing values, calculating answers, and choosing what your program prints. Work through the ten problems in order; #10 is a challenge that combines the earlier skills.</p>
+      <ol>
+        <li>Create a file named <code>Main.java</code> using the starter below. Put your name, project, and date in the comment at the top.</li>
+        <li>Write your code inside <code>main</code>, between the marked comments. Keep the class and method lines and their braces.</li>
+        <li>For this lab, an <strong>input</strong> means a value you assign to a variable in your code. Change that value and run again to test. You do not need keyboard input, <code>Scanner</code>, loops, or additional methods.</li>
+        <li><strong>Print</strong> answers with <code>System.out.println(...);</code>. You do not need a <code>return</code> statement. Print a problem label before each answer so your output is easy to follow.</li>
+        <li>Complete one problem at a time, then run the program. Use different variable names for different problems in <code>main</code> so declarations do not collide.</li>
+      </ol>
+      <nav class="assignment-jumps" aria-label="Assignment sections">
+        <a href="#cheat-sheet">Java cheat sheet</a>
+        <a href="#starter">Starter code</a>
+        <a href="#problems">The 10 problems</a>
+        <a href="#finish">Before submitting</a>
+      </nav>
+    </section>
 
-    <img src="Veritas_crest_1C.png"
-    width="150px",
-    height=" auto"/>
-    
-</div> 
-</h1>
-<p style="color:white;">/**
- * <br />
-    * Name:<br />
-    * Project:<br />
-    * Date:<br />
-    * <br />
-    * Quick cheat sheet:<br />
-    * <br />
-    * Math only:<br />
-    * int: stores whole numbers<br />
-    * double: stores numbers with decimal points<br />
-    * <br />
-    * boolean algebra<br />
-    * boolean: stores a true or false value<br />
-    * <br />
-    * text<br />
-    * char: stores a single character<br />
-    * String: stores a string of characters<br />
-    * <br />
-    * How to output text to the terminal.<br />
-    * String x = "And this is how you output variables with println."<br />
-    * System.out.println("This is how you type stuff in manually. " + x);<br />
-    * <br />
-    * Variables cannot share names, each variable must have an unique name!!!<br />
-    * <br />
-    */<br />
-    <br />
-    <br />
-   public class Main<br />
-   {<br />
-       public static void main (String[] args)<br />
-       {<br />
-       //Out of bounds   <br />
-       <br />           
-       //#1. Write code that prints "Hello world!!!" to the screen.<br />
-       <br />
-       System.out.println("Hello world!"); <br />
-       <br />
-       //#2. Write code that swaps the values of two given numbers and then outputs the new values to a terminal.<br />
-       /*<br />
-        * Example: a = 10, b = 20<br />
-        * Output: a = 20, b = 10<br />
-        * <br />
-        * Hint: Don't be afraid to add more variables to solve your problem.<br />
-        */<br />
-        <br />
-        <br />
-       //#3. Write code that returns the squared value of a given number.<br />
-       // Example: x = 3   Output: 9<br />
-       <br />
-       <br />
-       //#4. Write code that returns the greater value between two numbers<br />
-       // Example: x = 4   y = -5    return 4<br />
-       <br />
-       <br />
-       //#5. Write code that compares two values and swaps the values if the first value is less than the second value.<br />
-       // Example: x = 10    y = 21,  x should equal 21<br />
-       <br />
-       <br />
-       //#6. Write code that checks a number to see if it is a negative value or not.<br />
-       <br />
-       <br />
-       <br />
-       //#7. Write code that checks a number to see if it is an even number or not.<br />
-       // Hint: There is an operation called modulus (%) that returns the REMAINDER of a number after dividing.<br />
-       <br />
-       <br />
-       <br />
-       <br />
-       //#8. Write code that when given three grades, it returns the average of those three grades <br />
-       //# AND returns a letter grade as well based on the average.<br />
-       // Example: Inputs: 94, 87, 75         Outputs: 85.333, B<br />
-       <br />
-       <br />
-       <br />
-       <br />
-       //#9. Write code that checks whether a boolean variable is true or false, and then outputs a special message<br />
-       //# based on whether the boolean value is true or false.<br />
-       // Example:  myboolean = true  Output: "This boolean is true" myboolean = false  Output: "This boolean is false"<br />
-       <br />
-       <br />
-       <br />
-       <br />
-       //#10. Challenge:  Write me a program that can simulate a game of rock paper scissors, given two inputs<br />
-       //# The inputs can either be "rock", "paper", or "scissors". <br />
-       //# The output dictates which player won the game.<br />
-       // Example: Player 1: "Rock"  Player 2: "Paper"   Output: "Player 2 wins!!!"<br />
-       <br />
-       <br />
-       //Out of bounds    <br />
-       }<br />
-   }<br />
-   </p>
+    <section class="home-card" id="cheat-sheet" aria-labelledby="cheat-heading">
+      <span class="home-kicker">Quick reference</span>
+      <h2 id="cheat-heading">Java cheat sheet</h2>
+      <h3>1. Store a value in a variable</h3>
+      <p>A variable has a type, a name, and a value: <code>int count = 5;</code>. The type tells Java what kind of value it can hold. End declarations and assignments with a semicolon.</p>
+      <table>
+        <caption>The five types used in this lab</caption>
+        <thead><tr><th scope="col">Type</th><th scope="col">Stores</th><th scope="col">Example</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><code>int</code></th><td>Whole numbers, including zero and negatives</td><td><code>int count = 5;</code></td></tr>
+          <tr><th scope="row"><code>double</code></th><td>Numbers that can have a fractional part; decimal results may be approximate</td><td><code>double price = 2.50;</code></td></tr>
+          <tr><th scope="row"><code>char</code></th><td>One character, in single quotes</td><td><code>char initial = 'J';</code></td></tr>
+          <tr><th scope="row"><code>String</code></th><td>Text, in double quotes; use a capital S</td><td><code>String name = "Jordan";</code></td></tr>
+          <tr><th scope="row"><code>boolean</code></th><td><code>true</code> or <code>false</code>, without quotes</td><td><code>boolean ready = true;</code></td></tr>
+        </tbody>
+      </table>
+      <p>Java is case-sensitive: <code>score</code> and <code>Score</code> are different names. Declare a variable once in the same block; leave off its type when changing its value.</p>
+      <pre><code>int count = 5;                 // Declare and initialize.
+count = 8;                     // Replace the old value.
+count = count + 1;             // Read the old value, then store 9.
+System.out.println("Count: " + count); // Prints Count: 9</code></pre>
+      <p><code>=</code> stores the value on its right in the variable on its left. Copying a number into another variable does not keep the two variables linked.</p>
+
+      <h3>2. Calculate and print</h3>
+      <table>
+        <caption>Arithmetic and text operations</caption>
+        <thead><tr><th scope="col">Operation</th><th scope="col">Meaning</th><th scope="col">Example result</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><code>+</code></th><td>Add numbers</td><td><code>7 + 2</code> is <code>9</code></td></tr>
+          <tr><th scope="row"><code>-</code></th><td>Subtract</td><td><code>7 - 2</code> is <code>5</code></td></tr>
+          <tr><th scope="row"><code>*</code></th><td>Multiply</td><td><code>7 * 2</code> is <code>14</code></td></tr>
+          <tr><th scope="row"><code>/</code></th><td>Divide; two integers give an integer result, discarding the fractional part</td><td><code>7 / 2</code> is <code>3</code>; <code>7 / 2.0</code> is <code>3.5</code></td></tr>
+          <tr><th scope="row"><code>%</code></th><td>Find the remainder after division</td><td><code>7 % 2</code> is <code>1</code>; <code>8 % 2</code> is <code>0</code></td></tr>
+          <tr><th scope="row"><code>+</code> with text</th><td>Join text and values</td><td><code>"Score: " + 8</code> is <code>"Score: 8"</code></td></tr>
+        </tbody>
+      </table>
+      <p>Use parentheses to group calculations: <code>(6 + 4) / 2.0</code> is <code>5.0</code>. Multiplication, division, and remainder happen before addition and subtraction. Do not divide by zero.</p>
+      <pre><code>System.out.println("Hello!");          // Print text, then start a new line.
+System.out.println("Total: " + (4 + 2)); // Prints Total: 6</code></pre>
+      <p><strong>Common trap:</strong> <code>double result = 7 / 2;</code> stores <code>3.0</code>, because integer division happens first. Use <code>7 / 2.0</code> to keep the fraction. To square a number, multiply it by itself; <code>^</code> is not Java's exponent operator.</p>
+
+      <h3>3. Compare values</h3>
+      <p>A comparison produces a <code>boolean</code> result: <code>true</code> or <code>false</code>.</p>
+      <table>
+        <caption>Comparisons and boolean operations</caption>
+        <thead><tr><th scope="col">Operator</th><th scope="col">Meaning</th><th scope="col">Example</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><code>==</code> / <code>!=</code></th><td>Equal / not equal (numbers, characters, booleans)</td><td><code>5 == 5</code> is <code>true</code></td></tr>
+          <tr><th scope="row"><code>&lt;</code> / <code>&lt;=</code></th><td>Less than / less than or equal</td><td><code>5 &lt; 5</code> is <code>false</code></td></tr>
+          <tr><th scope="row"><code>&gt;</code> / <code>&gt;=</code></th><td>Greater than / greater than or equal</td><td><code>5 &gt;= 5</code> is <code>true</code></td></tr>
+          <tr><th scope="row"><code>&amp;&amp;</code></th><td>AND: both conditions must be true</td><td><code>(5 &gt; 0) &amp;&amp; (5 &lt; 10)</code> is <code>true</code></td></tr>
+          <tr><th scope="row"><code>||</code></th><td>OR: at least one condition must be true</td><td><code>(5 &lt; 0) || (5 == 5)</code> is <code>true</code></td></tr>
+          <tr><th scope="row"><code>!</code></th><td>NOT: reverse a boolean</td><td><code>!true</code> is <code>false</code></td></tr>
+          <tr><th scope="row"><code>.equals(...)</code></th><td>Compare String contents; capitalization matters</td><td><code>"rock".equals("paper")</code> is <code>false</code></td></tr>
+        </tbody>
+      </table>
+      <p><strong>Remember:</strong> <code>=</code> assigns; <code>==</code> compares. Use <code>choice.equals("rock")</code> to compare text, rather than <code>choice == "rock"</code>.</p>
+
+      <h3>4. Make a decision with if</h3>
+      <p>An <code>if</code> runs its block only when the condition in parentheses is true. An <code>else</code> runs when that condition is false. Put the statements for each branch inside braces.</p>
+      <pre><code>boolean ready = true;
+if (ready) {
+    System.out.println("Let's begin!");
+} else {
+    System.out.println("Take a moment to get ready.");
+}</code></pre>
+      <p>For more than two possibilities, use <code>else if</code>. Java checks this chain from top to bottom and runs only the first matching branch, or the final <code>else</code> if none match.</p>
+      <pre><code>int books = 2;
+if (books == 0) {
+    System.out.println("No books yet.");
+} else if (books == 1) {
+    System.out.println("One book.");
+} else {
+    System.out.println("More than one book.");
+}</code></pre>
+      <p>An <code>else</code> is optional when nothing needs to happen for a false condition. Do not put a semicolon immediately after <code>if (...)</code>.</p>
+    </section>
+
+    <section class="home-card" id="starter" aria-labelledby="starter-heading">
+      <h2 id="starter-heading">Starter code</h2>
+      <p>Copy this into <code>Main.java</code>. The file name must match <code>public class Main</code>. Replace each TODO comment with your work; add as many lines as you need.</p>
+      <pre><code>/*
+ * Name:
+ * Project: Assignment 1 - Java Basics
+ * Date:
+ */
+public class Main {
+    public static void main(String[] args) {
+        // START: Write your lab code below this line.
+
+        System.out.println("Problem 1");
+        // TODO: Greeting and student information
+
+        System.out.println("Problem 2");
+        // TODO: Guided swap
+
+        System.out.println("Problem 3");
+        // TODO: Square a number
+
+        System.out.println("Problem 4");
+        // TODO: Find the larger number
+
+        System.out.println("Problem 5");
+        // TODO: Put the larger value first
+
+        System.out.println("Problem 6");
+        // TODO: Check for a negative number
+
+        System.out.println("Problem 7");
+        // TODO: Even or odd
+
+        System.out.println("Problem 8");
+        // TODO: Average and letter grade
+
+        System.out.println("Problem 9");
+        // TODO: Boolean message
+
+        System.out.println("Problem 10");
+        // TODO: Rock, paper, scissors challenge
+
+        // END: Keep the two closing braces below.
+    }
+}</code></pre>
+    </section>
+
+    <section id="problems" aria-labelledby="problems-heading">
+      <h2 id="problems-heading">The 10 problems</h2>
+      <p>Use the starting values first, then try the checks. Your answers must come from the variables and calculations, not from typing the expected answers directly into print statements.</p>
+
+      <article class="home-card" id="problem-1" aria-labelledby="problem-1-heading">
+        <h3 id="problem-1-heading">1. Say hello</h3>
+        <p>Print <code>Hello world!!!</code>. Then declare <code>String studentName = "Jordan";</code> and <code>char section = 'A';</code>. Use those variables to print the second line below.</p>
+        <pre><code>Hello world!!!
+Student: Jordan, section: A</code></pre>
+        <p><strong>Check:</strong> Change the name and section to your own. Both should change in the output. Use <code>+</code> to join text and values.</p>
+      </article>
+
+      <article class="home-card" id="problem-2" aria-labelledby="problem-2-heading">
+        <h3 id="problem-2-heading">2. Swap two values, step by step</h3>
+        <p>Declare <code>int a = 10;</code> and <code>int b = 20;</code>. A <strong>swap</strong> means that <code>a</code> ends with the original value of <code>b</code>, and <code>b</code> ends with the original value of <code>a</code>.</p>
+        <p><strong>Why a third variable?</strong> If you write <code>a = b;</code> first, the original value in <code>a</code> is overwritten. Writing <code>b = a;</code> afterward would copy 20 again. A temporary variable holds the original value so it is not lost.</p>
+        <ol>
+          <li>Print the starting values as shown below.</li>
+          <li>Create the temporary storage with <code>int temp = a;</code>. Now <code>temp</code> holds a copy of 10.</li>
+          <li>Write an assignment that copies the value of <code>b</code> into <code>a</code>.</li>
+          <li>Write an assignment that copies the saved value in <code>temp</code> into <code>b</code>.</li>
+          <li>Print both variables again. Do not swap by typing <code>a = 20;</code> and <code>b = 10;</code>; the same code should work for other starting numbers.</li>
+        </ol>
+        <pre><code>Before: a = 10, b = 20
+After: a = 20, b = 10</code></pre>
+        <p><strong>Check:</strong> With starting values <code>a = -3</code> and <code>b = 7</code>, the final values should be <code>a = 7</code> and <code>b = -3</code>. Trace the values of <code>a</code>, <code>b</code>, and <code>temp</code> on paper after each assignment.</p>
+      </article>
+
+      <article class="home-card" id="problem-3" aria-labelledby="problem-3-heading">
+        <h3 id="problem-3-heading">3. Square a number</h3>
+        <p>Declare <code>int numberToSquare = 3;</code>. Multiply the variable by itself, store the result in an <code>int</code> named <code>squared</code>, and print the result.</p>
+        <pre><code>Square: 9</code></pre>
+        <p><strong>Check:</strong> Try <code>-4</code> (expect <code>16</code>) and <code>0</code> (expect <code>0</code>). Use <code>*</code> for multiplication.</p>
+      </article>
+
+      <article class="home-card" id="problem-4" aria-labelledby="problem-4-heading">
+        <h3 id="problem-4-heading">4. Find the larger number</h3>
+        <p>Declare <code>int firstNumber = 4;</code> and <code>int secondNumber = -5;</code>. Use <code>if</code>, <code>else if</code>, and <code>else</code> to print the larger value. If the values are equal, print <code>The numbers are equal.</code> Leave both variables unchanged.</p>
+        <pre><code>Larger: 4</code></pre>
+        <p><strong>Check:</strong> Try <code>2, 9</code> (print <code>Larger: 9</code>) and <code>6, 6</code> (print the equality message). Check whether the first number is greater, then whether the second is greater.</p>
+      </article>
+
+      <article class="home-card" id="problem-5" aria-labelledby="problem-5-heading">
+        <h3 id="problem-5-heading">5. Put the larger value first</h3>
+        <p>Declare <code>int firstValue = 10;</code> and <code>int secondValue = 21;</code>. If <code>firstValue</code> is less than <code>secondValue</code>, swap their values using the temporary-variable technique from #2. Otherwise, leave them alone. Print both values after the <code>if</code>, so they print whether or not a swap happens.</p>
+        <pre><code>firstValue = 21, secondValue = 10</code></pre>
+        <p><strong>Hint:</strong> The three swap statements belong inside the <code>if</code> braces. Use a new temporary-variable name, such as <code>savedValue</code>.</p>
+        <p><strong>Check:</strong> Starting values <code>30, 5</code> should stay <code>30, 5</code>; <code>8, 8</code> should stay <code>8, 8</code>.</p>
+      </article>
+
+      <article class="home-card" id="problem-6" aria-labelledby="problem-6-heading">
+        <h3 id="problem-6-heading">6. Is the number negative?</h3>
+        <p>Declare <code>int numberToCheck = -6;</code>. Use an <code>if / else</code> to print <code>Negative</code> when the value is less than zero, or <code>Not negative</code> otherwise.</p>
+        <pre><code>Negative</code></pre>
+        <p><strong>Check:</strong> Both <code>4</code> and <code>0</code> should print <code>Not negative</code>. Zero is not negative; it is not positive either.</p>
+      </article>
+
+      <article class="home-card" id="problem-7" aria-labelledby="problem-7-heading">
+        <h3 id="problem-7-heading">7. Even or odd?</h3>
+        <p>Declare <code>int wholeNumber = 8;</code>. Print <code>Even</code> if it divides by 2 with no remainder; otherwise print <code>Odd</code>. Use <code>%</code> to find the remainder and compare it with zero.</p>
+        <pre><code>Even</code></pre>
+        <p><strong>Check:</strong> <code>7</code> is odd, <code>0</code> is even, <code>-4</code> is even, and <code>-3</code> is odd. Checking for remainder zero works for negative numbers too.</p>
+      </article>
+
+      <article class="home-card" id="problem-8" aria-labelledby="problem-8-heading">
+        <h3 id="problem-8-heading">8. Calculate an average, then a letter grade</h3>
+        <p>Declare three <code>double</code> variables with these starting values: <code>gradeOne = 94.0</code>, <code>gradeTwo = 87.0</code>, and <code>gradeThree = 75.0</code>. Assume each grade is between 0 and 100, inclusive.</p>
+        <ol>
+          <li>Add all three grades in parentheses and divide their sum by <code>3.0</code>. Store the answer in <code>double average</code> and print it.</li>
+          <li>Use an <code>if / else if / else</code> chain to print a letter grade using the table below. Check the highest cutoff first.</li>
+        </ol>
+        <table>
+          <caption>Grading scale for this exercise</caption>
+          <thead><tr><th scope="col">Average</th><th scope="col">Letter</th></tr></thead>
+          <tbody>
+            <tr><td>90 through 100</td><td>A</td></tr>
+            <tr><td>At least 80 but less than 90</td><td>B</td></tr>
+            <tr><td>At least 70 but less than 80</td><td>C</td></tr>
+            <tr><td>At least 60 but less than 70</td><td>D</td></tr>
+            <tr><td>Less than 60</td><td>F</td></tr>
+          </tbody>
+        </table>
+        <pre><code>Average: 85.33333333333333
+Letter grade: B</code></pre>
+        <p>No rounding or special decimal formatting is required. Choose the letter from the unrounded average: <code>89.9</code> is a B.</p>
+        <p><strong>Check:</strong> Set all three grades to <code>90.0</code> (A), then <code>80.0</code> (B), <code>70.0</code> (C), <code>60.0</code> (D), and <code>59.0</code> (F). Also check all zeros (F) and all hundreds (A).</p>
+      </article>
+
+      <article class="home-card" id="problem-9" aria-labelledby="problem-9-heading">
+        <h3 id="problem-9-heading">9. Let a boolean choose the message</h3>
+        <p>Declare <code>boolean isReady = true;</code>. Use <code>if (isReady)</code> and <code>else</code> to print <code>Ready to begin!</code> when it is true, or <code>Not ready yet.</code> when it is false.</p>
+        <pre><code>Ready to begin!</code></pre>
+        <p><strong>Check:</strong> Change only the starting value to <code>false</code> and run again. You should see only <code>Not ready yet.</code> A boolean can be used directly as the condition; it does not need quotes or a comparison with <code>true</code>.</p>
+      </article>
+
+      <article class="home-card" id="problem-10" aria-labelledby="problem-10-heading">
+        <span class="home-kicker">Challenge</span>
+        <h3 id="problem-10-heading">10. Rock, paper, scissors</h3>
+        <p>Declare <code>String playerOne = "rock";</code> and <code>String playerTwo = "paper";</code>. Each value will be exactly <code>"rock"</code>, <code>"paper"</code>, or <code>"scissors"</code>, all lowercase. Simulate one round; no keyboard input, random choices, or invalid-input handling is required.</p>
+        <p><strong>Rules:</strong> Rock beats scissors, scissors beats paper, and paper beats rock. Matching choices are a tie. Print exactly one result: <code>Player 1 wins!</code>, <code>Player 2 wins!</code>, or <code>Tie!</code>.</p>
+        <ol>
+          <li>Check for a tie first with <code>playerOne.equals(playerTwo)</code>.</li>
+          <li>Next, check the three ways Player 1 can win. For one winning pair, both choices must match: <code>playerOne.equals("rock") &amp;&amp; playerTwo.equals("scissors")</code>. Add the other two winning pairs with separate <code>else if</code> branches, or join the pairs with <code>||</code>.</li>
+          <li>If it is not a tie and none of Player 1's winning pairs match, Player 2 wins.</li>
+        </ol>
+        <pre><code>Player 2 wins!</code></pre>
+        <table>
+          <caption>Test all nine pairs; each cell is the expected result</caption>
+          <thead><tr><th scope="col">Player 1 choice</th><th scope="col">Player 2: rock</th><th scope="col">Player 2: paper</th><th scope="col">Player 2: scissors</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">rock</th><td>Tie!</td><td>Player 2 wins!</td><td>Player 1 wins!</td></tr>
+            <tr><th scope="row">paper</th><td>Player 1 wins!</td><td>Tie!</td><td>Player 2 wins!</td></tr>
+            <tr><th scope="row">scissors</th><td>Player 2 wins!</td><td>Player 1 wins!</td><td>Tie!</td></tr>
+          </tbody>
+        </table>
+      </article>
+    </section>
+
+    <section class="home-card" id="finish" aria-labelledby="finish-heading">
+      <h2 id="finish-heading">Before submitting</h2>
+      <ul>
+        <li>Fill in your name, project, and date at the top of <code>Main.java</code>.</li>
+        <li>Run your program and check that the output for each problem is labeled.</li>
+        <li>Try the listed checks by changing the starting values and running again. Make sure the code computes each answer.</li>
+        <li>Be ready to explain why #2 needs a temporary variable and why #8 needs decimal division.</li>
+      </ul>
+      <p>Submit your completed <code>Main.java</code> file to <a href="mailto:logichomework@outlook.com">logichomework@outlook.com</a>.</p>
+      <p><a href="index.html#assignments">Back to assignments</a></p>
+    </section>
+  </main>
 </body>
 </html>

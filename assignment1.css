@@ -1,0 +1,94 @@
+/* Assignment 1 uses the shared course theme and readable lesson sections. */
+.assignment-content > section,
+.assignment-content article {
+    margin-top: 24px;
+}
+
+.assignment-content p,
+.assignment-content li {
+    line-height: 1.75;
+}
+
+.assignment-content p + p {
+    padding: 0;
+    border: 0;
+    background: none;
+    backdrop-filter: none;
+}
+
+.assignment-content h3 {
+    margin-top: 28px;
+}
+
+.assignment-content article h3 {
+    margin-top: 0;
+}
+
+.assignment-content h3 + p,
+.assignment-content table + p,
+.assignment-content pre + p {
+    margin-top: 14px;
+}
+
+.assignment-content ol,
+.assignment-content ul {
+    padding-left: 24px;
+    margin: 16px 0;
+}
+
+.assignment-content li + li {
+    margin-top: 10px;
+}
+
+.assignment-content table {
+    width: 100%;
+    margin: 18px 0;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.assignment-content caption {
+    text-align: left;
+    color: var(--site-muted);
+    padding-bottom: 8px;
+}
+
+.assignment-content th,
+.assignment-content td {
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: top;
+    border: 1px solid var(--site-line);
+}
+
+.assignment-content th {
+    color: var(--site-text-bright);
+    background: var(--site-panel-strong);
+}
+
+.assignment-content pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.assignment-content pre code {
+    overflow-wrap: anywhere;
+}
+
+.assignment-jumps {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    margin-top: 20px;
+}
+
+@media (max-width: 720px) {
+    .assignment-content pre {
+        padding: 16px !important;
+    }
+
+    .assignment-content th,
+    .assignment-content td {
+        padding: 8px;
+    }
+}

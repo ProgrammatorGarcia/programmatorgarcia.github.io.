@@ -7,64 +7,71 @@
   <title>The Computer Finally Listens! | Logic &amp; Computation</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="site-shell.css">
+  <link rel="stylesheet" href="assignment1.css">
   <style>
-:root { color-scheme: light; --lab-ink: #18304d; --lab-muted: #536174; --lab-line: #d8e0e9; --lab-gold: #a47b2a; }
-* { box-sizing: border-box; }
-body { margin: 0; background: #f3f5f8; color: var(--lab-ink); font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 17px; line-height: 1.65; }
-.lab-page { max-width: 1040px; margin: 0 auto; padding: 32px 24px 60px; }
-.lab-page a { color: #195688; text-underline-offset: .2em; }
-.lab-page a:focus-visible { outline: 3px solid #c0943e; outline-offset: 4px; }
-.lab-page .back-link { display: inline-block; margin-bottom: 16px; font-size: .93rem; }
-.lab-hero { background: #18304d; color: #fff; padding: 36px; border-radius: 16px; border-top: 5px solid #c9a45b; }
-.lab-page .eyebrow { font-size: .76rem; font-weight: 750; letter-spacing: .13em; text-transform: uppercase; margin: 0 0 8px; }
-.lab-hero .eyebrow { color: #ecd5a7; }
-.lab-page h1 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.15; margin: 0 0 16px; color: inherit; }
-.lab-hero p { margin: 0; max-width: 760px; }
-.lab-hero .lab-meta { margin-top: 18px; color: #d8e6f6; font-size: .9rem; }
-.lab-page .lab-card { padding: 30px 34px; margin-top: 22px; background: #fff; border: 1px solid var(--lab-line); border-radius: 12px; }
-.lab-page h2 { font-size: 1.65rem; line-height: 1.3; margin: 0 0 16px; color: var(--lab-ink); }
-.lab-page h3 { font-size: 1.3rem; line-height: 1.35; margin: 0 0 14px; color: var(--lab-ink); }
-.lab-page p { margin-top: 0; margin-bottom: 14px; }
-.lab-page li { margin-bottom: 7px; }
-.lab-page ul, .lab-page ol { padding-left: 1.5em; }
-.lab-nav { display: flex; flex-wrap: wrap; gap: 10px; margin: 22px 0 0; }
-.lab-page .lab-nav a { display: block; text-decoration: none; border: 1px solid #cbd6e1; background: #fff; padding: 9px 15px; border-radius: 6px; font-size: .92rem; font-weight: 600; }
-.lab-page .lab-nav a:hover { background: #eaf1f8; }
-.lab-page code { font-family: Consolas, "Liberation Mono", monospace; font-size: .9em; color: #143f64; background: #edf2f7; border-radius: 3px; padding: .12em .3em; overflow-wrap: anywhere; }
-.lab-page pre { background: #12243a; color: #eef5ff; padding: 20px 22px; border-radius: 8px; line-height: 1.6; font-size: .9rem; overflow-x: auto; white-space: pre; tab-size: 4; margin: 14px 0 20px; }
-.lab-page pre code { color: inherit; background: none; padding: 0; font-size: inherit; overflow-wrap: normal; }
-.lab-page .table-wrap { overflow-x: auto; margin: 16px 0; }
-.lab-page table { width: 100%; border-collapse: collapse; text-align: left; font-size: .94rem; }
-.lab-page caption { text-align: left; font-weight: 650; padding-bottom: 8px; }
-.lab-page th, .lab-page td { border: 1px solid var(--lab-line); padding: 12px 14px; vertical-align: top; }
-.lab-page th { background: #edf2f7; }
-.lab-page .note, .lab-page .hint, .lab-page .check { padding: 13px 17px; border-left: 4px solid #7294b7; background: #f1f6fb; border-radius: 0 6px 6px 0; margin: 16px 0; }
-.lab-page .check { border-color: #a78745; background: #faf6ed; }
-.lab-page .hint { border-color: #bdcad7; background: #f6f8fa; }
-.lab-page .problem-meta { font-size: .8rem; color: var(--lab-muted); font-weight: 600; margin-bottom: 9px; }
-.lab-page .example-label { font-size: .82rem; font-weight: 700; margin-bottom: -6px; }
-.lab-page .phase { margin: 35px 0 12px; padding-left: 4px; }
-.lab-page .phase h2 { margin-bottom: 6px; }
-.lab-page .phase p { color: var(--lab-muted); }
-.lab-page .source-note { font-size: .82rem; color: var(--lab-muted); margin-top: 20px; }
-.lab-page [id] { scroll-margin-top: 100px; }
-.lab-page .lab-footer { text-align: center; margin-top: 28px; font-size: .92rem; }
-@media (max-width: 600px) { .lab-page { padding: 18px 14px 40px; } .lab-hero { padding: 25px 22px; } .lab-page .lab-card { padding: 23px 20px; } .lab-page pre { padding: 16px; font-size: .82rem; } .lab-page th, .lab-page td { padding: 10px; } }
-@media print { body { background: #fff; color: #000; font-size: 11pt; } .lab-page { max-width: none; padding: 0; } .lab-hero { color: #000; background: #fff; padding: 18px 0; border-radius: 0; border-top: 3px solid #000; } .lab-hero .eyebrow, .lab-hero .lab-meta { color: #333; } .lab-nav, .back-link, .lab-footer, body > header, body > nav { display: none !important; } .lab-page .lab-card { border: 0; border-top: 1px solid #aaa; border-radius: 0; padding: 18px 0; } .lab-page pre { background: #f4f4f4; color: #000; border: 1px solid #bbb; white-space: pre-wrap; overflow-wrap: anywhere; } .lab-page h2, .lab-page h3 { break-after: avoid; } .lab-page .hint, .lab-page .check, .lab-page tr { break-inside: avoid; } }
-</style>
+    /* Use Assignment1's course theme; these rules only arrange lab-specific elements. */
+    .fundamentals-content > .assignment-jumps,
+    .fundamentals-content > .phase,
+    .fundamentals-content > .lab-footer { margin-top: 24px; }
+    .fundamentals-content .problem h3 { margin-top: 0; }
+    .fundamentals-content .phase h2 { margin-top: 0; }
+    .fundamentals-content .table-wrap { max-width: 100%; overflow-x: auto; }
+    .fundamentals-content .note,
+    .fundamentals-content .hint,
+    .fundamentals-content .check {
+      margin-top: 16px;
+      padding: 12px 16px;
+      border: 1px solid var(--site-line);
+      border-left: 3px solid var(--site-blue);
+      border-radius: 6px;
+      background: var(--site-panel-strong);
+    }
+    .fundamentals-content .check { border-left-color: var(--site-gold); }
+    .fundamentals-content .problem-meta,
+    .fundamentals-content .source-note { color: var(--site-muted) !important; }
+    .fundamentals-content .example-label { margin-top: 16px; font-weight: 700; }
+    .fundamentals-content [id] { scroll-margin-top: 24px; }
+    .fundamentals-content .lab-footer { padding: 16px 0; }
+    @media print {
+      body { color: #111 !important; background: #fff !important; }
+      .fundamentals-content .home-card,
+      .fundamentals-content .note,
+      .fundamentals-content .hint,
+      .fundamentals-content .check,
+      .fundamentals-content th {
+        color: #111 !important; background: #fff !important; box-shadow: none;
+      }
+      .fundamentals-content .home-card { border-color: #bbb; }
+      .fundamentals-content p,
+      .fundamentals-content li,
+      .fundamentals-content h2,
+      .fundamentals-content h3,
+      .fundamentals-content th,
+      .fundamentals-content td { color: #111 !important; }
+      .fundamentals-content code { color: #164b37 !important; }
+      .fundamentals-content pre { color: #111 !important; background: #f5f5f5 !important; box-shadow: none; }
+      .fundamentals-content pre code { color: inherit !important; }
+      .fundamentals-content .assignment-jumps,
+      .fundamentals-content .back-link,
+      .fundamentals-content .lab-footer { display: none; }
+      .fundamentals-content h2,
+      .fundamentals-content h3 { break-after: avoid; }
+    }
+  </style>
   <script src="site-header.js" defer></script>
 </head>
 <body>
-<main class="lab-page">
+<h1>The Computer Finally Listens!</h1>
+<main class="assignment-content fundamentals-content">
   <a class="back-link" href="index.html#assignments">← Back to assignments</a>
-  <header class="lab-hero">
-    <p class="eyebrow">Logic &amp; Computation · Fundamentals laboratory</p>
-    <h1>The Computer Finally Listens!</h1>
+  <section class="home-card home-card--accent" aria-labelledby="lab-intro-heading">
+    <p class="home-kicker">Logic &amp; Computation · Fundamentals laboratory</p>
+    <h2 id="lab-intro-heading">Your next Java lab</h2>
     <p>Practice variables and decisions, then teach your program to read keyboard input and generate random numbers. Work through the ten problems in order, one small success at a time.</p>
     <p class="lab-meta">10 problems · Variables &amp; conditionals · Scanner &amp; Random</p>
-  </header>
+  </section>
 
-  <section class="lab-card" aria-labelledby="start-heading">
+  <section class="home-card" aria-labelledby="start-heading">
     <h2 id="start-heading">Before you begin</h2>
     <ol>
       <li>Create a file named <code>FundamentalsLab.java</code> using the starter below. Fill in your name and date.</li>
@@ -77,12 +84,12 @@ body { margin: 0; background: #f3f5f8; color: var(--lab-ink); font-family: syste
     <p class="note"><strong>Your answers must come from your variables.</strong> Example runs show what a program might print; your code must work with other inputs too. When you test a later problem, the program will still run the earlier problems first.</p>
   </section>
 
-  <nav class="lab-nav" aria-label="Lab sections">
+  <nav class="assignment-jumps home-card" aria-label="Lab sections">
     <a href="#reference">Java cheat sheet</a><a href="#starter">Starter code</a><a href="#problems">The 10 problems</a><a href="#submit">Before submitting</a>
   </nav>
 
-  <section class="lab-card" id="reference" aria-labelledby="reference-heading">
-    <p class="eyebrow">Quick reference</p>
+  <section class="home-card" id="reference" aria-labelledby="reference-heading">
+    <p class="home-kicker">Quick reference</p>
     <h2 id="reference-heading">Two new tools, familiar ideas</h2>
     <h3>1. Let Scanner read an answer</h3>
     <p><code>Scanner</code> reads what you type. The starter creates one scanner named <code>keyboard</code>; reuse it for every input problem. Ask a question, read the answer into a variable, and then use that variable.</p>
@@ -127,7 +134,7 @@ System.out.println(&quot;You entered: &quot; + number);</code></pre>
     <p class="source-note">Java reference: <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Scanner.html">Scanner</a> · <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Random.html">Random</a></p>
   </section>
 
-  <section class="lab-card" id="starter" aria-labelledby="starter-heading">
+  <section class="home-card" id="starter" aria-labelledby="starter-heading">
     <h2 id="starter-heading">Starter code</h2>
     <p>Copy this into <code>FundamentalsLab.java</code>. The filename must match <code>public class FundamentalsLab</code>. Replace each TODO comment with your solution; add lines as needed.</p>
 <pre><code>/*
@@ -183,37 +190,37 @@ public class FundamentalsLab {
     <p class="note"><strong>Keep <code>keyboard.close();</code> at the end.</strong> Put every solution above it. The starter supplies the only Scanner and Random objects you need.</p>
   </section>
 
-  <div class="phase" id="problems"><p class="eyebrow">The 10 problems · Part 1</p><h2>Ask, store, and decide</h2><p>Problems 1–6 use Scanner to practice your fundamentals.</p></div>
-<section class="lab-card problem" id="problem-1" aria-labelledby="problem-1-heading"><p class="problem-meta">Scanner · String · output</p><h3 id="problem-1-heading">1. The Computer Would Like to Meet You</h3><p>Ask the user to enter their <strong>first name</strong>. Store their answer in a <code>String</code> variable, then print a greeting containing that variable.</p><p class="example-label">Example run</p><pre><code>Enter your first name:
+  <div class="phase" id="problems"><p class="home-kicker">The 10 problems · Part 1</p><h2>Ask, store, and decide</h2><p>Problems 1–6 use Scanner to practice your fundamentals.</p></div>
+<section class="home-card problem" id="problem-1" aria-labelledby="problem-1-heading"><p class="problem-meta">Scanner · String · output</p><h3 id="problem-1-heading">1. The Computer Would Like to Meet You</h3><p>Ask the user to enter their <strong>first name</strong>. Store their answer in a <code>String</code> variable, then print a greeting containing that variable.</p><p class="example-label">Example run</p><pre><code>Enter your first name:
 Sofia
 Hello, Sofia! Welcome to the laboratory.</code></pre><p class="hint"><strong>Hint:</strong> Use <code>keyboard.next()</code> to read the name. Use <code>+</code> to connect your message to the variable.</p><p class="check"><strong>Check:</strong> Run the program with a different name. The greeting should change without editing your code.</p></section>
-<section class="lab-card problem" id="problem-2" aria-labelledby="problem-2-heading"><p class="problem-meta">Scanner · double · arithmetic</p><h3 id="problem-2-heading">2. The Suspiciously Affordable Snack Shop</h3><p>Ask the user for the price of a snack and the price of a drink. Store both prices in <code>double</code> variables. Calculate their sum, store it in another variable, and print the total.</p><p>Assume both prices are zero or greater. There is no tax.</p><p class="example-label">Example run</p><pre><code>Enter the snack price:
+<section class="home-card problem" id="problem-2" aria-labelledby="problem-2-heading"><p class="problem-meta">Scanner · double · arithmetic</p><h3 id="problem-2-heading">2. The Suspiciously Affordable Snack Shop</h3><p>Ask the user for the price of a snack and the price of a drink. Store both prices in <code>double</code> variables. Calculate their sum, store it in another variable, and print the total.</p><p>Assume both prices are zero or greater. There is no tax.</p><p class="example-label">Example run</p><pre><code>Enter the snack price:
 2.50
 Enter the drink price:
 1.25
 Your total is: 3.75</code></pre><p class="hint"><strong>Hint:</strong> Read each price with <code>keyboard.nextDouble()</code>. Enter numbers without a dollar sign.</p><p class="check"><strong>Check:</strong> Prices of <code>4.0</code> and <code>2.0</code> should produce <code>6.0</code>. You do not need to format the answer to two decimal places.</p></section>
-<section class="lab-card problem" id="problem-3" aria-labelledby="problem-3-heading"><p class="problem-meta">Scanner · int · if / else</p><h3 id="problem-3-heading">3. You Must Be This Tall to Ride the Shopping Cart</h3><p>Ask the user for their height in whole centimeters. A rider must be <strong>at least 140 centimeters tall</strong>.</p><p>Use <code>if</code> and <code>else</code> to print exactly one message:</p><ul><li>At least 140: <code>You may ride the shopping cart.</code></li><li>Below 140: <code>You must wait for a growth spurt.</code></li></ul><p class="example-label">Example run</p><pre><code>Enter your height in centimeters:
+<section class="home-card problem" id="problem-3" aria-labelledby="problem-3-heading"><p class="problem-meta">Scanner · int · if / else</p><h3 id="problem-3-heading">3. You Must Be This Tall to Ride the Shopping Cart</h3><p>Ask the user for their height in whole centimeters. A rider must be <strong>at least 140 centimeters tall</strong>.</p><p>Use <code>if</code> and <code>else</code> to print exactly one message:</p><ul><li>At least 140: <code>You may ride the shopping cart.</code></li><li>Below 140: <code>You must wait for a growth spurt.</code></li></ul><p class="example-label">Example run</p><pre><code>Enter your height in centimeters:
 145
 You may ride the shopping cart.</code></pre><p class="hint"><strong>Hint:</strong> Read the height with <code>keyboard.nextInt()</code>. “At least” includes the boundary number.</p><p class="check"><strong>Check:</strong> Test <code>139</code>, <code>140</code>, and <code>141</code>. The last two should both allow the rider.</p></section>
-<section class="lab-card problem" id="problem-4" aria-labelledby="problem-4-heading"><p class="problem-meta">Scanner · remainder · if / else</p><h3 id="problem-4-heading">4. Even Steven or Odd Todd?</h3><p>Ask the user to enter a whole number. Store it in an <code>int</code> variable. Print whether the number is even or odd.</p><p class="example-label">Example run</p><pre><code>Enter a whole number:
+<section class="home-card problem" id="problem-4" aria-labelledby="problem-4-heading"><p class="problem-meta">Scanner · remainder · if / else</p><h3 id="problem-4-heading">4. Even Steven or Odd Todd?</h3><p>Ask the user to enter a whole number. Store it in an <code>int</code> variable. Print whether the number is even or odd.</p><p class="example-label">Example run</p><pre><code>Enter a whole number:
 17
 That number is odd.</code></pre><p class="hint"><strong>Hint:</strong> The remainder operator is <code>%</code>. An even number has a remainder of <code>0</code> when divided by <code>2</code>.</p><p class="check"><strong>Check:</strong> Test <code>8</code>, <code>7</code>, and <code>0</code>. Zero should be identified as even.</p></section>
-<section class="lab-card problem" id="problem-5" aria-labelledby="problem-5-heading"><p class="problem-meta">Scanner · comparisons · three branches</p><h3 id="problem-5-heading">5. The Number’s Entire Personality</h3><p>Ask the user to enter an integer. Use an <code>if / else if / else</code> chain to identify it as <strong>positive, negative, or zero</strong>.</p><p>Print exactly one of these messages:</p><ul><li><code>That number is positive.</code></li><li><code>That number is negative.</code></li><li><code>That number is zero.</code></li></ul><p class="example-label">Example run</p><pre><code>Enter an integer:
+<section class="home-card problem" id="problem-5" aria-labelledby="problem-5-heading"><p class="problem-meta">Scanner · comparisons · three branches</p><h3 id="problem-5-heading">5. The Number’s Entire Personality</h3><p>Ask the user to enter an integer. Use an <code>if / else if / else</code> chain to identify it as <strong>positive, negative, or zero</strong>.</p><p>Print exactly one of these messages:</p><ul><li><code>That number is positive.</code></li><li><code>That number is negative.</code></li><li><code>That number is zero.</code></li></ul><p class="example-label">Example run</p><pre><code>Enter an integer:
 -4
 That number is negative.</code></pre><p class="hint"><strong>Hint:</strong> First check whether the number is greater than zero. Next check whether it is less than zero. What possibility remains?</p><p class="check"><strong>Check:</strong> Test <code>12</code>, <code>-12</code>, and <code>0</code>. Each run should print only one result.</p></section>
-<section class="lab-card problem" id="problem-6" aria-labelledby="problem-6-heading"><p class="problem-meta">Scanner · String · .equals()</p><h3 id="problem-6-heading">6. The World’s Least Secure Secret Club</h3><p>Ask the user to enter a password. Store it in a <code>String</code> variable. The password is <code>penguin</code>, written entirely in lowercase.</p><p>If the password matches, print <code>Welcome to the secret club.</code> Otherwise, print <code>The penguins do not recognize you.</code></p><p class="example-label">Example run</p><pre><code>Enter the password:
+<section class="home-card problem" id="problem-6" aria-labelledby="problem-6-heading"><p class="problem-meta">Scanner · String · .equals()</p><h3 id="problem-6-heading">6. The World’s Least Secure Secret Club</h3><p>Ask the user to enter a password. Store it in a <code>String</code> variable. The password is <code>penguin</code>, written entirely in lowercase.</p><p>If the password matches, print <code>Welcome to the secret club.</code> Otherwise, print <code>The penguins do not recognize you.</code></p><p class="example-label">Example run</p><pre><code>Enter the password:
 penguin
 Welcome to the secret club.</code></pre><p class="hint"><strong>Hint:</strong> Compare text using <code>.equals(...)</code>. For example, <code>word.equals("hello")</code> checks whether <code>word</code> contains <code>"hello"</code>. Your condition should use your password variable and the club’s actual password.</p><p class="check"><strong>Check:</strong> Test <code>penguin</code>, <code>Penguin</code>, and <code>potato</code>. Only the first should be accepted.</p></section>
-<div class="phase"><p class="eyebrow">Part 2</p><h2>Let chance choose</h2><p>Problems 7–9 introduce Random and reuse familiar decisions.</p></div><section class="lab-card problem" id="problem-7" aria-labelledby="problem-7-heading"><p class="problem-meta">Random · int · output</p><h3 id="problem-7-heading">7. A Die That Cannot Fall Under the Desk</h3><p>Generate one random integer from <strong>1 through 6</strong>, store it in an <code>int</code> variable, and print the result. This problem does not require keyboard input or a conditional.</p><p>Use this expression:</p><pre><code>random.nextInt(6) + 1</code></pre><p><code>nextInt(6)</code> produces an integer from <code>0</code> through <code>5</code>; adding <code>1</code> shifts that range to <code>1</code> through <code>6</code>.</p><p class="example-label">Possible output / run</p><pre><code>You rolled: 4</code></pre><p class="hint"><strong>Hint:</strong> Save the generated number in a variable, then print that variable. The example is one possible result.</p><p class="check"><strong>Check:</strong> Run the program several times manually. Every result must be between 1 and 6. Repeated results are normal.</p></section>
-<section class="lab-card problem" id="problem-8" aria-labelledby="problem-8-heading"><p class="problem-meta">Random · equality · if / else</p><h3 id="problem-8-heading">8. The Coin Has Spoken</h3><p>Generate one random integer using <code>random.nextInt(2)</code>. This produces either <code>0</code> or <code>1</code>. Store the result in a variable, then use <code>if</code> and <code>else</code>:</p><ul><li>If the value is <code>0</code>, print <code>Heads!</code></li><li>Otherwise, print <code>Tails!</code></li></ul><p class="example-label">Possible output / run</p><pre><code>Heads!</code></pre><p class="hint"><strong>Hint:</strong> Generate the number once, then check the stored value.</p><p class="check"><strong>Check:</strong> To check both branches, temporarily replace the random expression with <code>0</code>, then with <code>1</code>. Restore the random expression afterward.</p></section>
-<section class="lab-card problem" id="problem-9" aria-labelledby="problem-9-heading"><p class="problem-meta">Random · comparisons · three branches</p><h3 id="problem-9-heading">9. You Versus the Computer: Dice of Destiny</h3><p>Generate two random integers from <strong>1 through 6</strong>. Store one as the player’s roll and the other as the computer’s roll.</p><p>Print both values. Then use an <code>if / else if / else</code> chain to announce:</p><ul><li><code>You win!</code> when the player’s roll is larger.</li><li><code>The computer wins!</code> when the computer’s roll is larger.</li><li><code>It is a tie!</code> when the rolls are equal.</li></ul><p class="example-label">Possible output / run</p><pre><code>Your roll: 5
+<div class="phase"><p class="home-kicker">Part 2</p><h2>Let chance choose</h2><p>Problems 7–9 introduce Random and reuse familiar decisions.</p></div><section class="home-card problem" id="problem-7" aria-labelledby="problem-7-heading"><p class="problem-meta">Random · int · output</p><h3 id="problem-7-heading">7. A Die That Cannot Fall Under the Desk</h3><p>Generate one random integer from <strong>1 through 6</strong>, store it in an <code>int</code> variable, and print the result. This problem does not require keyboard input or a conditional.</p><p>Use this expression:</p><pre><code>random.nextInt(6) + 1</code></pre><p><code>nextInt(6)</code> produces an integer from <code>0</code> through <code>5</code>; adding <code>1</code> shifts that range to <code>1</code> through <code>6</code>.</p><p class="example-label">Possible output / run</p><pre><code>You rolled: 4</code></pre><p class="hint"><strong>Hint:</strong> Save the generated number in a variable, then print that variable. The example is one possible result.</p><p class="check"><strong>Check:</strong> Run the program several times manually. Every result must be between 1 and 6. Repeated results are normal.</p></section>
+<section class="home-card problem" id="problem-8" aria-labelledby="problem-8-heading"><p class="problem-meta">Random · equality · if / else</p><h3 id="problem-8-heading">8. The Coin Has Spoken</h3><p>Generate one random integer using <code>random.nextInt(2)</code>. This produces either <code>0</code> or <code>1</code>. Store the result in a variable, then use <code>if</code> and <code>else</code>:</p><ul><li>If the value is <code>0</code>, print <code>Heads!</code></li><li>Otherwise, print <code>Tails!</code></li></ul><p class="example-label">Possible output / run</p><pre><code>Heads!</code></pre><p class="hint"><strong>Hint:</strong> Generate the number once, then check the stored value.</p><p class="check"><strong>Check:</strong> To check both branches, temporarily replace the random expression with <code>0</code>, then with <code>1</code>. Restore the random expression afterward.</p></section>
+<section class="home-card problem" id="problem-9" aria-labelledby="problem-9-heading"><p class="problem-meta">Random · comparisons · three branches</p><h3 id="problem-9-heading">9. You Versus the Computer: Dice of Destiny</h3><p>Generate two random integers from <strong>1 through 6</strong>. Store one as the player’s roll and the other as the computer’s roll.</p><p>Print both values. Then use an <code>if / else if / else</code> chain to announce:</p><ul><li><code>You win!</code> when the player’s roll is larger.</li><li><code>The computer wins!</code> when the computer’s roll is larger.</li><li><code>It is a tie!</code> when the rolls are equal.</li></ul><p class="example-label">Possible output / run</p><pre><code>Your roll: 5
 Computer&#x27;s roll: 2
 You win!</code></pre><p class="hint"><strong>Hint:</strong> Use the same expression as Problem 7 for each roll. Compare the stored rolls after printing them.</p><p class="check"><strong>Check:</strong> Temporarily use fixed player/computer rolls of <code>6 and 2</code>, then <code>2 and 6</code>, then <code>3 and 3</code>. Restore both random expressions afterward.</p></section>
-<div class="phase"><p class="eyebrow">Part 3</p><h2>Bring both tools together</h2><p>Use input, random numbers, arithmetic, and one decision.</p></div><section class="lab-card problem" id="problem-10" aria-labelledby="problem-10-heading"><p class="problem-meta">Scanner + Random · arithmetic · decisions</p><h3 id="problem-10-heading">10. The Computer Gives You Homework</h3><p>Generate two random integers from <strong>1 through 10</strong>. Store each number in its own variable.</p><ol><li>Display an addition question using those numbers.</li><li>Ask the user to type an answer and store it in an <code>int</code> variable.</li><li>Calculate the correct answer using your two stored numbers.</li><li>If the user is correct, print <code>Correct! The computer is impressed.</code> Otherwise, print the correct answer.</li></ol><p class="example-label">Possible output / run</p><pre><code>What is 4 + 7?
+<div class="phase"><p class="home-kicker">Part 3</p><h2>Bring both tools together</h2><p>Use input, random numbers, arithmetic, and one decision.</p></div><section class="home-card problem" id="problem-10" aria-labelledby="problem-10-heading"><p class="problem-meta">Scanner + Random · arithmetic · decisions</p><h3 id="problem-10-heading">10. The Computer Gives You Homework</h3><p>Generate two random integers from <strong>1 through 10</strong>. Store each number in its own variable.</p><ol><li>Display an addition question using those numbers.</li><li>Ask the user to type an answer and store it in an <code>int</code> variable.</li><li>Calculate the correct answer using your two stored numbers.</li><li>If the user is correct, print <code>Correct! The computer is impressed.</code> Otherwise, print the correct answer.</li></ol><p class="example-label">Possible output / run</p><pre><code>What is 4 + 7?
 10
 Not quite! The correct answer is 11.</code></pre><p class="hint"><strong>Hint:</strong> Use <code>random.nextInt(10) + 1</code> for each number. Generate the numbers once and reuse them when displaying the question and calculating its answer.</p><p class="check"><strong>Check:</strong> Try one correct answer and one incorrect answer. Each run asks only one question.</p></section>
 
-  <section class="lab-card" id="submit" aria-labelledby="submit-heading">
+  <section class="home-card" id="submit" aria-labelledby="submit-heading">
     <h2 id="submit-heading">Before submitting</h2>
     <ul>
       <li>Fill in your name and date at the top of <code>FundamentalsLab.java</code>.</li>
@@ -229,3 +236,4 @@ Not quite! The correct answer is 11.</code></pre><p class="hint"><strong>Hint:</
 </main>
 </body>
 </html>
+

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Final-quarter Java lab: ten scaffolded problems introducing for and while loops with Scanner, Random, conditionals, and running totals.">
+  <title>Loops Lab: The Computer Learns to Repeat! | Logic &amp; Computation</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="site-shell.css">
+  <link rel="stylesheet" href="assignment1.css">
+  <style>
+    /* Use Assignment1's course theme; these rules only arrange lab-specific elements. */
+    .fundamentals-content > .assignment-jumps,
+    .fundamentals-content > .phase,
+    .fundamentals-content > .lab-footer { margin-top: 24px; }
+    .fundamentals-content .problem h3 { margin-top: 0; }
+    .fundamentals-content .phase h2 { margin-top: 0; }
+    .fundamentals-content .table-wrap { max-width: 100%; overflow-x: auto; }
+    .fundamentals-content .note,
+    .fundamentals-content .hint,
+    .fundamentals-content .check {
+      margin-top: 16px;
+      padding: 12px 16px;
+      border: 1px solid var(--site-line);
+      border-left: 3px solid var(--site-blue);
+      border-radius: 6px;
+      background: var(--site-panel-strong);
+    }
+    .fundamentals-content .check { border-left-color: var(--site-gold); }
+    .fundamentals-content .problem-meta,
+    .fundamentals-content .source-note { color: var(--site-muted) !important; }
+    .fundamentals-content .example-label { margin-top: 16px; font-weight: 700; }
+    .fundamentals-content [id] { scroll-margin-top: 24px; }
+    .fundamentals-content .lab-footer { padding: 16px 0; }
+    @media print {
+      body { color: #111 !important; background: #fff !important; }
+      .fundamentals-content .home-card,
+      .fundamentals-content .note,
+      .fundamentals-content .hint,
+      .fundamentals-content .check,
+      .fundamentals-content th {
+        color: #111 !important; background: #fff !important; box-shadow: none;
+      }
+      .fundamentals-content .home-card { border-color: #bbb; }
+      .fundamentals-content p,
+      .fundamentals-content li,
+      .fundamentals-content h2,
+      .fundamentals-content h3,
+      .fundamentals-content th,
+      .fundamentals-content td { color: #111 !important; }
+      .fundamentals-content code { color: #164b37 !important; }
+      .fundamentals-content pre { color: #111 !important; background: #f5f5f5 !important; box-shadow: none; }
+      .fundamentals-content pre code { color: inherit !important; }
+      .fundamentals-content .assignment-jumps,
+      .fundamentals-content .back-link,
+      .fundamentals-content .lab-footer { display: none; }
+      .fundamentals-content h2,
+      .fundamentals-content h3 { break-after: avoid; }
+    }
+  </style>
+  <script src="site-header.js" defer></script>
+</head>
+<body>
+<h1>The Computer Learns to Repeat!</h1>
+<main class="assignment-content fundamentals-content">
+  <a class="back-link" href="index.html#assignments">← Back to assignments</a>
+<section class="home-card home-card--accent" id="lab-intro" aria-labelledby="lab-intro-heading">
+<p class="home-kicker">Logic &amp; Computation · Loops laboratory</p><h2 id="lab-intro-heading">One instruction. Many repetitions.</h2>
+
+<p>You have taught your programs to read, calculate, and make decisions. Now teach them to repeat. Work through ten small problems using familiar variables, conditionals, <code>Scanner</code>, and <code>Random</code>.</p>
+<p class="lab-meta">Final lab of the quarter · 10 problems · for &amp; while loops</p>
+
+</section>
+<section class="home-card" id="start" aria-labelledby="start-heading">
+<h2 id="start-heading">Before you begin</h2>
+
+<ol>
+  <li>Create <code>LoopsLab.java</code> from the starter below. Fill in your name and date.</li>
+  <li>Write each solution inside <code>main</code>, below its matching problem label. Complete one problem, run it, and try its checks before moving on.</li>
+  <li>Use the loop type requested by each problem. Problems 1–6 use <code>for</code>; Problems 7–9 use <code>while</code>; Problem 10 brings the tools together with <code>for</code>.</li>
+  <li>Reuse the supplied <code>keyboard</code> and <code>random</code> objects. Keep <code>keyboard.close();</code> after all solutions.</li>
+  <li>Use different names for variables declared directly inside <code>main</code> in different problems. A counter declared inside a <code>for</code> header belongs to that loop.</li>
+  <li>Assume users enter the requested data type. Only Problems 8 and 9 require repeated prompting until an answer is accepted.</li>
+  <li>Use one loop at a time. You do not need nested loops, arrays, <code>break</code>, or <code>continue</code>.</li>
+</ol>
+<p class="note"><strong>Remember:</strong> When you run the whole program, it will run earlier problems before the one you are testing. Type each requested answer in the terminal and press Enter. Example runs include the user’s typed responses; your code does not print those responses for them.</p>
+</section>
+<nav class="assignment-jumps home-card" aria-label="Lab sections">
+<a href="#for-notes">for loop notes</a><a href="#starter">Starter code</a><a href="#part-one">Problems 1–6</a><a href="#while-notes">while loop notes</a><a href="#part-two">Problems 7–9</a><a href="#problem-10">Final challenge</a><a href="#submit">Before submitting</a>
+</nav>
+<section class="home-card" id="for-notes" aria-labelledby="for-notes-heading">
+<p class="home-kicker">Part 1 notes · Read before Problems 1–6</p><h2 id="for-notes-heading">Meet the for loop</h2>
+
+<p>A loop repeats a block of code. A <code>for</code> loop is convenient when you know how many repetitions you want, or which numbers you want to visit.</p>
+<p>Read this example before beginning. Predict what it prints, then trace the changing value of <code>round</code>.</p>
+<pre><code>for (int round = 1; round &lt;= 3; round++) {
+    System.out.println("Practice round " + round);
+}</code></pre>
+<div class="table-wrap"><table>
+<caption>The three parts of this loop’s header</caption>
+<thead><tr><th scope="col">Part</th><th scope="col">What it does</th></tr></thead>
+<tbody>
+<tr><td><code>int round = 1</code></td><td>Start the counter at 1. This happens once.</td></tr>
+<tr><td><code>round &lt;= 3</code></td><td>Check the condition before each repetition. If it is false, leave the loop.</td></tr>
+<tr><td><code>round++</code></td><td>Add one after the body finishes, then check the condition again.</td></tr>
+</tbody></table></div>
+<p>The body prints rounds <code>1</code>, <code>2</code>, and <code>3</code>. After the third repetition, the update makes <code>round</code> equal to <code>4</code>. The condition is false, so there is no fourth repetition.</p>
+<h3>Keep track of what changes</h3>
+<div class="table-wrap"><table>
+<thead><tr><th scope="col">Code</th><th scope="col">Meaning</th></tr></thead>
+<tbody>
+<tr><td><code>count++;</code></td><td>Add one to <code>count</code>. This is the same as <code>count = count + 1;</code>.</td></tr>
+<tr><td><code>count--;</code></td><td>Subtract one from <code>count</code>.</td></tr>
+<tr><td><code>total = total + amount;</code></td><td>Add <code>amount</code> to the old total and store the new total.</td></tr>
+<tr><td><code>number % 2 == 0</code></td><td>Check whether a number is even.</td></tr>
+</tbody></table></div>
+<p class="note"><strong>Where does this line belong?:</strong> Initialize a running total or score <strong>before</strong> the loop, change it <strong>inside</strong> the loop, and print the finished result <strong>after</strong> the loop. A variable created inside the loop’s braces cannot be used outside those braces.</p><p class="note"><strong>Braces and semicolons:</strong> Keep braces around the loop body. The two semicolons belong inside a <code>for</code> header. Do not put a semicolon between the closing <code>)</code> and the opening <code>{</code>.</p>
+<h3>Your familiar tools</h3>
+<div class="table-wrap"><table>
+<thead><tr><th scope="col">Expression</th><th scope="col">Use</th></tr></thead>
+<tbody><tr><td><code>keyboard.nextInt()</code></td><td>Read an integer.</td></tr>
+<tr><td><code>keyboard.next()</code></td><td>Read one word.</td></tr>
+<tr><td><code>random.nextInt(6) + 1</code></td><td>Generate an integer from 1 through 6.</td></tr>
+<tr><td><code>random.nextInt(10) + 1</code></td><td>Generate an integer from 1 through 10.</td></tr></tbody></table></div>
+<p>Need a refresher? Revisit the <a href="fundamentalslab.html#reference">fundamentals lab’s Java cheat sheet</a>.</p>
+
+</section>
+<section class="home-card" id="starter" aria-labelledby="starter-heading">
+<h2 id="starter-heading">Starter code</h2>
+<p>Copy this into <code>LoopsLab.java</code>. The filename must match <code>public class LoopsLab</code>. Replace each TODO comment with your solution; add lines as needed.</p><pre><code>/*
+ * Name:
+ * Project: The Computer Learns to Repeat!
+ * Date:
+ */
+import java.util.Scanner;
+import java.util.Random;
+
+public class LoopsLab {
+    public static void main(String[] args) {
+        Scanner keyboard = new Scanner(System.in);
+        Random random = new Random();
+
+        // START: Write each solution below its problem label.
+
+        System.out.println("Problem 1");
+        // TODO: The Computer Has Been Told Once
+
+        System.out.println("Problem 2");
+        // TODO: Counting Without Copy and Paste
+
+        System.out.println("Problem 3");
+        // TODO: You Decide When We Stop Counting
+
+        System.out.println("Problem 4");
+        // TODO: Even Steven and Odd Todd Take Attendance
+
+        System.out.println("Problem 5");
+        // TODO: The Computer Keeps a Running Total
+
+        System.out.println("Problem 6");
+        // TODO: A Die That Finally Rolls More Than Once
+
+        System.out.println("Problem 7");
+        // TODO: The Extremely Small Rocket Launch
+
+        System.out.println("Problem 8");
+        // TODO: The Computer Politely Insists
+
+        System.out.println("Problem 9");
+        // TODO: The Penguins Give You Another Chance
+
+        System.out.println("Problem 10");
+        // TODO: The Computer Gives You Three Homework Questions
+
+        // END: Keep this line after all of your solutions.
+        keyboard.close();
+    }
+}</code></pre><p class="note"><strong>Keep the setup:</strong> The starter supplies the only <code>Scanner</code> and <code>Random</code> objects you need. Keep all your solutions above <code>keyboard.close();</code>.</p>
+</section>
+<div class="phase" id="part-one"><p class="home-kicker">Problems 1–6</p><h2>Repeat a known number of times</h2><p>Begin with small for loops, then reuse your familiar decisions, input, and random numbers.</p></div>
+<section class="home-card problem" id="problem-1" aria-labelledby="problem-1-heading">
+<p class="problem-meta">for loop · fixed repetitions · output</p>
+<h3 id="problem-1-heading">1. The Computer Has Been Told Once</h3>
+<p>Use a <strong><code>for</code> loop</strong> to print the sentence below <strong>exactly five times</strong>, with each repetition on its own line. Write the printing statement only once in your code. This problem does not need keyboard input.</p>
+<p class="example-label">Example output / run</p>
+<pre><code>I will save my Java file before running it.
+I will save my Java file before running it.
+I will save my Java file before running it.
+I will save my Java file before running it.
+I will save my Java file before running it.</code></pre>
+<p class="hint"><strong>Hint:</strong> Use a counter that starts at <code>1</code>, continues through <code>5</code>, and increases by one each time.</p>
+<p class="check"><strong>Check:</strong> Count the output lines. There should be five copies of the sentence, not four or six.</p>
+</section>
+<section class="home-card problem" id="problem-2" aria-labelledby="problem-2-heading">
+<p class="problem-meta">for loop · counter variable · inclusive endpoint</p>
+<h3 id="problem-2-heading">2. Counting Without Copy and Paste</h3>
+<p>Use a <strong><code>for</code> loop</strong> to print the integers <strong>1 through 10</strong>, inclusive, one per line. Your printing statement must use the loop’s counter variable. Write the printing statement only once.</p>
+<p class="example-label">Example output / run</p>
+<pre><code>1
+2
+3
+4
+5
+6
+7
+8
+9
+10</code></pre>
+<p class="hint"><strong>Hint:</strong> In Problem 1 the message stayed the same. Here, print the variable that changes after each repetition.</p>
+<p class="check"><strong>Check:</strong> The first number should be <code>1</code>, the last should be <code>10</code>, and there should be ten numbers.</p>
+</section>
+<section class="home-card problem" id="problem-3" aria-labelledby="problem-3-heading">
+<p class="problem-meta">Scanner · for loop · variable endpoint</p>
+<h3 id="problem-3-heading">3. You Decide When We Stop Counting</h3>
+<p>Ask the user for an integer from <strong>1 through 20</strong>. Store it, then use a <strong><code>for</code> loop</strong> to print every integer from <code>1</code> through that number, inclusive.</p><p>Assume the input is in the requested range. You do not need a validation loop for this problem.</p>
+<p class="example-label">Example output / run</p>
+<pre><code>Enter a number from 1 through 20:
+4
+1
+2
+3
+4</code></pre>
+<p class="hint"><strong>Hint:</strong> Read the endpoint once, before the loop, using <code>keyboard.nextInt()</code>. Use that stored value in the loop condition.</p>
+<p class="check"><strong>Check:</strong> Input <code>1</code> should print only <code>1</code>. Input <code>4</code> should print four numbers. Input <code>20</code> should end at <code>20</code>.</p>
+</section>
+<section class="home-card problem" id="problem-4" aria-labelledby="problem-4-heading">
+<p class="problem-meta">for loop · remainder · if / else</p>
+<h3 id="problem-4-heading">4. Even Steven and Odd Todd Take Attendance</h3>
+<p>Use a <strong><code>for</code> loop</strong> to visit the integers <strong>1 through 10</strong>. Inside the loop, use <code>if / else</code> to label each number as even or odd.</p><p>Print the number and its label together on one line. This problem does not need keyboard input.</p>
+<p class="example-label">Example output / run</p>
+<pre><code>1 is odd.
+2 is even.
+3 is odd.
+4 is even.
+5 is odd.
+6 is even.
+7 is odd.
+8 is even.
+9 is odd.
+10 is even.</code></pre>
+<p class="hint"><strong>Hint:</strong> Reuse the <code>% 2</code> test from the fundamentals lab. This time, test the loop counter. A remainder of <code>0</code> means the number is even.</p>
+<p class="check"><strong>Check:</strong> There should be ten labeled numbers: five even and five odd. The last line should be <code>10 is even.</code></p>
+</section>
+<section class="home-card problem" id="problem-5" aria-labelledby="problem-5-heading">
+<p class="problem-meta">Scanner · for loop · running total</p>
+<h3 id="problem-5-heading">5. The Computer Keeps a Running Total</h3>
+<p>Ask the user for an integer from <strong>1 through 20</strong>. Use a <strong><code>for</code> loop</strong> to add all integers from <code>1</code> through that number. Print the total <strong>after the loop finishes</strong>.</p><p>Assume the input is in the requested range. Use repeated addition in your loop rather than a sum formula. For input <code>4</code>, the total is <code>1 + 2 + 3 + 4 = 10</code>.</p>
+<p class="example-label">Example output / run</p>
+<pre><code>Enter a number from 1 through 20:
+4
+The total is 10.</code></pre>
+<p class="hint"><strong>Hint:</strong> Create an <code>int</code> total with the starting value <code>0</code> before the loop. Each repetition adds the current counter to the total. Do not reset the total inside the loop.</p>
+<p class="check"><strong>Check:</strong> Input <code>1</code> gives <code>1</code>; input <code>5</code> gives <code>15</code>; input <code>20</code> gives <code>210</code>. Print the completed total once.</p>
+</section>
+<section class="home-card problem" id="problem-6" aria-labelledby="problem-6-heading">
+<p class="problem-meta">Random · for loop · repeated generation</p>
+<h3 id="problem-6-heading">6. A Die That Finally Rolls More Than Once</h3>
+<p>Use a <strong><code>for</code> loop</strong> to roll a six-sided die <strong>five times</strong>. On each repetition, generate a new value using <code>random.nextInt(6) + 1</code>, store it, and print it with the roll number.</p><p>This problem does not need keyboard input. Repeated results are normal.</p>
+<p class="example-label">One possible output</p>
+<pre><code>Roll 1: 4
+Roll 2: 2
+Roll 3: 2
+Roll 4: 6
+Roll 5: 1</code></pre>
+<p class="hint"><strong>Hint:</strong> Put the random-number generation inside the loop. Generating once before the loop and reusing that value would print the same stored roll five times.</p>
+<p class="check"><strong>Check:</strong> There should be five rolls labeled 1 through 5. Every die value must be between 1 and 6. Your results do not need to match the example.</p>
+</section>
+<section class="home-card" id="while-notes" aria-labelledby="while-notes-heading">
+<p class="home-kicker">Part 2 notes · Read before Problems 7–9</p><h2 id="while-notes-heading">Meet the while loop</h2>
+
+<p>A <code>while</code> loop checks a condition before each repetition. It is useful when you want to keep going until something changes, such as a user finally entering an acceptable answer. It can also count, as in this example:</p>
+<pre><code>int round = 1;
+while (round &lt;= 3) {
+    System.out.println("Practice round " + round);
+    round++;
+}</code></pre>
+<p>This prints the same three practice rounds as the earlier <code>for</code> example. Here, the counter starts <strong>before</strong> the loop, and the update is written <strong>inside</strong> the body.</p>
+<ol><li>Set up the value the condition will check.</li><li>Check the condition. If it is false, skip the body and continue after the loop.</li><li>If it is true, run the body. Change the counter or read a new input so the condition can eventually become false.</li><li>Return to the condition and check again.</li></ol>
+<p class="note"><strong>A loop can run zero times:</strong> If the first input is already acceptable, a retry loop should skip its body. There is no need to print an error or ask again.</p><p class="note"><strong>Avoid an endless loop:</strong> If the value in the condition never changes, the loop may never stop. For a countdown, update the counter inside the loop. For a retry prompt, read the replacement answer inside the loop. If your program runs endlessly in the terminal, press <code>Ctrl+C</code>, then check the condition and update.</p>
+<h3>When you compare text</h3>
+<p>Use <code>.equals()</code> for <code>String</code> contents. The operator <code>!</code> means “not.” For example, <code>!word.equals("hello")</code> is true when <code>word</code> is not <code>"hello"</code>. Capitalization matters.</p>
+<p>Before each problem, ask yourself: <strong>What repeats? What changes? What makes this loop stop?</strong></p>
+
+</section>
+<div class="phase" id="part-two"><p class="home-kicker">Problems 7–9</p><h2>Keep going while a condition is true</h2><p>Practice a countdown, then teach your program to ask again when an answer is not accepted.</p></div>
+<section class="home-card problem" id="problem-7" aria-labelledby="problem-7-heading">
+<p class="problem-meta">while loop · countdown · explicit update</p>
+<h3 id="problem-7-heading">7. The Extremely Small Rocket Launch</h3>
+<p>Create an integer variable with the value <code>5</code>. Use a <strong><code>while</code> loop</strong> to print a countdown from <strong>5 through 1</strong>, one number per line. After the loop, print <code>Blast off!</code></p><p>This problem does not need keyboard input.</p>
+<p class="example-label">Example output / run</p>
+<pre><code>5
+4
+3
+2
+1
+Blast off!</code></pre>
+<p class="hint"><strong>Hint:</strong> Decrease the countdown variable by one inside the loop. The condition should let the loop run while the number is greater than zero.</p>
+<p class="check"><strong>Check:</strong> Do not print <code>0</code>. Print <code>Blast off!</code> exactly once, after the countdown. Be ready to explain why the loop stops.</p>
+</section>
+<section class="home-card problem" id="problem-8" aria-labelledby="problem-8-heading">
+<p class="problem-meta">Scanner · while loop · input validation</p>
+<h3 id="problem-8-heading">8. The Computer Politely Insists</h3>
+<p>Ask the user to enter a <strong>positive integer</strong>. If they enter <code>0</code> or a negative integer, use a <strong><code>while</code> loop</strong> to print an error message and ask again. Continue until the value is greater than zero.</p><p>After the loop, print the accepted number. Assume every entry is an integer; you do not need to handle letters or decimal entries.</p>
+<p class="example-label">Example output / run</p>
+<pre><code>Enter a positive integer:
+0
+That number must be greater than zero. Try again:
+-3
+That number must be greater than zero. Try again:
+4
+Accepted: 4</code></pre>
+<p class="hint"><strong>Hint:</strong> Read the first number before the loop. While it is invalid, print the retry prompt and read a replacement into the same variable. An unchanged invalid value would keep the loop running.</p>
+<p class="check"><strong>Check:</strong> Test <code>0</code>, then <code>-3</code>, then <code>4</code> in one run. In a separate run, enter <code>4</code> first: accept it immediately without printing an error.</p>
+</section>
+<section class="home-card problem" id="problem-9" aria-labelledby="problem-9-heading">
+<p class="problem-meta">Scanner · while loop · String comparison</p>
+<h3 id="problem-9-heading">9. The Penguins Give You Another Chance</h3>
+<p>The secret-club password is still <code>penguin</code>, entirely in lowercase. Ask the user to enter a password, then use a <strong><code>while</code> loop</strong> to keep asking until it is correct.</p><p>Print a rejection message and another prompt after each incorrect entry. After the loop, print <code>Welcome to the secret club.</code> once. All passwords are one word; there is no attempt limit.</p>
+<p class="example-label">Example output / run</p>
+<pre><code>Enter the password:
+potato
+The penguins do not recognize you. Try again:
+Penguin
+The penguins do not recognize you. Try again:
+penguin
+Welcome to the secret club.</code></pre>
+<p class="hint"><strong>Hint:</strong> Use <code>keyboard.next()</code> and <code>.equals()</code>. The operator <code>!</code> means “not”: <code>!password.equals("penguin")</code> is true while the password is incorrect. Read a new password inside the loop.</p>
+<p class="check"><strong>Check:</strong> Test the correct password immediately, then test two incorrect entries followed by the correct one. <code>Penguin</code> is not accepted. The welcome message appears once.</p>
+</section>
+<div class="phase" id="final-challenge"><p class="home-kicker">Problem 10</p><h2>Bring it all together</h2><p>Finish the quarter with a short quiz built from the tools you have practiced.</p></div>
+<section class="home-card problem" id="problem-10" aria-labelledby="problem-10-heading">
+<p class="problem-meta">for loop · Scanner + Random · score counter</p>
+<h3 id="problem-10-heading">10. The Computer Gives You Three Homework Questions</h3>
+<p>Turn the fundamentals lab’s addition question into a <strong>three-question quiz</strong> using a <strong><code>for</code> loop</strong>.</p><ol><li>Generate two new random integers from <strong>1 through 10</strong> on each repetition.</li><li>Display their addition question, including the question number.</li><li>Read the user’s integer answer.</li><li>Print whether it is correct. If it is wrong, show the correct answer.</li><li>Add one to the score only when the answer is correct.</li></ol><p>After all three questions, print the final score out of <code>3</code>. Each question gets one answer; do not keep asking until the answer is correct. Repeated random questions are allowed.</p>
+<p class="example-label">One possible run</p>
+<pre><code>Question 1: What is 4 + 7?
+11
+Correct!
+Question 2: What is 2 + 5?
+6
+Not quite! The correct answer is 7.
+Question 3: What is 9 + 1?
+10
+Correct!
+You answered 2 out of 3 correctly.</code></pre>
+<p class="hint"><strong>Hint:</strong> Set the score to zero before the loop. Generate and store both numbers inside the loop using <code>random.nextInt(10) + 1</code>. Reuse those stored numbers for the question and its answer. Print the final score after the loop.</p>
+<p class="check"><strong>Check:</strong> Try three correct answers for a score of <code>3</code>, three deliberately incorrect answers for <code>0</code>, and a mixed run. The program must ask exactly three questions.</p>
+</section>
+<section class="home-card" id="submit" aria-labelledby="submit-heading">
+<h2 id="submit-heading">Before submitting</h2>
+
+<ul>
+<li>Fill in your name and date at the top of <code>LoopsLab.java</code>.</li>
+<li>Complete all ten problems using the requested loop types. Keep each problem’s output clearly labeled.</li>
+<li>Try every problem’s checks. Confirm that fixed loops run the correct number of times.</li>
+<li>For Problems 8 and 9, test both an immediately accepted answer and incorrect answers followed by a correct one.</li>
+<li>Keep totals and scores outside their loops so they are not reset on every repetition.</li>
+<li>Make sure random values are generated where the directions request them. Restore random expressions if you temporarily used fixed values for testing.</li>
+<li>Be ready to explain one <code>for</code> loop and one <code>while</code> loop: what repeats, what changes, and why it stops.</li>
+</ul>
+<p>Submit your completed <code>LoopsLab.java</code> file to <a href="mailto:logichomework@outlook.com">logichomework@outlook.com</a>.</p>
+
+</section>
+  <footer class="lab-footer"><a href="index.html#assignments">← Back to assignments</a> · <a href="fundamentalslab.html">Review the fundamentals lab</a></footer>
+</main>
+</body>
+</html>

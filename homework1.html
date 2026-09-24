@@ -1,60 +1,109 @@
 <!DOCTYPE html>
-<html>
-<title>
-Veritas Logic & Computation Homework 1: Triangle Angles
-</title>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Logic and Computation Homework 1: check whether three triangle angles are valid using double variables and conditionals.">
+  <title>Homework 1: Triangle Angles | Logic &amp; Computation</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="site-shell.css">
+  <link rel="stylesheet" href="assignment1.css">
+  <style>
+    /* Use Assignment1's course theme; these rules only arrange lab-specific elements. */
+    .fundamentals-content > .assignment-jumps,
+    .fundamentals-content > .phase,
+    .fundamentals-content > .lab-footer { margin-top: 24px; }
+    .fundamentals-content .problem h3 { margin-top: 0; }
+    .fundamentals-content .phase h2 { margin-top: 0; }
+    .fundamentals-content .table-wrap { max-width: 100%; overflow-x: auto; }
+    .fundamentals-content .note,
+    .fundamentals-content .hint,
+    .fundamentals-content .check {
+      margin-top: 16px;
+      padding: 12px 16px;
+      border: 1px solid var(--site-line);
+      border-left: 3px solid var(--site-blue);
+      border-radius: 6px;
+      background: var(--site-panel-strong);
+    }
+    .fundamentals-content .check { border-left-color: var(--site-gold); }
+    .fundamentals-content .problem-meta,
+    .fundamentals-content .source-note { color: var(--site-muted) !important; }
+    .fundamentals-content .example-label { margin-top: 16px; font-weight: 700; }
+    .fundamentals-content [id] { scroll-margin-top: 24px; }
+    .fundamentals-content .lab-footer { padding: 16px 0; }
+    @media print {
+      body { color: #111 !important; background: #fff !important; }
+      .fundamentals-content .home-card,
+      .fundamentals-content .note,
+      .fundamentals-content .hint,
+      .fundamentals-content .check,
+      .fundamentals-content th {
+        color: #111 !important; background: #fff !important; box-shadow: none;
+      }
+      .fundamentals-content .home-card { border-color: #bbb; }
+      .fundamentals-content p,
+      .fundamentals-content li,
+      .fundamentals-content h2,
+      .fundamentals-content h3,
+      .fundamentals-content th,
+      .fundamentals-content td { color: #111 !important; }
+      .fundamentals-content code { color: #164b37 !important; }
+      .fundamentals-content pre { color: #111 !important; background: #f5f5f5 !important; box-shadow: none; }
+      .fundamentals-content pre code { color: inherit !important; }
+      .fundamentals-content .assignment-jumps,
+      .fundamentals-content .back-link,
+      .fundamentals-content .lab-footer { display: none; }
+      .fundamentals-content h2,
+      .fundamentals-content h3 { break-after: avoid; }
+    }
+  </style>
   <script src="site-header.js" defer></script>
 </head>
-<body style="background-color: black;">
-<h1 style="color:white;">Veritas Logic & Computation Homework 1: Triangle Angles
-    <div style = 
-    "float: right;
-    position: relative;
-    top: 10px;
-    right: 10px;">
-
-    <img src="Veritas_crest_1C.png"
-    width="150px",
-    height=" auto"/>
-    
-</div> 
-</h1>
-<div style =
-"font-family: monospace;
-white-space: pre-wrap;
-display: block;
-color:white;
-font-size: 15px;
-text-align: justify;
-">
-
+<body>
+<h1>Homework 1: Triangle Angles</h1>
+<main class="assignment-content fundamentals-content">
+  <a class="back-link" href="index.html#assignments">← Back to assignments</a>
+<section class="home-card home-card--accent" id="homework-intro" aria-labelledby="homework-intro-heading">
+<p class="home-kicker">Logic &amp; Computation · Homework</p><h2 id="homework-intro-heading">Triangle Angles</h2>
+<p>Practice variables and conditionals by checking the three angles of a triangle.</p><p class="lab-meta">Homework 1 · double variables · conditionals</p>
+</section>
+<nav class="assignment-jumps home-card" aria-label="Homework sections"><a href="#task">Your task</a><a href="#examples">Examples</a><a href="#starter">Starter code</a><a href="#submit">Before submitting</a></nav>
+<section class="home-card" id="task" aria-labelledby="task-heading">
+<h2 id="task-heading">Your task</h2>
+<p>Write a program that checks the given three angles of a triangle, and returns whether the triangle angles are valid, or not.</p><p>The triangle angles can also be decimal numbers, so please use the variable type <code>double</code>.</p><p class="note"><strong>Output:</strong> Print <code>The triangle is valid.</code> or <code>The triangle is invalid.</code>, depending on the given angles.</p>
+</section>
+<section class="home-card" id="examples" aria-labelledby="examples-heading">
+<h2 id="examples-heading">Example cases</h2>
+<p>Use these original example cases to check your program.</p>
+<div class="table-wrap"><table><caption>Given angles and expected output</caption><thead><tr><th scope="col">Angle 1</th><th scope="col">Angle 2</th><th scope="col">Angle 3</th><th scope="col">Expected output</th></tr></thead><tbody><tr><td>60</td><td>60</td><td>60</td><td><code>The triangle is valid.</code></td></tr><tr><td>50</td><td>50</td><td>50</td><td><code>The triangle is invalid.</code></td></tr></tbody></table></div><p class="check"><strong>Check:</strong> Run your program with both sets of angles. The message should change because your program checks the values, rather than because you edited the output statement.</p>
+</section>
+<section class="home-card" id="starter" aria-labelledby="starter-heading">
+<h2 id="starter-heading">Starter code</h2>
+<p>Create a file named <code>Homework1.java</code>. The filename must match <code>public class Homework1</code>. Fill in your name and date, then write your solution inside <code>main</code>.</p><pre><code>/*
+ * Name:
+ * Project: Homework 1 - Triangle Angles
+ * Date:
+ */
 public class Homework1 {
     public static void main(String args[]) {
-    // Out of bounds!!!
-    
+        // START: Write your solution below this line.
 
-/*
-* Write a program that checks the given three angles of a triangle, and returns 
-* whether the triangle angles are valid, or not.
-* The triangle angles can also be decimal numbers, so please use the variable type double.
-*
-* Example: Input: angle 1: 60  angle 2: 60  angle 3: 60  Output: "The triangle is valid."
-*          Input: angle 1: 50  angle 2: 50  angle 3: 50  Output: "The triangle is invalid."
-*
-*/
-    
-    
-    
-    //Out of bounds!!!
+        // TODO: Store the three angles using double variables.
+
+        // TODO: Check whether the triangle angles are valid.
+
+        // TODO: Print whether the triangle is valid or invalid.
+
+        // END: Keep the closing braces below.
     }
-}
-
-</div>
-
+}</code></pre>
+</section>
+<section class="home-card" id="submit" aria-labelledby="submit-heading">
+<h2 id="submit-heading">Before submitting</h2>
+<ul><li>Fill in your name and date.</li><li>Use <code>double</code> variables for the three angles.</li><li>Make your program decide whether the triangle is valid or invalid.</li><li>Run both example cases and check the output.</li><li>Save your completed file as <code>Homework1.java</code>.</li></ul><p>Submit your completed <code>Homework1.java</code> file to <a href="mailto:logichomework@outlook.com">logichomework@outlook.com</a>.</p>
+</section>
+  <footer class="lab-footer"><a href="index.html#assignments">← Back to assignments</a> · <a href="fundamentalslab.html">Review variables &amp; conditionals</a></footer>
+</main>
 </body>
 </html>

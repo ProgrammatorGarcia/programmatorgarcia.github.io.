@@ -76,6 +76,7 @@
 
 <ol>
   <li>Create <code>LoopsLab.java</code> from the starter below. Fill in your name and date.</li>
+  <li>Use <strong>Allman (ANSI) brace style</strong>: put each opening and closing brace on its own line, aligned with the statement, method, or class that introduces the block. Indent the code inside each block by four spaces.</li>
   <li>Write each solution inside <code>main</code>, below its matching problem label. Complete one problem, run it, and try its checks before moving on.</li>
   <li>Use the loop type requested by each problem. Problems 1–6 use <code>for</code>; Problems 7–9 use <code>while</code>; Problem 10 brings the tools together with <code>for</code>.</li>
   <li>Reuse the supplied <code>keyboard</code> and <code>random</code> objects. Keep <code>keyboard.close();</code> after all solutions.</li>
@@ -93,7 +94,8 @@
 
 <p>A loop repeats a block of code. A <code>for</code> loop is convenient when you know how many repetitions you want, or which numbers you want to visit.</p>
 <p>Read this example before beginning. Predict what it prints, then trace the changing value of <code>round</code>.</p>
-<pre><code>for (int round = 1; round &lt;= 3; round++) {
+<pre><code>for (int round = 1; round &lt;= 3; round++)
+{
     System.out.println("Practice round " + round);
 }</code></pre>
 <div class="table-wrap"><table>
@@ -114,7 +116,7 @@
 <tr><td><code>total = total + amount;</code></td><td>Add <code>amount</code> to the old total and store the new total.</td></tr>
 <tr><td><code>number % 2 == 0</code></td><td>Check whether a number is even.</td></tr>
 </tbody></table></div>
-<p class="note"><strong>Where does this line belong?:</strong> Initialize a running total or score <strong>before</strong> the loop, change it <strong>inside</strong> the loop, and print the finished result <strong>after</strong> the loop. A variable created inside the loop’s braces cannot be used outside those braces.</p><p class="note"><strong>Braces and semicolons:</strong> Keep braces around the loop body. The two semicolons belong inside a <code>for</code> header. Do not put a semicolon between the closing <code>)</code> and the opening <code>{</code>.</p>
+<p class="note"><strong>Where does this line belong?:</strong> Initialize a running total or score <strong>before</strong> the loop, change it <strong>inside</strong> the loop, and print the finished result <strong>after</strong> the loop. A variable created inside the loop’s braces cannot be used outside those braces.</p><p class="note"><strong>Braces and semicolons:</strong> Keep braces around the loop body and use <strong>Allman (ANSI) style</strong>, as shown above: the opening brace goes on the next line, and the closing brace lines up with it. The two semicolons belong inside a <code>for</code> header. Do not put a semicolon between the closing <code>)</code> and the opening <code>{</code>.</p>
 <h3>Your familiar tools</h3>
 <div class="table-wrap"><table>
 <thead><tr><th scope="col">Expression</th><th scope="col">Use</th></tr></thead>
@@ -135,8 +137,10 @@
 import java.util.Scanner;
 import java.util.Random;
 
-public class LoopsLab {
-    public static void main(String[] args) {
+public class LoopsLab
+{
+    public static void main(String[] args)
+    {
         Scanner keyboard = new Scanner(System.in);
         Random random = new Random();
 
@@ -270,7 +274,8 @@ Roll 5: 1</code></pre>
 
 <p>A <code>while</code> loop checks a condition before each repetition. It is useful when you want to keep going until something changes, such as a user finally entering an acceptable answer. It can also count, as in this example:</p>
 <pre><code>int round = 1;
-while (round &lt;= 3) {
+while (round &lt;= 3)
+{
     System.out.println("Practice round " + round);
     round++;
 }</code></pre>

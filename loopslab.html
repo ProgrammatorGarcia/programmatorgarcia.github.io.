@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Final-quarter Java lab: ten scaffolded problems introducing for and while loops with Scanner, Random, conditionals, and running totals.">
+  <meta name="description" content="Java loops lab: thirteen scaffolded problems covering for and while loops, Scanner, Random, running totals, a limited-attempt game, and an introduction to nested loops.">
   <title>Loops Lab: The Computer Learns to Repeat! | Logic &amp; Computation</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="site-shell.css">
@@ -67,8 +67,8 @@
 <section class="home-card home-card--accent" id="lab-intro" aria-labelledby="lab-intro-heading">
 <p class="home-kicker">Logic &amp; Computation · Loops laboratory</p><h2 id="lab-intro-heading">One instruction. Many repetitions.</h2>
 
-<p>You have taught your programs to read, calculate, and make decisions. Now teach them to repeat. Work through ten small problems using familiar variables, conditionals, <code>Scanner</code>, and <code>Random</code>.</p>
-<p class="lab-meta">Final lab of the quarter · 10 problems · for &amp; while loops</p>
+<p>You have taught your programs to read, calculate, and make decisions. Now teach them to repeat. Start with ten small problems using familiar variables, conditionals, <code>Scanner</code>, and <code>Random</code>. Then tackle three extension problems that combine those skills and introduce a loop inside another loop.</p>
+<p class="lab-meta">Final lab of the quarter · 13 problems · for, while &amp; introductory nested loops</p>
 
 </section>
 <section class="home-card" id="start" aria-labelledby="start-heading">
@@ -77,16 +77,16 @@
 <ol>
   <li>Create <code>LoopsLab.java</code> from the starter below. Fill in your name and date.</li>
   <li>Write each solution inside <code>main</code>, below its matching problem label. Complete one problem, run it, and try its checks before moving on.</li>
-  <li>Use the loop type requested by each problem. Problems 1–6 use <code>for</code>; Problems 7–9 use <code>while</code>; Problem 10 brings the tools together with <code>for</code>.</li>
+  <li>Use the loop type requested by each problem. Problems 1–6 use <code>for</code>; Problems 7–9 use <code>while</code>; Problem 10 uses <code>for</code>; Problems 11–12 use <code>while</code>; Problem 13 introduces nested <code>for</code> loops.</li>
   <li>Reuse the supplied <code>keyboard</code> and <code>random</code> objects. Keep <code>keyboard.close();</code> after all solutions.</li>
   <li>Use different names for variables declared directly inside <code>main</code> in different problems. A counter declared inside a <code>for</code> header belongs to that loop.</li>
-  <li>Assume users enter the requested data type. Only Problems 8 and 9 require repeated prompting until an answer is accepted.</li>
-  <li>Use one loop at a time. You do not need nested loops, arrays, <code>break</code>, or <code>continue</code>.</li>
+  <li>Assume users enter the requested data type. For numeric inputs, you do not need to handle letters. Problems 8, 9, and 13 require retrying an unacceptable entry; follow each problem’s directions for any other repeated input.</li>
+  <li>Use one loop at a time for Problems 1–12. In Problem 13, finish the input-validation loop first, then use one <code>for</code> loop inside another. You do not need arrays, additional methods, <code>break</code>, or <code>continue</code>.</li>
 </ol>
 <p class="note"><strong>Remember:</strong> When you run the whole program, it will run earlier problems before the one you are testing. Type each requested answer in the terminal and press Enter. Example runs include the user’s typed responses; your code does not print those responses for them.</p>
 </section>
 <nav class="assignment-jumps home-card" aria-label="Lab sections">
-<a href="#for-notes">for loop notes</a><a href="#starter">Starter code</a><a href="#part-one">Problems 1–6</a><a href="#while-notes">while loop notes</a><a href="#part-two">Problems 7–9</a><a href="#problem-10">Final challenge</a><a href="#submit">Before submitting</a>
+<a href="#for-notes">for loop notes</a><a href="#starter">Starter code</a><a href="#part-one">Problems 1–6</a><a href="#while-notes">while loop notes</a><a href="#part-two">Problems 7–9</a><a href="#problem-10">Problem 10</a><a href="#extensions">Problems 11–13</a><a href="#nested-notes">Nested loop notes</a><a href="#submit">Before submitting</a>
 </nav>
 <section class="home-card" id="for-notes" aria-labelledby="for-notes-heading">
 <p class="home-kicker">Part 1 notes · Read before Problems 1–6</p><h2 id="for-notes-heading">Meet the for loop</h2>
@@ -128,7 +128,7 @@
 </section>
 <section class="home-card" id="starter" aria-labelledby="starter-heading">
 <h2 id="starter-heading">Starter code</h2>
-<p>Copy this into <code>LoopsLab.java</code>. The filename must match <code>public class LoopsLab</code>. Replace each TODO comment with your solution; add lines as needed.</p><pre><code>/*
+<p>Copy this into <code>LoopsLab.java</code>. The filename must match <code>public class LoopsLab</code>. Replace each TODO comment with your solution; add lines as needed.</p><p class="note"><strong>Already started?</strong> Keep your existing work. Add labels and solutions for Problems 11–13 after Problem 10 and before <code>keyboard.close();</code>. You do not need to copy the entire starter again.</p><pre><code>/*
  * Name:
  * Project: The Computer Learns to Repeat!
  * Date:
@@ -174,6 +174,15 @@ public class LoopsLab
 
         System.out.println("Problem 10");
         // TODO: The Computer Gives You Three Homework Questions
+
+        System.out.println("Problem 11");
+        // TODO: The Computer Grades Until You Say Stop
+
+        System.out.println("Problem 12");
+        // TODO: The Secret Number Gives You Five Chances
+
+        System.out.println("Problem 13");
+        // TODO: The Penguins Build a Staircase
 
         // END: Keep this line after all of your solutions.
         keyboard.close();
@@ -331,7 +340,7 @@ Welcome to the secret club.</code></pre>
 <p class="hint"><strong>Hint:</strong> Use <code>keyboard.next()</code> and <code>.equals()</code>. The operator <code>!</code> means “not”: <code>!password.equals("penguin")</code> is true while the password is incorrect. Read a new password inside the loop.</p>
 <p class="check"><strong>Check:</strong> Test the correct password immediately, then test two incorrect entries followed by the correct one. <code>Penguin</code> is not accepted. The welcome message appears once.</p>
 </section>
-<div class="phase" id="final-challenge"><p class="home-kicker">Problem 10</p><h2>Bring it all together</h2><p>Finish the quarter with a short quiz built from the tools you have practiced.</p></div>
+<div class="phase" id="final-challenge"><p class="home-kicker">Problem 10</p><h2>Bring it all together</h2><p>Build a short quiz from the tools you have practiced. Afterward, continue to the three extension problems.</p></div>
 <section class="home-card problem" id="problem-10" aria-labelledby="problem-10-heading">
 <p class="problem-meta">for loop · Scanner + Random · score counter</p>
 <h3 id="problem-10-heading">10. The Computer Gives You Three Homework Questions</h3>
@@ -350,17 +359,123 @@ You answered 2 out of 3 correctly.</code></pre>
 <p class="hint"><strong>Hint:</strong> Set the score to zero before the loop. Generate and store both numbers inside the loop using <code>random.nextInt(10) + 1</code>. Reuse those stored numbers for the question and its answer. Print the final score after the loop.</p>
 <p class="check"><strong>Check:</strong> Try three correct answers for a score of <code>3</code>, three deliberately incorrect answers for <code>0</code>, and a mixed run. The program must ask exactly three questions.</p>
 </section>
+<div class="phase" id="extensions"><p class="home-kicker">Problems 11–13 · Extension challenges</p><h2>Make your loops do more</h2><p>These problems combine several familiar ideas. Build each solution in stages: get the loop working first, then add the decisions, calculations, and final output. Finish Problems 1–10 before beginning these extensions.</p></div>
+<section class="home-card problem" id="problem-11" aria-labelledby="problem-11-heading">
+<p class="problem-meta">while loop · stopping value · running total + counter · decimal average</p>
+<h3 id="problem-11-heading">11. The Computer Grades Until You Say Stop</h3>
+<p>Your program does not know how many quiz scores the user wants to enter. Use a <strong><code>while</code> loop</strong> to keep reading integer scores from <strong>0 through 100</strong>. The user enters <strong><code>-1</code></strong> to finish.</p>
+<ol>
+<li>Ask for the first score before the loop.</li>
+<li>For each score other than <code>-1</code>, add it to a running total and increase the number of scores entered by one.</li>
+<li>Ask for the next score inside the loop. Stop when the user enters <code>-1</code>.</li>
+<li>After the loop, print the number of scores and their total. If at least one score was entered, also print the average as a <code>double</code>. Otherwise, print <code>No scores were entered.</code> instead of calculating an average.</li>
+</ol>
+<p>Assume each entry is either a score from 0 through 100 or <code>-1</code>; no range-validation loop is needed. <strong>A score of 0 counts as a score. The stopping value -1 does not count and must not be added to the total.</strong></p>
+<p class="example-label">Example output / run</p>
+<pre><code>Enter a score from 0 through 100, or -1 to finish:
+70
+Enter a score from 0 through 100, or -1 to finish:
+85
+Enter a score from 0 through 100, or -1 to finish:
+90
+Enter a score from 0 through 100, or -1 to finish:
+-1
+Scores entered: 3
+Total: 245
+Average: 81.66666666666667</code></pre>
+<p class="note"><strong>Two new details:</strong> A special value used to end input is called a <em>sentinel</em>. Also, dividing one <code>int</code> by another drops the fractional part. With integer variables named <code>scoreTotal</code> and <code>scoreCount</code>, use <code>scoreTotal / (double) scoreCount</code> to keep the decimal part. Only calculate this when <code>scoreCount &gt; 0</code>. You do not need to round the average.</p>
+<p class="hint"><strong>Build it in stages:</strong> First, make the input loop stop at <code>-1</code>. Next, add a total and a count that both start at zero <em>before</em> the loop. Finally, use <code>if / else</code> after the loop to handle the average or the no-scores message. Think carefully about where the next input belongs so that the sentinel is never processed as a score.</p>
+<p class="check"><strong>Check:</strong> Try <code>70, 85, 90, -1</code> for a count of 3 and a total of 245. Try <code>80, 81, -1</code> for an average of <code>80.5</code>. Try <code>0, -1</code>: one score, total 0, average 0.0. Finally, enter <code>-1</code> first: count 0, total 0, and the no-scores message with no division.</p>
+</section>
+<section class="home-card problem" id="problem-12" aria-labelledby="problem-12-heading">
+<p class="problem-meta">Random + Scanner · while loop · two stopping conditions · attempt counter</p>
+<h3 id="problem-12-heading">12. The Secret Number Gives You Five Chances</h3>
+<p>The computer chooses one secret integer from <strong>1 through 20</strong>. The user has <strong>at most five guesses</strong> to find it. Use a <strong><code>while</code> loop</strong> for the guessing game.</p>
+<ol>
+<li>Generate the secret number <strong>once, before the loop</strong>, using <code>random.nextInt(20) + 1</code>. Keep the same secret throughout the game.</li>
+<li>Show the attempt number, then read one integer guess. Assume guesses are within 1 through 20; you do not need input validation.</li>
+<li>Count every guess, including a correct guess, as one attempt.</li>
+<li>For an incorrect guess, print <code>Too low!</code> or <code>Too high!</code>.</li>
+<li>Stop asking as soon as the user guesses correctly or uses all five attempts. Do not use <code>break</code>.</li>
+<li>After the loop, print a success message with the number of guesses used, or a game-over message revealing the secret number.</li>
+</ol>
+<p class="example-label">One possible run (the secret number happens to be 12)</p>
+<pre><code>I chose a number from 1 through 20. You have five guesses.
+Guess 1:
+8
+Too low!
+Guess 2:
+16
+Too high!
+Guess 3:
+12
+You found it in 3 guess(es)!</code></pre>
+<p class="note"><strong>Keep going only while both conditions are true:</strong> The secret has not been guessed <em>and</em> fewer than five attempts have been used. The operator <code>&amp;&amp;</code> means “and.” The operator <code>!=</code> means “not equal.” A correct answer on guess 5 still wins.</p>
+<p class="hint"><strong>Build it in stages:</strong> Start an attempt counter at <code>0</code> and a guess variable at <code>0</code> before the loop. Zero cannot equal the secret, so the first guess can happen. Each repetition increases the attempt counter, prints that attempt number, and reads a new guess. Use the two conditions above to decide whether another repetition is allowed. After the loop, check whether the final guess equals the secret to choose the ending message.</p>
+<p class="check"><strong>Check:</strong> Temporarily use a fixed secret of <code>12</code> so you can test reliably. Try <code>12</code> first: win in one guess. Try <code>1, 2, 3, 4, 12</code>: win on guess 5. Try <code>1, 2, 3, 4, 5</code>: stop after five guesses and reveal 12. Try a value above 12 to check the “too high” message. There must never be a sixth prompt. Restore the random expression before submitting.</p>
+</section>
+<section class="home-card" id="nested-notes" aria-labelledby="nested-notes-heading">
+<p class="home-kicker">Part 4 notes · Read before Problem 13</p><h2 id="nested-notes-heading">A loop inside a loop</h2>
+<p>A <strong>nested loop</strong> is a loop inside another loop’s body. The inner loop runs all the way through for each repetition of the outer loop. Think of arranging seats: the outer loop chooses the row, and the inner loop visits the seats in that row.</p>
+<p>Read this small example. It uses two rows and three seats per row:</p>
+<pre><code>for (int row = 1; row &lt;= 2; row++)
+{
+    for (int seat = 1; seat &lt;= 3; seat++)
+    {
+        System.out.print("(" + row + "," + seat + ") ");
+    }
+    System.out.println();
+}</code></pre>
+<p class="example-label">Output</p>
+<pre><code>(1,1) (1,2) (1,3)
+(2,1) (2,2) (2,3)</code></pre>
+<ul>
+<li><code>System.out.print(...)</code> prints without moving to a new line. The space at the end separates the seats.</li>
+<li><code>System.out.println();</code> moves to a new line without printing any text. Here, it belongs <strong>after the inner loop, but inside the outer loop</strong>.</li>
+<li>The inner counter starts at <code>1</code> again each time the outer loop begins a new row. For row 1, the seat values are 1, 2, 3; then row 2 gets its own seat values 1, 2, 3.</li>
+<li>The inner printing statement runs <code>2 × 3 = 6</code> times in total. The new-line statement runs twice.</li>
+</ul>
+<p class="note"><strong>Before you code:</strong> Trace the example on paper. What would happen if you moved <code>System.out.println();</code> inside the inner loop? In the staircase below, each row needs a different number of symbols, so the inner loop’s endpoint will depend on the current row.</p>
+</section>
+<section class="home-card problem" id="problem-13" aria-labelledby="problem-13-heading">
+<p class="problem-meta">while input validation · nested for loops · row-dependent endpoint · symbol counter</p>
+<h3 id="problem-13-heading">13. The Penguins Build a Staircase</h3>
+<p>The penguins want a staircase made of asterisks. Ask the user for an integer height from <strong>1 through 8</strong>. Use a <strong><code>while</code> loop</strong> to reject heights outside that range and ask again.</p>
+<p>Once the height is accepted, use <strong>nested <code>for</code> loops</strong> to print a left-aligned staircase:</p>
+<ol>
+<li>The outer loop creates one row at a time, from row 1 through the chosen height.</li>
+<li>The inner loop prints one <code>*</code> at a time. Row 1 has one star, row 2 has two, and so on. Do not put spaces between the stars.</li>
+<li>Move to a new line only after a complete row has been printed.</li>
+<li>Count every star as it is printed. After the entire staircase, print the total number of stars.</li>
+</ol>
+<p>Use a single <code>System.out.print("*");</code> statement inside the inner loop. Do not write separate printing statements for each row, use <code>String.repeat()</code>, or use a formula to calculate the star total. Finish input validation before starting the two drawing loops.</p>
+<p class="example-label">Example output / run</p>
+<pre><code>Enter a staircase height from 1 through 8:
+0
+Height must be from 1 through 8. Try again:
+4
+*
+**
+***
+****
+Total stars: 10</code></pre>
+<p class="hint"><strong>Build it in stages:</strong> First, adapt Problem 8 to reject a value that is less than 1 <em>or</em> greater than 8; <code>||</code> means “or.” Then use the seat example to print a small rectangle. For the staircase, change the inner loop’s endpoint so it uses the current row number. Finally, set a star counter to zero before the outer loop and increase it inside the inner loop, alongside the printing statement.</p>
+<p class="check"><strong>Check:</strong> Height <code>1</code> produces one row and 1 star total. Height <code>4</code> produces four rows and 10 stars total. Height <code>8</code> produces eight rows and 36 stars total. In one run, enter <code>-2</code>, then <code>9</code>, then <code>3</code>: reject the first two entries, then print three rows with 6 stars total. Explain why the inner loop prints more stars on each new row.</p>
+</section>
 <section class="home-card" id="submit" aria-labelledby="submit-heading">
 <h2 id="submit-heading">Before submitting</h2>
 
 <ul>
 <li>Fill in your name and date at the top of <code>LoopsLab.java</code>.</li>
-<li>Complete all ten problems using the requested loop types. Keep each problem’s output clearly labeled.</li>
+<li>Complete all thirteen problems using the requested loop types. Keep each problem’s output clearly labeled.</li>
 <li>Try every problem’s checks. Confirm that fixed loops run the correct number of times.</li>
 <li>For Problems 8 and 9, test both an immediately accepted answer and incorrect answers followed by a correct one.</li>
-<li>Keep totals and scores outside their loops so they are not reset on every repetition.</li>
+<li>Initialize totals and counters before the loops that update them so they are not reset on every repetition. In Problem 13, the star total belongs before the outer loop.</li>
+<li>For Problem 11, test the stopping value as the very first entry and confirm that a score of zero still counts.</li>
+<li>For Problem 12, test a correct first guess, a correct fifth guess, and five incorrect guesses. Confirm that no sixth guess is requested.</li>
+<li>For Problem 13, test invalid heights and the smallest and largest valid heights. Check the row lengths and the total stars.</li>
 <li>Make sure random values are generated where the directions request them. Restore random expressions if you temporarily used fixed values for testing.</li>
-<li>Be ready to explain one <code>for</code> loop and one <code>while</code> loop: what repeats, what changes, and why it stops.</li>
+<li>Be ready to explain one <code>for</code> loop and one <code>while</code> loop: what repeats, what changes, and why it stops. For Problem 13, also explain how the inner loop depends on the outer loop.</li>
 </ul>
 <p>Submit your completed <code>LoopsLab.java</code> file to <a href="mailto:logichomework@outlook.com">logichomework@outlook.com</a>.</p>
 

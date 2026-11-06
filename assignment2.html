@@ -1,198 +1,267 @@
 <!DOCTYPE html>
-<html>
-<title>
-Veritas Logic & Computation Assignment 2: Loops
-</title>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Assignment 2 for Logic &amp; Computation. Return to Java with five activities on loops, decisions, and values that change as a program runs.">
+  <title>Assignment 2: Loops | Logic &amp; Computation</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="site-shell.css">
+  <link rel="stylesheet" href="assignment1.css">
+  <style>
+    /* Use Assignment1's course theme; these rules only arrange lab-specific elements. */
+    .fundamentals-content > .assignment-jumps,
+    .fundamentals-content > .phase,
+    .fundamentals-content > .lab-footer { margin-top: 24px; }
+    .fundamentals-content .problem h3 { margin-top: 0; }
+    .fundamentals-content .phase h2 { margin-top: 0; }
+    .fundamentals-content .table-wrap { max-width: 100%; overflow-x: auto; }
+    .fundamentals-content .note,
+    .fundamentals-content .hint,
+    .fundamentals-content .check {
+      margin-top: 16px;
+      padding: 12px 16px;
+      border: 1px solid var(--site-line);
+      border-left: 3px solid var(--site-blue);
+      border-radius: 6px;
+      background: var(--site-panel-strong);
+    }
+    .fundamentals-content .check { border-left-color: var(--site-gold); }
+    .fundamentals-content .problem-meta { color: var(--site-muted) !important; }
+    .fundamentals-content .example-label { margin-top: 16px; font-weight: 700; }
+    .fundamentals-content [id] { scroll-margin-top: 24px; }
+    .fundamentals-content .lab-footer { padding: 16px 0; }
+    @media print {
+      body { color: #111 !important; background: #fff !important; }
+      .fundamentals-content .home-card,
+      .fundamentals-content .note,
+      .fundamentals-content .hint,
+      .fundamentals-content .check,
+      .fundamentals-content th {
+        color: #111 !important; background: #fff !important; box-shadow: none;
+      }
+      .fundamentals-content .home-card { border-color: #bbb; }
+      .fundamentals-content p,
+      .fundamentals-content li,
+      .fundamentals-content h2,
+      .fundamentals-content h3,
+      .fundamentals-content th,
+      .fundamentals-content td { color: #111 !important; }
+      .fundamentals-content code { color: #164b37 !important; }
+      .fundamentals-content pre { color: #111 !important; background: #f5f5f5 !important; box-shadow: none; }
+      .fundamentals-content pre code { color: inherit !important; }
+      .fundamentals-content .assignment-jumps,
+      .fundamentals-content .back-link,
+      .fundamentals-content .lab-footer { display: none; }
+      .fundamentals-content h2,
+      .fundamentals-content h3 { break-after: avoid; }
+    }
+  </style>
   <script src="site-header.js" defer></script>
 </head>
-<body style="background-color: black;">
-<h1 style="color:white;">Veritas Logic & Computation Assignment 2: Loops
-    <div style = 
-    "float: right;
-    position: relative;
-    top: 10px;
-    right: 10px;">
+<body>
+<h1>Assignment 2: Loops</h1>
+<main class="assignment-content fundamentals-content">
+  <a class="back-link" href="index.html#assignments">← Back to assignments</a>
 
-    <img src="Veritas_crest_1C.png"
-    width="150px",
-    height=" auto"/>
-    
-    </div> 
-</h1>
+  <section class="home-card home-card--accent" aria-labelledby="intro-heading">
+    <p class="home-kicker">Logic &amp; Computation · Java laboratory</p>
+    <h2 id="intro-heading">What changes each time through the loop?</h2>
+    <p>Return to Java with the tools you used in Loops Lab. Start by reading input, keeping a total, and making a decision. Then use loops to test divisors and generate number sequences.</p>
+    <p class="lab-meta">Two class periods · Five required activities · Optional extensions</p>
+  </section>
 
-<div style =
-"font-family: monospace;
-white-space: pre-wrap;
-display: block;
-color:white;
-font-size: 15px;
-text-align: justify;
-">
+  <nav class="assignment-jumps home-card" aria-label="Lab sections">
+    <a href="#start">Before you begin</a>
+    <a href="#starter">Starter code</a>
+    <a href="#day-one">Day 1</a>
+    <a href="#day-two">Day 2</a>
+    <a href="#extensions">Extensions</a>
+    <a href="#submit">Before submitting</a>
+  </nav>
 
-    
-    Iteration (For, While) Lab Assignment
-    In this lab, you will be writing your own code to perform tasks that will require the use of looping, either a for loop
-    or a while loop, or both. The class at the very bottom provides a block of code that helps with the syntax of getting
-    keyboard input from the user, but the remainder of the code will be your own. Perform all of the activities below using
-    the thoughts provided and answer any questions.
-    
-    Activity 1: Finding the sum of the odd numbers 1 through 2n + 1
-    Write a Java program to find the sum of all the odd natural numbers from 1 to 2n+1, inclusive, where n is a user-entered
-    integer greater than or equal to 1. Your program should force the user to enter a valid number by printing an error
-    message when the user enters an invalid number and continuing to prompt until the input is valid. When complete, print a
-    message similar to "The sum of the odd numbers from 1 through 7 is 16." Some thoughts:
-    What does it mean for a number to be odd?
-    When holding the sum in a variable, do you need to initialize the variable first? If so, to what value?
-    Would you want to use a for loop or a while loop here? Why?
-    
-    Activity 2: Checking to see if a String is a palindrome
-    Write a Java program that determines if a user-entered string is a palindrome. When complete, print a message that
-    includes the original string and whether it is or is not a palindrome. Some thoughts:
-    Your code may want to make use of the string methods .charAt(i) which returns the character at the ith index (remember,
-    the first character in a string is index 0) and .length() which returns the number of characters in the string (remember
-    that the index of the last character is .length() – 1 because the index starts with 0).
-    You declare strings using the String type, for example String myString; You may assign a string literal when declaring,
-    such as String myString = "palindrome"; or you may assign text to the String variable after declaring it, such as
-    myString = "abcdef";
+  <section class="home-card" id="start" aria-labelledby="start-heading">
+    <h2 id="start-heading">Before you begin</h2>
+    <ol>
+      <li>Open your Java project in VS Code. Save the starter in <code>src</code> as <code>Assignment2.java</code>, fill in your name and date, and run it once. You should see the five activity labels.</li>
+      <li>Keep your solutions in <code>main</code>, below their matching labels. Use the supplied <code>keyboard</code> for input and leave <code>keyboard.close();</code> at the end. Give variables declared directly in <code>main</code> distinct names across activities.</li>
+      <li>Assume input has the requested type. Read integers with <code>keyboard.nextInt()</code> and reject out-of-range values where an activity asks you to. The required activities use variables, conditionals, and loops.</li>
+      <li>Choose a <code>for</code> or <code>while</code> loop where you need repetition. Before you code, ask yourself what repeats, what changes, and what makes the loop stop.</li>
+    </ol>
+    <p class="note"><strong>Quick refresher:</strong> Revisit <a href="loopslab.html#problem-5">Loops Lab’s running total</a> and <a href="loopslab.html#problem-8">input retry</a>. Trace a total for input <code>4</code>, then explain what happens if the first value entered is already valid. A counting loop has an endpoint. A retry loop checks the entry again after reading a replacement.</p>
+    <p>When you run the whole file, the activities run in order. In the example runs, the line immediately after each input prompt shows what you type.</p>
+  </section>
 
-    You can compare strings for character-by-character equality using the .equals() method. For example,
-    string1.equals(string2) which will return 'true' if all characters in each string are identical in each place and
-    'false' if not. Uppercasing and lowercasing matters, so "text" and "text" are equal, but "Text" and "text" are not equal.
-    
-    Activity 3: Determining if a year is a leap year
-    Write a Java program that determines if a given year is a leap year. By definition, any year that is evenly divisible by
-    4 is a leap year with an additional rule: Years divisible by 100 are NOT leap years, UNLESS they are evenly divisible by
-    400. For example, 1900 was NOT a leap year, but 2000 was. Get the year from the user and make sure it is valid; if not,
-    force the user to continue entering a year until it is valid. Print a statement such as "The year 2020 is a leap year." or 
-    "The year 2021 is not a leap year."
-    
-    Activity 4: Checking to see that a number is prime
-    Write a Java program that determines if a user-supplied integer, n, is prime. Print out a simple statement such as 
-    'The number 25 is not prime.' or 'The number 29 is prime.' Some thoughts:
-    By definition, 2 is the first prime number because it is divisible by 1 and itself. The number 1 is not considered
-    prime.
-
-    Get the program to work first by checking a bunch of small numbers you know are prime.
-    Here are some others to try: 499, 1217, 2731, 7879, 19319, and 79393.
-    The larger the number, the longer it takes to determine if it is prime. How does your algorithm scale with the size of
-    the number? In other words, if n is the number, how many iterations does your program require?
-    Think about ways to make your program run faster. Can you perform fewer checks for factors? Can you limit the size of
-    the numbers you need to check as factors?
-    
-    
-    Activity 5: Calculate the nth Fibonacci number
-    Write a Java program that computes the nth Fibonacci number in the sequence 1, 1, 2, 3, 5, 8, 13, 21, ... and n is a
-    user-supplied number which you will need to validate before moving forward. For reference, in the sequence given, 21 is
-    the 8th Fibonacci number. Print out something like 'The 8th Fibonacci number is 21.' Some thoughts:
-    The size of the numbers in the sequence can get quite large. What type might you declare your variables?
-    Do you need to limit the size of n that the user can enter? In what ways?
-    
-    Activity 6: Finding the greatest common divisor
-    Write a Java program that computes the greatest common divisor, GCD (a.k.a. greatest common factor, GCF) of two
-    user-supplied integers. Recall that the GCD (GCF) is the largest number that will divide evenly into both numbers. For
-    example, for the numbers 24 and 32, the GCD is 8. When complete output a message such as 'The GCD of 24 and 32 is 8.' Some
-    thoughts:
-
-    Does it matter for any reason whether or not the two user-supplied numbers are positive? Why or why not?
-    Brute force is a valid way to solve this problem, though not very efficient for large numbers. In this case, think about
-    the largest factor you would ever need to test.
-    What is the GCD if the two numbers are equal?
-    What if the two numbers are even? Both odd? One even and one odd?
-    
-    Activity 7 (BONUS): The GCD Revisited
-    Research the algorithm Euclid used for finding the GCD and implement it.
-    
-    Activity 8: Finding the least common multiple
-    Write a Java program that computes the least common multiple, LCM of two user-supplied integers. Recall, the LCM is the
-    smallest number into which the two numbers will divide evenly. For example, if the two numbers are 24 and 32, the LCM is
-    96 because 96/24 = 4 and 96/32 = 3. When complete, output a message such as 'The LCM of 24 and 32 is 96.' Some thoughts:
-    What if both numbers are zero?
-    What if only one of the numbers is zero?
-    The LCM and GCD are related. Can you determine how?
-    
-    Activity 9: The Collatz Conjecture
-    The Collatz sequence, named after Lothar Collatz, is a list of numbers formed according to the following rules: Starting
-    with any positive integer, n, the first term of the Collatz sequence is C1=n. Each successive term Ck+1 is formed from
-    the previous term Ck according to the function:
-    Ck+1={1/2Ck if n is even 3Ck+1 if n is odd
-    
-    For example, if n = 5, the sequence goes 5, 16, 8, 4, 2, 1. For n = 7, the sequence goes 7, 22, 11, 34, 17, 52, 26, 13,
-    40, 20, 10, 5, 16, 8, 4, 2, 1.
-    
-    The Collatz conjecture is quite simple: This process will eventually reach the number 1, regardless of which positive
-    integer is chosen initially, yet remains unproven to this day. Maybe you will be the one to someday provide a proof?
-    
-    Write a Java program that prints out the Collatz sequence for a user-supplied value of n as defined above. Count the
-    number of steps taken until the sequence gets to 1 and also print out the count. If it does not eventually arrive at 1,
-    either your program did something wrong or you have found a counterexample to the conjecture and therefore proven it
-    false!!!
-
-
-
+  <section class="home-card" id="starter" aria-labelledby="starter-heading">
+    <h2 id="starter-heading">Starter code</h2>
+    <pre><code>/*
+ * Name:
+ * Project: Assignment 2 - Loops
+ * Date:
+ */
 import java.util.Scanner;
 
-public class lab2 {
-    public static void main(String args[]) {
-    // Out of bounds!!!
-    
-    Scanner myScanner = new Scanner(System.in);  //Your scanner initialized, use as you see fit.
+public class Assignment2
+{
+    public static void main(String[] args)
+    {
+        Scanner keyboard = new Scanner(System.in);
 
-    //Activity 1
-    
-    
-    
-    //Activity 2
-    
-    
+        System.out.println("Activity 1: Sum of odd numbers");
+        // TODO: Write Activity 1 here.
 
-    
-    //Activity 3
-    
-    
-    
-    
-    //Activity 4
-    
-    
-    
-    
-    
-    //Activity 5
-    
-    
-    
-    
-    //Activity 6
-    
-    
-    
-    
-    //Activity 7
-    
-    
-    
-    //Activity 8
-    
-    
-    
-    
-    //Activity 9
-    
-    
-    
-    
-    
-    //Out of bounds!!!
+        System.out.println("Activity 2: Leap year");
+        // TODO: Write Activity 2 here.
+
+        System.out.println("Activity 3: Prime number");
+        // TODO: Write Activity 3 here.
+
+        System.out.println("Activity 4: Fibonacci");
+        // TODO: Write Activity 4 here.
+
+        System.out.println("Activity 5: Collatz");
+        // TODO: Write Activity 5 here.
+
+        // If you try an extension, label it and put it here.
+
+        keyboard.close();
     }
-}
+}</code></pre>
+  </section>
 
-</div>
+  <section class="home-card phase" id="day-one" aria-labelledby="day-one-heading">
+    <p class="home-kicker">Day 1</p>
+    <h2 id="day-one-heading">Review input, loops, and decisions</h2>
+    <p>Complete Activities 1 and 2, then start Activity 3.</p>
 
+    <article class="problem" id="activity-1">
+      <p class="problem-meta">Input validation · Running total</p>
+      <h3>1. Sum of odd numbers</h3>
+      <p>Ask for an integer <code>n</code> from <code>1</code> through <code>1000</code>. If the entry is outside that range, print an error and ask again until it is valid. Then use a loop to add the odd numbers from <code>1</code> through <code>2 * n + 1</code>, including both endpoints. Print the upper endpoint and the final sum.</p>
+      <p class="example-label">Example run</p>
+      <pre><code>Enter an integer from 1 through 1000:
+0
+That number is out of range. Try again:
+3
+The sum of the odd numbers from 1 through 7 is 16.</code></pre>
+      <p class="hint"><strong>Build it in stages.</strong> First get the sum working with a valid entry. Start the total at zero and add each odd number inside the loop. Then add the retry loop before the summing loop.</p>
+      <p class="check"><strong>Check.</strong> Try <code>1</code> for a sum of <code>4</code> and <code>1000</code> for <code>1002001</code>. Try <code>0</code>, then <code>1001</code>, then <code>3</code> in one run. Only the last entry should be accepted.</p>
+    </article>
 
+    <article class="problem" id="activity-2">
+      <p class="problem-meta">Input validation · Divisibility · Boolean logic</p>
+      <h3>2. Is it a leap year?</h3>
+      <p>Ask for a positive integer year. If the entry is zero or negative, print an error and ask again until it is valid. A year divisible by <code>400</code> is a leap year. A year divisible by <code>100</code> but not <code>400</code> is not. For other years, divisibility by <code>4</code> decides. Print the year and whether it is a leap year.</p>
+      <p class="example-label">Example run</p>
+      <pre><code>Enter a positive integer year:
+1900
+The year 1900 is not a leap year.</code></pre>
+      <p class="hint"><strong>Before you code.</strong> For each year below, decide which rule settles the question. You can express the rules with an <code>if / else</code> chain or a compound Boolean condition.</p>
+      <p class="check"><strong>Check.</strong> <code>2023</code> and <code>1900</code> are not leap years. <code>2024</code> and <code>2000</code> are. Try <code>0</code> followed by <code>2024</code> to check the retry.</p>
+    </article>
+
+    <article class="problem" id="activity-3">
+      <p class="problem-meta">Divisibility · Loop bounds · Boolean state</p>
+      <h3>3. Is it prime?</h3>
+      <p>Read an integer and print whether it is prime. A prime is an integer greater than <code>1</code> whose only positive divisors are <code>1</code> and itself. Any input less than <code>2</code> is a valid entry and should be reported as not prime.</p>
+      <p>For numbers at least <code>2</code>, use a loop to search for a divisor other than <code>1</code> or the number itself. A straightforward scan from <code>2</code> through the number minus <code>1</code> is enough. After the search, report the result once.</p>
+      <p class="example-label">Example run</p>
+      <pre><code>Enter an integer:
+25
+The number 25 is not prime.</code></pre>
+      <p class="hint"><strong>Plan the search.</strong> What can you remember in a variable once you find a divisor? What should happen for <code>2</code>, when the loop has no candidates to test?</p>
+      <p class="check"><strong>Check.</strong> <code>-3</code>, <code>0</code>, <code>1</code>, and <code>25</code> are not prime. <code>2</code> and <code>29</code> are prime.</p>
+    </article>
+  </section>
+
+  <section class="home-card phase" id="day-two" aria-labelledby="day-two-heading">
+    <p class="home-kicker">Day 2</p>
+    <h2 id="day-two-heading">Keep track of a changing sequence</h2>
+    <p>Finish Activity 3 if needed. Trace the first few Fibonacci terms together, then work through Activities 4 and 5.</p>
+
+    <article class="problem" id="activity-4">
+      <p class="problem-meta">Input validation · Loop bounds · Updating two values</p>
+      <h3>4. Find a Fibonacci term</h3>
+      <p>Ask for a term number from <code>1</code> through <code>20</code>. If the entry is outside that range, print an error and ask again. The first two terms are both <code>1</code>. Each later term is the sum of the previous two, so the sequence begins <code>1, 1, 2, 3, 5, 8, 13, 21</code>. Use a loop to compute the requested term and print its value.</p>
+      <p class="example-label">Example run</p>
+      <pre><code>Enter a term number from 1 through 20:
+8
+Term 8 is 21.</code></pre>
+      <p class="hint"><strong>Trace it first.</strong> On paper, fill in the two previous terms and the new term for each row. When you update your variables, think about which old value you still need.</p>
+      <div class="table-wrap">
+        <table>
+          <caption>Fibonacci trace to complete before coding</caption>
+          <thead><tr><th scope="col">Term to find</th><th scope="col">Older term</th><th scope="col">Newer term</th><th scope="col">New term</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">3</th><td>1</td><td>1</td><td>2</td></tr>
+            <tr><th scope="row">4</th><td>___</td><td>___</td><td>___</td></tr>
+            <tr><th scope="row">5</th><td>___</td><td>___</td><td>___</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="check"><strong>Check.</strong> Terms <code>1</code> and <code>2</code> are both <code>1</code>. Term <code>8</code> is <code>21</code> and term <code>20</code> is <code>6765</code>. Try <code>21</code> followed by <code>8</code> to check the retry.</p>
+    </article>
+
+    <article class="problem" id="activity-5">
+      <p class="problem-meta">Capstone · Conditional update · Step counter</p>
+      <h3>5. Follow the Collatz sequence</h3>
+      <p>Ask for a starting integer from <code>1</code> through <code>100</code>. For this activity, assume it is in range. Print <code>Sequence:</code> and the starting value on separate lines, then keep updating the <strong>current value</strong> until it reaches <code>1</code>.</p>
+      <ul>
+        <li>If the current value is even, divide it by <code>2</code>.</li>
+        <li>If the current value is odd, multiply it by <code>3</code> and add <code>1</code>.</li>
+      </ul>
+      <p>Print each new value on its own line. Count one step for each update and report the total after reaching <code>1</code>. Printing the starting value takes zero steps.</p>
+      <p class="example-label">Example run</p>
+      <pre><code>Enter a starting integer from 1 through 100:
+5
+Sequence:
+5
+16
+8
+4
+2
+1
+Steps: 5</code></pre>
+      <p class="hint"><strong>Plan the loop.</strong> Decide what you will print before, during, and after the loop. Where will the program check whether the current value is even?</p>
+      <p class="check"><strong>Check.</strong> Start at <code>1</code> for zero steps, <code>2</code> for one step, and <code>7</code> for sixteen steps. Each sequence should end with <code>1</code>.</p>
+    </article>
+  </section>
+
+  <section class="home-card phase" id="extensions" aria-labelledby="extensions-heading">
+    <p class="home-kicker">Optional</p>
+    <h2 id="extensions-heading">Extension challenges</h2>
+    <p>Choose an extension after completing the required activities.</p>
+
+    <article class="problem">
+      <h3>Check for primes with fewer tests</h3>
+      <p>Try a smaller upper limit for your divisor search. Explain why you can stop there, and compare how many tests the two versions make for <code>29</code> and <code>49</code>.</p>
+    </article>
+
+    <article class="problem">
+      <h3>Compare the ends of a word</h3>
+      <p>Read one lowercase word with <code>keyboard.next()</code> and use a loop to determine whether it reads the same forward and backward. Use <code>length()</code> to find the word’s length and <code>charAt(i)</code> to read a character. The first position is <code>0</code> and the last is <code>length() - 1</code>.</p>
+      <p class="check"><strong>Check.</strong> Try <code>level</code>, <code>noon</code>, <code>java</code>, and <code>a</code>.</p>
+    </article>
+
+    <article class="problem">
+      <h3>Find a GCD, then an LCM</h3>
+      <p>Read two positive integers from <code>1</code> through <code>100</code>. Assume both are in range. First, use a loop to find the greatest common divisor, the largest positive integer that divides both inputs evenly. Then find the least common multiple, the smallest positive number that is a multiple of both inputs. Start by checking multiples of one input, or investigate how the two answers are related.</p>
+      <p class="check"><strong>Check.</strong> <code>24</code> and <code>32</code> have GCD <code>8</code> and LCM <code>96</code>. Also try equal inputs and two inputs that share no factor greater than <code>1</code>.</p>
+      <p class="hint"><strong>Bonus challenge.</strong> After you have a working GCD solution, look up Euclid’s algorithm. Implement it and compare how many loop iterations the two approaches need for the same inputs.</p>
+    </article>
+  </section>
+
+  <section class="home-card" id="submit" aria-labelledby="submit-heading">
+    <h2 id="submit-heading">Before submitting</h2>
+    <ul>
+      <li>Fill in your name and date. Keep all five required solutions in <code>Assignment2.java</code>.</li>
+      <li>Run each activity’s checks, including a rejected entry followed by a valid entry where validation is required.</li>
+      <li>Be ready to trace one of your loops and explain what changes and why the loop stops.</li>
+    </ul>
+    <p>Submit <code>Assignment2.java</code> to <a href="mailto:logichomework@outlook.com">logichomework@outlook.com</a>.</p>
+  </section>
+
+  <footer class="lab-footer"><a href="index.html#assignments">← Back to assignments</a> · <a href="loopslab.html">Review Loops Lab</a></footer>
+</main>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Assignment 2 for Logic &amp; Computation. Return to Java with five activities on loops, decisions, and values that change as a program runs.">
+  <meta name="description" content="Assignment 2 for Logic &amp; Computation. Practice Java loops over four class periods, from running totals and divisibility to changing values and nested loops.">
   <title>Assignment 2: Loops | Logic &amp; Computation</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="site-shell.css">
@@ -67,8 +67,8 @@
   <section class="home-card home-card--accent" aria-labelledby="intro-heading">
     <p class="home-kicker">Logic &amp; Computation · Java laboratory</p>
     <h2 id="intro-heading">What changes each time through the loop?</h2>
-    <p>Return to Java with the tools you used in Loops Lab. Start by reading input, keeping a total, and making a decision. Then use loops to test divisors and generate number sequences.</p>
-    <p class="lab-meta">Two class periods · Five required activities · Optional extensions</p>
+    <p>Return to Java with the tools you used in Loops Lab. Start by reading input, keeping a total, and making a decision. Then use loops to test divisors, update sequences, and build rows of multiples.</p>
+    <p class="lab-meta">Four class periods · Twelve required activities · Optional extensions</p>
   </section>
 
   <nav class="assignment-jumps home-card" aria-label="Lab sections">
@@ -76,6 +76,8 @@
     <a href="#starter">Starter code</a>
     <a href="#day-one">Day 1</a>
     <a href="#day-two">Day 2</a>
+    <a href="#day-three">Day 3</a>
+    <a href="#day-four">Day 4</a>
     <a href="#extensions">Extensions</a>
     <a href="#submit">Before submitting</a>
   </nav>
@@ -83,13 +85,13 @@
   <section class="home-card" id="start" aria-labelledby="start-heading">
     <h2 id="start-heading">Before you begin</h2>
     <ol>
-      <li>Open your Java project in VS Code. Save the starter in <code>src</code> as <code>Assignment2.java</code>, fill in your name and date, and run it once. You should see the five activity labels.</li>
+      <li>Open your Java project in VS Code. Save the starter in <code>src</code> as <code>Assignment2.java</code>, fill in your name and date, and run it once. You should see the twelve activity labels. If you started from the earlier version, keep your work and match it to the new labels by title.</li>
       <li>Keep your solutions in <code>main</code>, below their matching labels. Use the supplied <code>keyboard</code> for input and leave <code>keyboard.close();</code> at the end. Give variables declared directly in <code>main</code> distinct names across activities.</li>
-      <li>Assume input has the requested type. Read integers with <code>keyboard.nextInt()</code> and reject out-of-range values where an activity asks you to. The required activities use variables, conditionals, and loops.</li>
+      <li>Assume input has the requested type. Read integers with <code>keyboard.nextInt()</code> and reject out-of-range values where an activity asks you to. Use variables, conditionals, and loops for the required activities.</li>
       <li>Choose a <code>for</code> or <code>while</code> loop where you need repetition. Before you code, ask yourself what repeats, what changes, and what makes the loop stop.</li>
     </ol>
     <p class="note"><strong>Quick refresher:</strong> Revisit <a href="loopslab.html#problem-5">Loops Lab’s running total</a> and <a href="loopslab.html#problem-8">input retry</a>. Trace a total for input <code>4</code>, then explain what happens if the first value entered is already valid. A counting loop has an endpoint. A retry loop checks the entry again after reading a replacement.</p>
-    <p>When you run the whole file, the activities run in order. In the example runs, the line immediately after each input prompt shows what you type.</p>
+    <p>When you run the whole file, the activities run in order. In the example runs, the line immediately after each input prompt shows what you type. When testing a later activity, you may temporarily comment out earlier completed sections. Keep all your solutions in the submitted file.</p>
   </section>
 
   <section class="home-card" id="starter" aria-labelledby="starter-heading">
@@ -113,14 +115,35 @@ public class Assignment2
         System.out.println("Activity 2: Leap year");
         // TODO: Write Activity 2 here.
 
-        System.out.println("Activity 3: Prime number");
+        System.out.println("Activity 3: Score report");
         // TODO: Write Activity 3 here.
 
-        System.out.println("Activity 4: Fibonacci");
+        System.out.println("Activity 4: Positive divisors");
         // TODO: Write Activity 4 here.
 
-        System.out.println("Activity 5: Collatz");
+        System.out.println("Activity 5: Prime number");
         // TODO: Write Activity 5 here.
+
+        System.out.println("Activity 6: Later multiples");
+        // TODO: Write Activity 6 here.
+
+        System.out.println("Activity 7: Fibonacci");
+        // TODO: Write Activity 7 here.
+
+        System.out.println("Activity 8: Digit sum");
+        // TODO: Write Activity 8 here.
+
+        System.out.println("Activity 9: Collatz");
+        // TODO: Write Activity 9 here.
+
+        System.out.println("Activity 10: Divide out one prime");
+        // TODO: Write Activity 10 here.
+
+        System.out.println("Activity 11: Multiplication grid");
+        // TODO: Write Activity 11 here.
+
+        System.out.println("Activity 12: Multiples by base");
+        // TODO: Write Activity 12 here.
 
         // If you try an extension, label it and put it here.
 
@@ -132,7 +155,7 @@ public class Assignment2
   <section class="home-card phase" id="day-one" aria-labelledby="day-one-heading">
     <p class="home-kicker">Day 1</p>
     <h2 id="day-one-heading">Review input, loops, and decisions</h2>
-    <p>Complete Activities 1 and 2, then start Activity 3.</p>
+    <p>Start with the refresher above. Then work through a running total, a divisibility rule, and a score report.</p>
 
     <article class="problem" id="activity-1">
       <p class="problem-meta">Input validation · Running total</p>
@@ -160,9 +183,55 @@ The year 1900 is not a leap year.</code></pre>
       <p class="check"><strong>Check.</strong> <code>2023</code> and <code>1900</code> are not leap years. <code>2024</code> and <code>2000</code> are. Try <code>0</code> followed by <code>2024</code> to check the retry.</p>
     </article>
 
+    <article class="problem" id="score-report">
+      <p class="problem-meta">Fixed repetitions · Counter · Maximum</p>
+      <h3>3. Make a score report</h3>
+      <p>Ask how many quiz scores will be entered, from <code>1</code> through <code>8</code>. Read that many scores, each from <code>0</code> through <code>100</code>. Assume all entries are in range. Print how many scores are at least <code>70</code> and print the highest score.</p>
+      <p class="example-label">Example run</p>
+      <pre><code>How many scores?
+4
+Enter score 1:
+70
+Enter score 2:
+45
+Enter score 3:
+92
+Enter score 4:
+69
+Scores at or above 70: 2
+Highest score: 92</code></pre>
+      <p class="hint"><strong>Plan the updates.</strong> Keep a count and a highest score. On each repetition, decide separately whether the score increases the count and whether it changes the highest score.</p>
+      <p class="check"><strong>Check.</strong> A single score of <code>0</code> gives a count of <code>0</code> and a highest score of <code>0</code>. Scores <code>69</code> and <code>70</code> give a count of <code>1</code> and a highest score of <code>70</code>.</p>
+    </article>
+  </section>
+
+  <section class="home-card phase" id="day-two" aria-labelledby="day-two-heading">
+    <p class="home-kicker">Day 2</p>
+    <h2 id="day-two-heading">Work with divisors and multiples</h2>
+    <p>Compare two loop jobs. A divisor search checks candidates. A multiples loop can step directly from one result to the next.</p>
+
+    <article class="problem" id="positive-divisors">
+      <p class="problem-meta">Counting loop · Remainder · Inclusive endpoints</p>
+      <h3>4. List the positive divisors</h3>
+      <p>Ask for an integer from <code>1</code> through <code>100</code>. Assume the entry is in range. Use a loop to test the integers from <code>1</code> through the input. Print each divisor on its own line in increasing order, then print the number of divisors.</p>
+      <p class="example-label">Example run</p>
+      <pre><code>Enter an integer from 1 through 100:
+12
+Divisors:
+1
+2
+3
+4
+6
+12
+Divisor count: 6</code></pre>
+      <p class="hint"><strong>Plan the test.</strong> What remainder tells you that a candidate divides the input evenly? Which candidates should increase the counter?</p>
+      <p class="check"><strong>Check.</strong> Input <code>1</code> has just one divisor. Input <code>13</code> has two, <code>1</code> and <code>13</code>. Input <code>16</code> has five, and <code>4</code> should appear once.</p>
+    </article>
+
     <article class="problem" id="activity-3">
       <p class="problem-meta">Divisibility · Loop bounds · Boolean state</p>
-      <h3>3. Is it prime?</h3>
+      <h3>5. Is it prime?</h3>
       <p>Read an integer and print whether it is prime. A prime is an integer greater than <code>1</code> whose only positive divisors are <code>1</code> and itself. Any input less than <code>2</code> is a valid entry and should be reported as not prime.</p>
       <p>For numbers at least <code>2</code>, use a loop to search for a divisor other than <code>1</code> or the number itself. A straightforward scan from <code>2</code> through the number minus <code>1</code> is enough. After the search, report the result once.</p>
       <p class="example-label">Example run</p>
@@ -172,16 +241,34 @@ The number 25 is not prime.</code></pre>
       <p class="hint"><strong>Plan the search.</strong> What can you remember in a variable once you find a divisor? What should happen for <code>2</code>, when the loop has no candidates to test?</p>
       <p class="check"><strong>Check.</strong> <code>-3</code>, <code>0</code>, <code>1</code>, and <code>25</code> are not prime. <code>2</code> and <code>29</code> are prime.</p>
     </article>
+
+    <article class="problem" id="later-multiples">
+      <p class="problem-meta">Counting loop · Starting value · Step size</p>
+      <h3>6. Print the later multiples</h3>
+      <p>Read a base from <code>2</code> through <code>10</code> and a limit from <code>2</code> through <code>100</code>. Assume both entries are in range. Print each multiple of the base that is <strong>greater than the base</strong> and at most the limit. Start at twice the base and advance by the base each time. Print the number of multiples found, even if it is zero.</p>
+      <p class="example-label">Example run</p>
+      <pre><code>Enter a base from 2 through 10:
+4
+Enter a limit from 2 through 100:
+16
+Multiples after 4:
+8
+12
+16
+Count: 3</code></pre>
+      <p class="hint"><strong>Trace the bounds.</strong> With base <code>4</code>, write the first three values the loop would try. Which condition includes a multiple equal to the limit?</p>
+      <p class="check"><strong>Check.</strong> Base <code>4</code> with limit <code>15</code> gives <code>8</code> and <code>12</code>. Base <code>4</code> with limit <code>7</code> gives no multiples and a count of <code>0</code>. Base <code>2</code> with limit <code>4</code> gives exactly one multiple, <code>4</code>.</p>
+    </article>
   </section>
 
-  <section class="home-card phase" id="day-two" aria-labelledby="day-two-heading">
-    <p class="home-kicker">Day 2</p>
-    <h2 id="day-two-heading">Keep track of a changing sequence</h2>
-    <p>Finish Activity 3 if needed. Trace the first few Fibonacci terms together, then work through Activities 4 and 5.</p>
+  <section class="home-card phase" id="day-three" aria-labelledby="day-three-heading">
+    <p class="home-kicker">Day 3</p>
+    <h2 id="day-three-heading">Keep track of changing values</h2>
+    <p>Trace the first few Fibonacci terms together. Then practice loops that update a number’s digits or its current value until a condition is met.</p>
 
     <article class="problem" id="activity-4">
       <p class="problem-meta">Input validation · Loop bounds · Updating two values</p>
-      <h3>4. Find a Fibonacci term</h3>
+      <h3>7. Find a Fibonacci term</h3>
       <p>Ask for a term number from <code>1</code> through <code>20</code>. If the entry is outside that range, print an error and ask again. The first two terms are both <code>1</code>. Each later term is the sum of the previous two, so the sequence begins <code>1, 1, 2, 3, 5, 8, 13, 21</code>. Use a loop to compute the requested term and print its value.</p>
       <p class="example-label">Example run</p>
       <pre><code>Enter a term number from 1 through 20:
@@ -202,9 +289,21 @@ Term 8 is 21.</code></pre>
       <p class="check"><strong>Check.</strong> Terms <code>1</code> and <code>2</code> are both <code>1</code>. Term <code>8</code> is <code>21</code> and term <code>20</code> is <code>6765</code>. Try <code>21</code> followed by <code>8</code> to check the retry.</p>
     </article>
 
+    <article class="problem" id="digit-sum">
+      <p class="problem-meta">While loop · Integer division · Running total</p>
+      <h3>8. Add the digits</h3>
+      <p>Read an integer from <code>0</code> through <code>100000</code>. Assume it is in range. Use a loop to add its decimal digits. Work with a copy of the input so you can print the original number and the sum at the end.</p>
+      <p class="example-label">Example run</p>
+      <pre><code>Enter an integer from 0 through 100000:
+5072
+The digits of 5072 sum to 14.</code></pre>
+      <p class="hint"><strong>Trace one update.</strong> For a nonnegative integer, <code>% 10</code> gives the last digit and integer division by <code>10</code> removes it. Apply both operations to <code>5072</code> on paper before writing the loop condition.</p>
+      <p class="check"><strong>Check.</strong> Input <code>0</code> gives <code>0</code>, <code>8</code> gives <code>8</code>, <code>10000</code> gives <code>1</code>, and <code>99999</code> gives <code>45</code>.</p>
+    </article>
+
     <article class="problem" id="activity-5">
-      <p class="problem-meta">Capstone · Conditional update · Step counter</p>
-      <h3>5. Follow the Collatz sequence</h3>
+      <p class="problem-meta">Sequence challenge · Conditional update · Step counter</p>
+      <h3>9. Follow the Collatz sequence</h3>
       <p>Ask for a starting integer from <code>1</code> through <code>100</code>. For this activity, assume it is in range. Print <code>Sequence:</code> and the starting value on separate lines, then keep updating the <strong>current value</strong> until it reaches <code>1</code>.</p>
       <ul>
         <li>If the current value is even, divide it by <code>2</code>.</li>
@@ -227,6 +326,59 @@ Steps: 5</code></pre>
     </article>
   </section>
 
+  <section class="home-card phase" id="day-four" aria-labelledby="day-four-heading">
+    <p class="home-kicker">Day 4</p>
+    <h2 id="day-four-heading">Build rows with nested loops</h2>
+    <p>Start with repeated division. For the last two activities, review the <a href="loopslab.html#nested-notes">nested-loop example in Loops Lab</a>. Trace the outer and inner counters for a two-row grid before you code.</p>
+
+    <article class="problem" id="repeated-division">
+      <p class="problem-meta">While loop · Divisibility · Step counter</p>
+      <h3>10. Divide out one prime</h3>
+      <p>Read an integer from <code>1</code> through <code>10000</code> and choose <code>2</code>, <code>3</code>, <code>5</code>, or <code>7</code> as the prime to test. Assume both entries meet these rules. As long as the current value is divisible by the chosen prime, divide by it and count the division. Print the number of divisions and the value left over.</p>
+      <p class="example-label">Example run</p>
+      <pre><code>Enter an integer from 1 through 10000:
+72
+Choose 2, 3, 5, or 7:
+2
+Divisions by 2: 3
+Value left: 9</code></pre>
+      <p class="hint"><strong>Trace the stopping test.</strong> Start with <code>72</code> and <code>2</code>. After each successful division, test the new value for divisibility before dividing again.</p>
+      <p class="check"><strong>Check.</strong> Try <code>81</code> with <code>3</code> for four divisions and a value of <code>1</code>. Try <code>14</code> with <code>3</code> for zero divisions and a value of <code>14</code>. Starting at <code>1</code> always takes zero divisions.</p>
+    </article>
+
+    <article class="problem" id="product-grid">
+      <p class="problem-meta">Nested loops · Row and column bounds</p>
+      <h3>11. Print a multiplication grid</h3>
+      <p>Read a row count and a column count, each from <code>1</code> through <code>6</code>. Assume both entries are in range. Use nested loops to print a grid of products. Number the rows and columns starting at <code>1</code>. Each entry is its row number times its column number. Put spaces between products and end the line after each row.</p>
+      <p class="example-label">Example run</p>
+      <pre><code>How many rows?
+2
+How many columns?
+4
+1 2 3 4
+2 4 6 8</code></pre>
+      <p class="hint"><strong>Plan one row.</strong> Decide which counter stays fixed while you print a row. After printing that row, the next row should start back at column <code>1</code>.</p>
+      <p class="check"><strong>Check.</strong> A <code>1</code>-by-<code>1</code> grid prints just <code>1</code>. A <code>4</code>-by-<code>2</code> grid has four lines, with <code>4 8</code> on the last line.</p>
+    </article>
+
+    <article class="problem" id="multiples-by-base">
+      <p class="problem-meta">Nested loops · Changing start and step</p>
+      <h3>12. Put multiples on separate rows</h3>
+      <p>Read a largest base from <code>2</code> through <code>6</code> and a limit from <code>2</code> through <code>30</code>. Assume both entries are in range. Use nested loops to print one row for each base from <code>2</code> through the largest base. Start the row with its label, such as <code>Base 2:</code>. Then, on that same row, print its later multiples using Activity 6’s rule. Leave the label by itself if that base has no later multiples within the limit.</p>
+      <p>A number can appear in more than one row. For example, <code>12</code> is a later multiple of <code>2</code>, <code>3</code>, and <code>4</code>.</p>
+      <p class="example-label">Example run</p>
+      <pre><code>Enter the largest base:
+4
+Enter the limit:
+12
+Base 2: 4 6 8 10 12
+Base 3: 6 9 12
+Base 4: 8 12</code></pre>
+      <p class="hint"><strong>Build from Activity 6.</strong> Get one row working first. Then let an outer loop choose each base. When the base changes, what happens to the inner loop’s starting value and step size?</p>
+      <p class="check"><strong>Check.</strong> With largest base <code>3</code> and limit <code>5</code>, the first row is <code>Base 2: 4</code> and the second is just <code>Base 3:</code>. With largest base <code>2</code> and limit <code>4</code>, there is one row, <code>Base 2: 4</code>.</p>
+    </article>
+  </section>
+
   <section class="home-card phase" id="extensions" aria-labelledby="extensions-heading">
     <p class="home-kicker">Optional</p>
     <h2 id="extensions-heading">Extension challenges</h2>
@@ -234,7 +386,7 @@ Steps: 5</code></pre>
 
     <article class="problem">
       <h3>Check for primes with fewer tests</h3>
-      <p>Try a smaller upper limit for your divisor search. Explain why you can stop there, and compare how many tests the two versions make for <code>29</code> and <code>49</code>.</p>
+      <p>Try a smaller upper limit for your divisor search in Activity 5. Explain why you can stop there, and compare how many tests the two versions make for <code>29</code> and <code>49</code>.</p>
     </article>
 
     <article class="problem">
@@ -254,9 +406,9 @@ Steps: 5</code></pre>
   <section class="home-card" id="submit" aria-labelledby="submit-heading">
     <h2 id="submit-heading">Before submitting</h2>
     <ul>
-      <li>Fill in your name and date. Keep all five required solutions in <code>Assignment2.java</code>.</li>
+      <li>Fill in your name and date. Keep all twelve required solutions in <code>Assignment2.java</code>.</li>
       <li>Run each activity’s checks, including a rejected entry followed by a valid entry where validation is required.</li>
-      <li>Be ready to trace one of your loops and explain what changes and why the loop stops.</li>
+      <li>Be ready to trace one of your loops and explain what changes and why it stops. For Activity 12, explain how the base controls the inner loop.</li>
     </ul>
     <p>Submit <code>Assignment2.java</code> to <a href="mailto:logichomework@outlook.com">logichomework@outlook.com</a>.</p>
   </section>

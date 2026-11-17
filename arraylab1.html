@@ -1,133 +1,448 @@
 <!DOCTYPE html>
-<html>
-<title>
-Array Lab
-</title>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Array notes and Array Lab for Logic &amp; Computation. Learn Java arrays, then build the Sieve of Eratosthenes and a prime factorization program.">
+  <title>Array Notes &amp; Lab | Logic &amp; Computation</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="site-shell.css">
+  <link rel="stylesheet" href="assignment1.css">
+  <style>
+    /* Use Assignment1's course theme; these rules only arrange lab-specific elements. */
+    .fundamentals-content > .assignment-jumps,
+    .fundamentals-content > .phase,
+    .fundamentals-content > .lab-footer { margin-top: 24px; }
+    .fundamentals-content .problem h3 { margin-top: 0; }
+    .fundamentals-content .phase h2 { margin-top: 0; }
+    .fundamentals-content .table-wrap { max-width: 100%; overflow-x: auto; }
+    .fundamentals-content .note,
+    .fundamentals-content .hint,
+    .fundamentals-content .check {
+      margin-top: 16px;
+      padding: 12px 16px;
+      border: 1px solid var(--site-line);
+      border-left: 3px solid var(--site-blue);
+      border-radius: 6px;
+      background: var(--site-panel-strong);
+    }
+    .fundamentals-content .check { border-left-color: var(--site-gold); }
+    .fundamentals-content .problem-meta { color: var(--site-muted) !important; }
+    .fundamentals-content .example-label { margin-top: 16px; font-weight: 700; }
+    .fundamentals-content [id] { scroll-margin-top: 24px; }
+    .fundamentals-content .lab-footer { padding: 16px 0; }
+    .fundamentals-content .rhyme { margin: 16px 0; padding-left: 16px; border-left: 3px solid var(--site-gold); font-style: italic; }
+    .fundamentals-content .step-title { margin-top: 24px; font-weight: 700; color: var(--site-text-bright) !important; }
+    @media print {
+      body { color: #111 !important; background: #fff !important; }
+      .fundamentals-content .home-card,
+      .fundamentals-content .note,
+      .fundamentals-content .hint,
+      .fundamentals-content .check,
+      .fundamentals-content th {
+        color: #111 !important; background: #fff !important; box-shadow: none;
+      }
+      .fundamentals-content .home-card { border-color: #bbb; }
+      .fundamentals-content p,
+      .fundamentals-content li,
+      .fundamentals-content h2,
+      .fundamentals-content h3,
+      .fundamentals-content th,
+      .fundamentals-content td { color: #111 !important; }
+      .fundamentals-content code { color: #164b37 !important; }
+      .fundamentals-content pre { color: #111 !important; background: #f5f5f5 !important; box-shadow: none; }
+      .fundamentals-content pre code { color: inherit !important; }
+      .fundamentals-content .assignment-jumps,
+      .fundamentals-content .back-link,
+      .fundamentals-content .lab-footer { display: none; }
+      .fundamentals-content h2,
+      .fundamentals-content h3 { break-after: avoid; }
+    }
+  </style>
   <script src="site-header.js" defer></script>
 </head>
-<body style="background-color: black;">
-<h1 style="color:white;">Logic & Computation Array Lab
-    <div style = 
-    "float: right;
-    position: relative;
-    top: 10px;
-    right: 10px;">
+<body>
+<h1>Array Notes &amp; Lab</h1>
+<main class="assignment-content fundamentals-content">
+  <a class="back-link" href="index.html#assignments">← Back to assignments</a>
 
-    <img src="Veritas_crest_1C.png"
-    width="150px",
-    height=" auto"/>
-    
-</div> 
-</h1>
-    <div style =
-    "font-family: monospace;
-    white-space: pre-wrap;
-    display: block;
-    color:white;
-    font-size: 15px;
-    text-align: left;
-    ">
-  Write a program that solves these multiple problems/tasks.
+  <section class="home-card home-card--accent" aria-labelledby="intro-heading">
+    <p class="home-kicker">Logic &amp; Computation · Java notes and laboratory</p>
+    <h2 id="intro-heading">One name, many values</h2>
+    <p>A variable holds one value. An array holds a whole row of values under one name. This page starts with notes on arrays and the two examples from class. Then you use arrays to find every prime number up to 10,000 and to break a number into its prime factors.</p>
+    <p class="lab-meta">Array notes · Two class examples · Two lab problems</p>
+  </section>
 
-  Baby's First Array
+  <nav class="assignment-jumps home-card" aria-label="Page sections">
+    <a href="#notes">Array notes</a>
+    <a href="#class-examples">Class examples</a>
+    <a href="#starter">Starter code</a>
+    <a href="#problem-3">Problem 3: The Sieve</a>
+    <a href="#problem-4">Problem 4: Prime factorization</a>
+    <a href="#submit">Before submitting</a>
+  </nav>
 
-  1. Write a program that takes an array of integers and it increments each value by 1.
-  For example, an array with values {1, 2, 3, 4 -3} = {2, 3, 4, 5, -2}
+  <section class="home-card phase" id="notes" aria-labelledby="notes-heading">
+    <p class="home-kicker">Notes</p>
+    <h2 id="notes-heading">Arrays in Java</h2>
 
+    <article id="notes-what">
+      <h3>What is an array?</h3>
+      <p>An array is a row of numbered boxes. Three rules describe it.</p>
+      <ul>
+        <li>Every box holds the same type of value. An <code>int[]</code> holds only <code>int</code> values.</li>
+        <li>The number of boxes is chosen when the array is made, and it never changes.</li>
+        <li>Each box has a number called its <strong>index</strong>. The first index is <code>0</code>.</li>
+      </ul>
+    </article>
 
+    <article id="notes-create">
+      <h3>Making an array</h3>
+      <p>There are two ways. Use the first when you know how many boxes you need but not the values yet.</p>
+      <pre><code>// Five boxes for integers. Every box starts at 0.
+int[] arr = new int[5];</code></pre>
+      <p>Use the second when you already know the values.</p>
+      <pre><code>// Eleven boxes, filled in order.
+int[] coolerArr = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};</code></pre>
+      <p>Read <code>int[]</code> as “array of ints.” The same pattern works for other types.</p>
+      <div class="table-wrap">
+        <table>
+          <caption>What the boxes hold before you put anything in them</caption>
+          <thead>
+            <tr><th scope="col">Array made with <code>new</code></th><th scope="col">Starting value in every box</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>new int[5]</code></td><td><code>0</code></td></tr>
+            <tr><td><code>new double[5]</code></td><td><code>0.0</code></td></tr>
+            <tr><td><code>new boolean[5]</code></td><td><code>false</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
 
-  Jury-Rigged Fibonacci Sequence
+    <article id="notes-index">
+      <h3>Using one box</h3>
+      <p>Write the array’s name and then the index in square brackets. That names one box, and you can use it like any other variable.</p>
+      <pre><code>int[] arr = new int[5];
 
-  2. Write a program that takes an EMPTY array of integers with the first two spaces
-  containing a number, like so: {4, 16, BLANK, BLANK, BLANK, etc.} and then fills up
-  the remaining spaces of the array using the fibonacci sequence, with the first two
-  numbers of the array being Xn-1 and Xn-2.
-  (Fibonacci Sequence: Xn = Xn-1 + Xn-2)
+arr[0] = 10;    // put 10 in the first box
+arr[1] = 20;
+arr[2] = 30;
+arr[3] = 40;
+arr[4] = 50;    // the last box
 
-  Example of a finalized array with 10 spaces: {5, 3, 8, 11, 19, 30, 49, 79, 128, 207}
+System.out.println(arr[2]);    // prints 30
+arr[2] = arr[2] + 1;           // the box now holds 31</code></pre>
+      <div class="table-wrap">
+        <table>
+          <caption><code>arr</code> after the first five assignments</caption>
+          <tbody>
+            <tr><th scope="row">Index</th><td><code>0</code></td><td><code>1</code></td><td><code>2</code></td><td><code>3</code></td><td><code>4</code></td></tr>
+            <tr><th scope="row">Value</th><td><code>10</code></td><td><code>20</code></td><td><code>30</code></td><td><code>40</code></td><td><code>50</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note"><strong>Counting starts at zero.</strong> An array with five boxes has indexes <code>0</code> through <code>4</code>. The last index is always one less than the number of boxes.</p>
+    </article>
 
+    <article id="notes-length">
+      <h3>How many boxes?</h3>
+      <p>Every array knows its own size. Write the array’s name, a dot, and <code>length</code>.</p>
+      <pre><code>System.out.println(arr.length);    // prints 5</code></pre>
+      <p>There are no parentheses after <code>length</code> for an array. A <code>String</code> uses <code>word.length()</code> with parentheses. An array uses <code>arr.length</code> without them.</p>
+    </article>
 
+    <article id="notes-loop">
+      <h3>Visiting every box with a loop</h3>
+      <p>Arrays and <code>for</code> loops work together. Let the loop variable be the index. Start it at <code>0</code> and keep going while it is less than <code>arr.length</code>.</p>
+      <pre><code>for (int i = 0; i &lt; arr.length; i++)
+{
+    System.out.println("Element at index " + i + " : " + arr[i]);
+}</code></pre>
+      <p>The same loop can fill an array. This one puts a random number from <code>0</code> through <code>1000</code> in each of 1,000 boxes. It needs <code>import java.util.Random;</code> at the top of the file.</p>
+      <pre><code>int[] bigArr = new int[1000];
+Random rand = new Random();
 
-  The Sieve of Eratosthenes
+for (int i = 0; i &lt; bigArr.length; i++)
+{
+    bigArr[i] = rand.nextInt(1001);
+}</code></pre>
+    </article>
 
-  3. Write a program that inputs all of the prime numbers from 2 - 10000.
-  You will need an array filled with prime numbers (in order) for the next problem.
-  <em>
-    Sift the twos, sift the threes-
-    The Sieve of Eratosthenes!
-    When the multiples sublime
-    The numbers that remain are prime!
-  </em>
+    <article id="notes-bounds">
+      <h3>Out of bounds</h3>
+      <p>If you ask for a box that does not exist, the program stops with an error.</p>
+      <pre><code>int[] arr = new int[5];
+arr[5] = 60;    // there is no box 5</code></pre>
+      <pre><code>Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException:
+Index 5 out of bounds for length 5</code></pre>
+      <p>The message tells you the index you used and the length of the array. When you see it, check where your loop starts and stops. A loop that uses <code>i &lt;= arr.length</code> goes one box too far. Use <code>i &lt; arr.length</code>.</p>
+    </article>
 
-  Translation: 
-  1. Strike out 0 and 1.
-  2. Let n = 2
-  3. Strike out all multiples of n greater than n
-  4. Add one to n
-  5. Repeat steps 3 and 4 until n is greater than 
-     the last number in the array 
-  6. Stop. The remaining numbers are prime.
+    <article id="notes-types">
+      <h3>Arrays of other types</h3>
+      <p>An array can hold any one type: <code>double[]</code>, <code>boolean[]</code>, <code>char[]</code>, <code>String[]</code>. This example turns a word into an array of characters, fills the array in reverse order, and turns it back into a word.</p>
+      <pre><code>String word = "hotdog";
+char[] letters = word.toCharArray();
 
+for (int i = 0; i &lt; word.length(); i++)
+{
+    letters[i] = word.charAt(word.length() - (i + 1));
+}
 
+word = String.valueOf(letters);
+System.out.println(word);    // prints godtoh</code></pre>
+    </article>
 
+    <article id="notes-summary">
+      <h3>Quick reference</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">To do this</th><th scope="col">Write this</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Make an array of 5 ints</td><td><code>int[] arr = new int[5];</code></td></tr>
+            <tr><td>Make an array from known values</td><td><code>int[] arr = {4, 8, 15};</code></td></tr>
+            <tr><td>Put a value in a box</td><td><code>arr[0] = 10;</code></td></tr>
+            <tr><td>Read a value from a box</td><td><code>int x = arr[0];</code></td></tr>
+            <tr><td>Find the number of boxes</td><td><code>arr.length</code></td></tr>
+            <tr><td>Name the last box</td><td><code>arr[arr.length - 1]</code></td></tr>
+            <tr><td>Visit every box</td><td><code>for (int i = 0; i &lt; arr.length; i++)</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+  </section>
 
-  Prime Factorization
-  4. Given an array with prime numbers, create a program that returns the 
-  PRIME factorization of a given number.
-  Ex: Prime factorization of 132
-  2: 2
-  3: 1
-  11: 1
+  <section class="home-card phase" id="class-examples" aria-labelledby="class-examples-heading">
+    <p class="home-kicker">In class</p>
+    <h2 id="class-examples-heading">Class examples</h2>
+    <p>We work these two together before the lab. Keep them nearby. Both lab problems use the same moves.</p>
 
-  2*2*3*11 = 132
+    <article class="problem" id="problem-1">
+      <p class="problem-meta">Visit every box · Change each value</p>
+      <h3>1. Baby’s First Array</h3>
+      <p>Take an array of integers and add <code>1</code> to every value. The array <code>{1, 2, 3, 4, -3}</code> becomes <code>{2, 3, 4, 5, -2}</code>.</p>
+      <pre><code>int[] numbers = {1, 2, 3, 4, -3};
 
+for (int i = 0; i &lt; numbers.length; i++)
+{
+    numbers[i] = numbers[i] + 1;
+}</code></pre>
+      <p class="hint"><strong>What to notice.</strong> The loop variable <code>i</code> is the index. Each time through, <code>numbers[i]</code> names a different box.</p>
+    </article>
 
-  BIG Int Notation
-  5. Java has a limit on the size of numbers that it can represent as the int type:
-  ints may be from -2,147,483,648  to 2,147,483,647 inclusive. (That is horrible)
-  I want this fixed. One way of getting around this disgusting limitation
-  is through arrays! Let each int in an array represent a digit of a large number.
+    <article class="problem" id="problem-2">
+      <p class="problem-meta">Fill an array · Use earlier boxes</p>
+      <h3>2. Jury-Rigged Fibonacci Sequence</h3>
+      <p>Start with an array whose first two boxes hold numbers. Fill each remaining box with the sum of the two boxes before it. Starting from <code>5</code> and <code>3</code>, an array of ten boxes ends as <code>{5, 3, 8, 11, 19, 30, 49, 79, 128, 207}</code>.</p>
+      <pre><code>int[] sequence = new int[10];
+sequence[0] = 5;
+sequence[1] = 3;
 
-  This is an open ended question, where you get to design the functionality
-  of your array number. Here are some questions to help guide you:
+for (int i = 2; i &lt; sequence.length; i++)
+{
+    sequence[i] = sequence[i - 1] + sequence[i - 2];
+}</code></pre>
+      <p class="hint"><strong>What to notice.</strong> The loop starts at <code>2</code> because boxes <code>0</code> and <code>1</code> are already filled. The index can be a calculation, such as <code>i - 1</code>.</p>
+    </article>
+  </section>
 
-  1. How will you implement negative numbers?
-  2. How will you compare numbers to see which one is greater or lesser?
-  3. How will you implement addition and subtraction with your array numbers?
+  <section class="home-card" id="starter" aria-labelledby="starter-heading">
+    <h2 id="starter-heading">Starter code</h2>
+    <p>Save this in <code>src</code> as <code>ArrayLab.java</code>. Fill in your name and date and run it once. You should see the two problem labels. Write each solution in <code>main</code> below its label.</p>
+    <pre><code>/*
+ * Name:
+ * Project: Array Lab
+ * Date:
+ */
+import java.util.Scanner;
 
-  Your code should be able to handle a value such as -345938007483190297389128290
-  storing it properly and being able to do simple addition/subtraction with it.
+public class ArrayLab
+{
+    public static void main(String[] args)
+    {
+        Scanner keyboard = new Scanner(System.in);
 
+        System.out.println("Problem 3: The Sieve of Eratosthenes");
+        // TODO: Write Problem 3 here.
 
+        System.out.println("Problem 4: Prime factorization");
+        // TODO: Write Problem 4 here.
 
-  import java.util.Scanner;
-  import java.util.Random;
-  
-  public class arraylab 
-  {
-  
-      public static void main(String[] args) 
-      {
-  
-          // Out of bounds!!!
-  
-          //Your scanner initialized
-          Scanner myScanner = new Scanner(System.in);
-  
-  
-  
-          //Out of bounds!!!
-          
-      }
-      
-  }
-  
+        keyboard.close();
+    }
+}</code></pre>
+    <p class="note"><strong>Brace style.</strong> Put each opening brace on its own line, and line up each closing brace with its opening brace. Indent the lines inside a block by four spaces.</p>
+  </section>
 
+  <section class="home-card phase" id="problem-3" aria-labelledby="problem-3-heading">
+    <p class="home-kicker">Lab problem 3</p>
+    <h2 id="problem-3-heading">The Sieve of Eratosthenes</h2>
+    <p class="problem-meta">boolean array · Nested loops · Building a second array</p>
+    <p>Find every prime number from <code>2</code> through <code>10000</code> and store them, in order, in an array of integers named <code>primes</code>. Print how many primes you found. You need <code>primes</code> again in Problem 4.</p>
+    <p class="rhyme">Sift the twos, sift the threes—<br>The Sieve of Eratosthenes!<br>When the multiples sublime,<br>The numbers that remain are prime!</p>
+
+    <h3>The method</h3>
+    <ol>
+      <li>Strike out <code>0</code> and <code>1</code>.</li>
+      <li>Let <code>n = 2</code>.</li>
+      <li>Strike out every multiple of <code>n</code> that is greater than <code>n</code>.</li>
+      <li>Add one to <code>n</code>.</li>
+      <li>Repeat steps 3 and 4 until <code>n</code> is greater than the last number in the array.</li>
+      <li>Stop. The numbers that remain are prime.</li>
+    </ol>
+
+    <h3>Try it on paper first</h3>
+    <p>Write the numbers <code>2</code> through <code>30</code>. Strike out the multiples of <code>2</code> greater than <code>2</code>, then the multiples of <code>3</code> greater than <code>3</code>, then the multiples of <code>5</code> greater than <code>5</code>. Compare with this table.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th scope="col">After striking multiples of</th><th scope="col">Numbers that remain</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>2</code></td><td>2 3 5 7 9 11 13 15 17 19 21 23 25 27 29</td></tr>
+          <tr><td><code>3</code></td><td>2 3 5 7 11 13 17 19 23 25 29</td></tr>
+          <tr><td><code>5</code></td><td>2 3 5 7 11 13 17 19 23 29</td></tr>
+        </tbody>
+      </table>
     </div>
-  </body>
+    <p>Your program does the same thing with a much longer list.</p>
+
+    <h3>How to build it</h3>
+
+    <p class="step-title">Step 1. Make the checklist.</p>
+    <p>Make an array of <code>boolean</code> values with one box for every number from <code>0</code> through <code>10000</code>. The index is the number. The value answers one question: has this number been struck out?</p>
+    <pre><code>boolean[] struckOut = new boolean[10001];</code></pre>
+    <p>The size is <code>10001</code> so that index <code>10000</code> exists. Every box starts as <code>false</code>, so at the start nothing is struck out.</p>
+
+    <p class="step-title">Step 2. Strike out 0 and 1.</p>
+    <p>Set those two boxes to <code>true</code>. This takes two lines and no loop.</p>
+
+    <p class="step-title">Step 3. Strike out the multiples.</p>
+    <p>You need a loop inside a loop.</p>
+    <ul>
+      <li>The <strong>outer loop</strong> chooses <code>n</code>. It starts at <code>2</code> and goes up by one.</li>
+      <li>The <strong>inner loop</strong> visits the multiples of <code>n</code> that are greater than <code>n</code>. It starts at <code>2 * n</code>, goes up by <code>n</code> each time, and stops once it passes <code>10000</code>. Each box it visits is set to <code>true</code>.</li>
+    </ul>
+    <p class="hint"><strong>You have written this before.</strong> The inner loop is <a href="assignment2.html#later-multiples">Assignment 2, Activity 6</a>, and the two loops together are <a href="assignment2.html#multiples-by-base">Activity 12</a>. There you printed each multiple. Here you set <code>struckOut[multiple] = true;</code> instead.</p>
+    <p class="check"><strong>Check.</strong> Before going on, print <code>struckOut[9]</code>, <code>struckOut[11]</code>, and <code>struckOut[25]</code>. You should see <code>true</code>, <code>false</code>, <code>true</code>.</p>
+
+    <p class="step-title">Step 4. Count the primes.</p>
+    <p>Make a counter that starts at <code>0</code>. Loop through the whole checklist. Each time a box is still <code>false</code>, add one to the counter. You need this count because an array’s size must be chosen when the array is made.</p>
+
+    <p class="step-title">Step 5. Collect the primes.</p>
+    <p>Make the array of primes with exactly as many boxes as your count. Then loop through the checklist one more time and copy each number that is still <code>false</code> into <code>primes</code>.</p>
+    <p>This step uses two positions at once.</p>
+    <ul>
+      <li><code>i</code> walks through the checklist, one box at a time.</li>
+      <li>A second variable, such as <code>next</code>, remembers which box of <code>primes</code> is open. It starts at <code>0</code> and goes up by one only when you store a prime.</li>
+    </ul>
+    <div class="table-wrap">
+      <table>
+        <caption>The first few times through the loop in Step 5</caption>
+        <thead>
+          <tr><th scope="col"><code>i</code></th><th scope="col"><code>struckOut[i]</code></th><th scope="col">What happens</th><th scope="col"><code>next</code> afterward</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>0</code></td><td><code>true</code></td><td>Nothing</td><td><code>0</code></td></tr>
+          <tr><td><code>1</code></td><td><code>true</code></td><td>Nothing</td><td><code>0</code></td></tr>
+          <tr><td><code>2</code></td><td><code>false</code></td><td><code>primes[0]</code> becomes <code>2</code></td><td><code>1</code></td></tr>
+          <tr><td><code>3</code></td><td><code>false</code></td><td><code>primes[1]</code> becomes <code>3</code></td><td><code>2</code></td></tr>
+          <tr><td><code>4</code></td><td><code>true</code></td><td>Nothing</td><td><code>2</code></td></tr>
+          <tr><td><code>5</code></td><td><code>false</code></td><td><code>primes[2]</code> becomes <code>5</code></td><td><code>3</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="example-label">Example run</p>
+    <pre><code>Problem 3: The Sieve of Eratosthenes
+Number of primes from 2 through 10000: 1229</code></pre>
+    <p class="check"><strong>Check.</strong> The count is <code>1229</code>. The first prime, <code>primes[0]</code>, is <code>2</code>. The last prime, <code>primes[primes.length - 1]</code>, is <code>9973</code>. Print the first ten primes with a loop and compare with <code>2 3 5 7 11 13 17 19 23 29</code>.</p>
+    <p class="note"><strong>If you see <code>ArrayIndexOutOfBoundsException</code>:</strong> read the index in the message. An index of <code>10001</code> means a loop went one past the end of the checklist. An index equal to your count means <code>next</code> went past the end of <code>primes</code>.</p>
+  </section>
+
+  <section class="home-card phase" id="problem-4" aria-labelledby="problem-4-heading">
+    <p class="home-kicker">Lab problem 4</p>
+    <h2 id="problem-4-heading">Prime factorization</h2>
+    <p class="problem-meta">Loop through an array · Repeated division · Counter</p>
+    <p>Ask for an integer from <code>2</code> through <code>10000</code>. Use your <code>primes</code> array from Problem 3 to print its prime factorization. Print one line for each prime that divides the number: the prime, a colon, and how many times it appears.</p>
+    <p class="example-label">Example run</p>
+    <pre><code>Problem 4: Prime factorization
+Enter an integer from 2 through 10000:
+132
+Prime factorization of 132
+2: 2
+3: 1
+11: 1</code></pre>
+    <p>That output says <code>132 = 2 × 2 × 3 × 11</code>.</p>
+
+    <h3>Try it on paper first</h3>
+    <p>Factor <code>132</code> by going through the primes in order. Keep dividing by a prime for as long as it divides evenly, then move to the next prime.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th scope="col">Prime</th><th scope="col">Divisions</th><th scope="col">Times it divided</th><th scope="col">Number left</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>2</code></td><td>132 ÷ 2 = 66, then 66 ÷ 2 = 33</td><td><code>2</code></td><td><code>33</code></td></tr>
+          <tr><td><code>3</code></td><td>33 ÷ 3 = 11</td><td><code>1</code></td><td><code>11</code></td></tr>
+          <tr><td><code>5</code></td><td>Does not divide 11</td><td><code>0</code></td><td><code>11</code></td></tr>
+          <tr><td><code>7</code></td><td>Does not divide 11</td><td><code>0</code></td><td><code>11</code></td></tr>
+          <tr><td><code>11</code></td><td>11 ÷ 11 = 1</td><td><code>1</code></td><td><code>1</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Only the rows with a count above <code>0</code> are printed. When the number left reaches <code>1</code>, the factorization is finished.</p>
+
+    <h3>How to build it</h3>
+
+    <p class="step-title">Step 1. Read the number.</p>
+    <p>Print the prompt and read an integer with <code>keyboard.nextInt()</code>. Print the <code>Prime factorization of</code> line right away, before any dividing, because dividing changes the number.</p>
+
+    <p class="step-title">Step 2. Loop through the primes.</p>
+    <p>Use a <code>for</code> loop that visits every box of <code>primes</code>. Inside the loop, <code>primes[i]</code> is the prime you are testing.</p>
+
+    <p class="step-title">Step 3. Divide out one prime and count.</p>
+    <p>Inside the <code>for</code> loop, start a counter at <code>0</code>. Then use a <code>while</code> loop: as long as the number is divisible by <code>primes[i]</code>, divide the number by <code>primes[i]</code> and add one to the counter.</p>
+    <p class="hint"><strong>You have written this before.</strong> This step is <a href="assignment2.html#repeated-division">Assignment 2, Activity 10</a>. There the prime was typed in. Here it comes from <code>primes[i]</code>, and the outer loop gives you the next prime automatically.</p>
+    <p class="note"><strong>Where the counter goes.</strong> The counter must start at <code>0</code> again for every prime, so declare it inside the <code>for</code> loop and above the <code>while</code> loop.</p>
+
+    <p class="step-title">Step 4. Print the primes that divided.</p>
+    <p>After the <code>while</code> loop ends, check the counter. If it is greater than <code>0</code>, print the prime, a colon, and the counter.</p>
+
+    <p class="step-title">Step 5. Stop when the number reaches 1.</p>
+    <p>Once the number left is <code>1</code>, no other prime can divide it. Your program is correct whether or not the loop stops early. To stop early, add a second condition to the <code>for</code> loop so that it continues only while the number is greater than <code>1</code>.</p>
+
+    <p class="check"><strong>Check.</strong> Try these four inputs.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th scope="col">Input</th><th scope="col">Expected lines</th><th scope="col">What it tests</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>132</code></td><td><code>2: 2</code>, <code>3: 1</code>, <code>11: 1</code></td><td>Several primes, one repeated</td></tr>
+          <tr><td><code>1024</code></td><td><code>2: 10</code></td><td>One prime many times</td></tr>
+          <tr><td><code>9973</code></td><td><code>9973: 1</code></td><td>The last prime in your array</td></tr>
+          <tr><td><code>10000</code></td><td><code>2: 4</code>, <code>5: 4</code></td><td>The largest allowed input</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note"><strong>If nothing prints:</strong> make sure Problem 4 uses the same <code>primes</code> array that Problem 3 filled, and that Problem 3’s code comes first in <code>main</code>.</p>
+  </section>
+
+  <section class="home-card" id="submit" aria-labelledby="submit-heading">
+    <h2 id="submit-heading">Before submitting</h2>
+    <ul>
+      <li>Fill in your name and date. Keep both solutions in <code>ArrayLab.java</code>.</li>
+      <li>Run the checks for Problem 3 and all four inputs for Problem 4.</li>
+      <li>Be ready to explain what <code>struckOut[i]</code> means and why Step 5 of the Sieve needs two position variables.</li>
+    </ul>
+    <p>Submit <code>ArrayLab.java</code> to <a href="mailto:logichomework@outlook.com">logichomework@outlook.com</a>.</p>
+  </section>
+
+  <footer class="lab-footer"><a href="index.html#assignments">← Back to assignments</a> · <a href="assignment2.html">Review Assignment 2</a></footer>
+</main>
+</body>
 </html>
